@@ -1,0 +1,13 @@
+# enable vim mode
+set -o vi
+# Disable EOF marker like "[ble: EOF]"
+bleopt prompt_eol_mark=''
+# keymaps
+ble-bind -m 'vi_imap' -f 'C-w' 'kill-region-or kill-backward-uword'
+ble-bind -m 'vi_imap' -f 'M-C-?' 'kill-region-or kill-backward-cword'
+ble-bind -m 'vi_nmap' -f 'C-SP' 'set-mark'
+ble-bind -m 'vi_nmap' -f 'C-@' 'set-mark'
+ble-bind -m 'vi_nmap' -f 'C-y' 'yank'
+ble-bind -m 'vi_nmap' -f 'M-w' 'copy-region-or copy-backward-uword'
+# starship
+# bleopt prompt_ruler=$''
