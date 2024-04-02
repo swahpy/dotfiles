@@ -30,7 +30,7 @@
 
 test -s ~/.alias && . ~/.alias || true
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 # alias
 alias lsa='ls -al'
 alias lsd='ls -adl ./*'
@@ -40,12 +40,14 @@ alias rm='rm -rf'
 alias v='nvim'
 alias vim='nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+alias tl='tmux ls'
 
 source ~/.local/share/blesh/ble.sh
 
 export PATH="$PATH:~/nvim-linux64/bin/"
 
- # End setup for ble.sh
- [[ ${BLE_VERSION-} ]] && ble-attach
+# End setup for ble.sh
+[[ ${BLE_VERSION-} ]] && ble-attach
 eval "$(starship init bash)"
