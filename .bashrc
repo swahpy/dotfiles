@@ -44,9 +44,8 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tl='tmux ls'
 
-source ~/.local/share/blesh/ble.sh
-
-export PATH="$PATH:~/nvim-linux64/bin/"
+PATH="$PATH:~/nvim-linux64/bin/"
+export PATH
 
 # End setup for ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach
