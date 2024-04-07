@@ -37,12 +37,13 @@ alias lsd='ls -adl ./*'
 alias lgt='logout'
 alias cl='clear'
 alias rm='rm -rf'
-alias v='nvim'
-alias vim='nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tl='tmux ls'
+alias v='nvim'
+alias vim='nvim'
+alias nvimconf='v ~/.config/nvim'
 
 PATH="$PATH:~/nvim-linux64/bin/"
 export PATH
