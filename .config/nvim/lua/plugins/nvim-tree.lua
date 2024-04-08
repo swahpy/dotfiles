@@ -46,15 +46,35 @@ return {
         }
       },
       renderer = {
+        add_trailing = true,
         group_empty = true,
+        indent_markers = {
+          enable = true,
+        },
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "",
+              arrow_open = "",
+            },
+          },
+        },
+      },
+      diagnostics = {
+        enable = true,
+        show_on_dirs = true,
       },
       filters = {
-        dotfiles = true,
+        custom = {
+          ".DS_Store",
+        },
       },
+
     })
   end,
   keys = {
     { "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
     { "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
+    { "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file explorer" }
   },
 }
