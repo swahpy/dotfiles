@@ -10,3 +10,6 @@ Configuration for ble.sh. Refer to [ble.sh github repo](https://github.com/akino
 
 ## .tmux.conf
 Configuration for tmux.
+
+## .config/nvim
+Configuration for nvim. In progress...
