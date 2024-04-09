@@ -18,10 +18,10 @@ map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 
 -- window management
-map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split window" })
+map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
+map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
+map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
+map("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split window" })
 
 map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })

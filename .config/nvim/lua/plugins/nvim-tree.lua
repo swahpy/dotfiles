@@ -77,21 +77,26 @@ return {
         },
       },
     })
+    -- when adding a new file, directly open it in a new tab
     local api = require("nvim-tree.api")
     local event = api.events.Event
-    -- when adding a new file, directly open it in a new tab
     api.events.subscribe(event.FileCreated, function(file)
       vim.cmd("tabnew " .. file.fname)
     end)
+    -- set key bindings
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>e"] = {
+        name = "+explorer",
+        e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
+        f = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file" },
+        r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
+        c = { "<cmd>NvimTreeCollapse<CR>", "Collapse file explorer" },
+        a = { function() 
+          local api = require("nvim-tree.api")
+          api.tree.expand_all()
+        end, "Expand file explorer" },
+      },
+    })
   end,
-  keys = {
-    { "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
-    { "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
-    { "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file explorer" },
-    { "<leader>ec", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse file explorer recursively" },
-    { "<leader>ea", function()
-      local api = require("nvim-tree.api")
-      api.tree.expand_all()
-    end, desc = "Expand file explorer recursively" },
-  },
 }

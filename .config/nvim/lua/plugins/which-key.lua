@@ -8,6 +8,16 @@ return {
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+    layout = {
+      align = "center",
+    },
+  },
+  config = function(_, opts)
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>w"] = { name = "+window" },
+      ["<leader>t"] = { name = "+tabs" },
+    })
+    wk.setup(opts)
+  end
 }
