@@ -28,3 +28,12 @@ map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
+map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
+
+-- save and quit buffer
+map("n", "W", "<cmd>w<cr>", { desc = "Save current buffer" })
+map("n", "Q", "<cmd>q<cr>", { desc = "Quit current buffer" })
+map("n", "wq", "<cmd>wq<cr>", { desc = "Save and quit current buffer" })
+map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })

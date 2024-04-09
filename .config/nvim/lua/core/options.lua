@@ -9,6 +9,7 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
+opt.breakindent = true -- break the line when it is too long
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
@@ -40,3 +41,26 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- the minimium lines kept below or above the cursor line
+opt.scrolloff = 20
+
+-- used to align text
+opt.colorcolumn = "80"
+
+-- search
+opt.hlsearch = true
+opt.incsearch = true -- search during input
+
+-- auto reload file when it is changed outside
+opt.autoread = true
+
+-- Allow specified keys that move the cursor left/right to move to the
+-- previous/next line when the cursor is on the first/last character in
+-- the line.
+opt.whichwrap = "<,>,[,]"
+
+-- set foldable
+opt.foldenable = true
+opt.foldmethod = "indent"
+opt.foldlevel = 99
