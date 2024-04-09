@@ -23,6 +23,7 @@ return {
           return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
         end,
         relativenumber = true,
+        centralize_selection = true,
         float = {
           enable = true,
 					open_win_config = function()
@@ -65,16 +66,32 @@ return {
         show_on_dirs = true,
       },
       filters = {
+        -- these files won't display
         custom = {
           ".DS_Store",
         },
       },
-
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
     })
+    local api = require("nvim-tree.api")
+    local event = api.events.Event
+    -- when adding a new file, directly open it in a new tab
+    api.events.subscribe(event.FileCreated, function(file)
+      vim.cmd("tabnew " .. file.fname)
+    end)
   end,
   keys = {
     { "<leader>ee", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file explorer" },
     { "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer on current file" },
-    { "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file explorer" }
+    { "<leader>er", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh file explorer" },
+    { "<leader>ec", "<cmd>NvimTreeCollapse<CR>", desc = "Collapse file explorer recursively" },
+    { "<leader>ea", function()
+      local api = require("nvim-tree.api")
+      api.tree.expand_all()
+    end, desc = "Expand file explorer recursively" },
   },
 }
