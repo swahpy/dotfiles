@@ -83,6 +83,11 @@ return {
     api.events.subscribe(event.FileCreated, function(file)
       vim.cmd("tabnew " .. file.fname)
     end)
+    -- Expand nvim-tree when it's open
+    api.events.subscribe(event.TreeOpen, function(data) 
+      api.tree.expand_all()
+    end
+    )
     -- set key bindings
     local wk = require("which-key")
     wk.register({

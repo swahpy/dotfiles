@@ -18,3 +18,7 @@ Configuration for tmux.
 
 ## .config/nvim
 Configuration for nvim. In progress...
+
+## TODO
+indent-blankline
+tree-sitter
