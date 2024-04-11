@@ -15,12 +15,26 @@ return {
         preview_width = 0.7,
       },
       dynamic_preview_title = true,
+      path_display = "smart",
+      mappings = {
+        i = {
+          ["<C-k>"] = "move_selection_previous",
+          ["<C-j>"] = "move_selection_next",
+          ["kk"] = "move_to_top",
+          ["jj"] = "move_to_bottom",
+          ["mm"] = "move_to_middle",
+          ["ss"] = "toggle_selection",
+          ["sa"] = "select_all",
+          ["sn"] = "drop_all",
+        },
+      },
     },
   },
   config = function(_, opts)
     local ts = require("telescope")
 
     ts.setup(opts)
+    ts.load_extension("fzf")
 
     -- setup keymaps
     local builtin = require("telescope.builtin")
@@ -39,6 +53,8 @@ return {
         h = { function() builtin.help_tags() end, "Find available help tags" },
         m = { function() builtin.man_pages() end, "Find manpage entries" },
         b = { function() builtin.buffers() end, "Find open buffers in current neovim instance" },
+        c = { function() builtin.colorscheme() end, "Find available colorschemes"},
+        k = { function() builtin.keymaps() end, "Find normal mode keymappings" },
       },
     })
   end
