@@ -45,8 +45,9 @@ alias v='nvim'
 alias vim='nvim'
 alias nvimconf='v ~/.config/nvim'
 
-PATH="$PATH:~/nvim-linux64/bin/"
-export PATH
+export PYENV_ROOT="$HOME/.submodules/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH:~/nvim-linux64/bin/"
+eval "$(pyenv init -)"
 
 # End setup for ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach
