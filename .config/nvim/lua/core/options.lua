@@ -23,7 +23,7 @@ opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
 opt.list = true
-opt.listchars = { eol = "↴" }
+opt.listchars = { eol = "↴", tab = "│ " }
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
