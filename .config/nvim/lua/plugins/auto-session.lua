@@ -7,7 +7,7 @@ return {
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
     local as = require("auto-session")
     as.setup {
-      log_level = "debug",
+      -- log_level = "info",
       auto_restore_enabled = false,
       auto_session_create_enabled = false,
       auto_save_enabled = false,
