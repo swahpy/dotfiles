@@ -21,9 +21,12 @@ return {
       -- disable_move  = true, -- boolean default is false disable move key
       shortcut = {
         { desc = '💤 Lazy', group = 'lazy', action = 'Lazy', key = 'L' },
-        { desc = '  Find Files', group = 'telescope', action = 'Telescope find_files', key = 'f' },
-        { desc = ' Recent Files', group = 'telescope', action = 'Telescope oldfiles', key = 'r' },
-        { desc = '󰿅  Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
+        { desc = ' File Explorer', group = 'nvim-tree', action = 'NvimTreeToggle', key = 'e' },
+        { desc = '󰮗 Find Files', group = 'telescope', action = 'Telescope find_files', key = 'f' },
+        { desc = ' Recent Files', group = 'telescope', action = 'Telescope oldfiles', key = 'r' },
+        { desc = ' New File', group = 'vim', action = 'ene', key = 'n' },
+        { desc = '󰦛 Restore Session', group = 'session', action = 'SessionRestore', key = 's' },
+        { desc = '󰿅 Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
       },
       footer = {
         "",
