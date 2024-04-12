@@ -3,19 +3,11 @@ return {
   dependencies = { {'nvim-tree/nvim-web-devicons'}},
   event = 'VimEnter',
   opts = {
-		disable_move = true,   --  default is false disable move keymap for hyper
+    --  config used for theme
 		config = {
       week_header = {
         enable = true, --boolean use a week header
         -- concat = "Hongyun", --concat string after time string line
-        -- append = {
-        --   ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
-        --   ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
-        --   ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
-        --   ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
-        --   ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
-        --   ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
-        -- },  --table append after time string line
         append = {
           "⠀⢀⣴⣦⠀⠀⠀⠀⢰⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
           "⣰⣿⣿⣿⣷⡀⠀⠀⢸⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -26,21 +18,25 @@ return {
           "⠀⠈⠻⠀⠀⠀⠀⠈⠿⠋⠀⠀⠈⠳⢤⣀⣠⠴⠀⠈⠧⣄⣀⡠⠞⠁⠀⠀⠿⠿⠃⠀⠀⢸⣿⠀⢸⣿⠀⠀⠸⣿⡇⠀⠀⣿⡿",
         },
       },
-      disable_move  = true, -- boolean default is false disable move key
+      -- disable_move  = true, -- boolean default is false disable move key
       shortcut = {
-        { desc = '💤 Lazy', group = '@property', action = 'Lazy', key = 'L' },
+        { desc = '💤 Lazy', group = 'lazy', action = 'Lazy', key = 'L' },
+        { desc = '  Find Files', group = 'telescope', action = 'Telescope find_files', key = 'f' },
+        { desc = ' Recent Files', group = 'telescope', action = 'Telescope oldfiles', key = 'r' },
+        { desc = '󰿅  Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
       },
-    },    --  config used for theme
+      footer = {
+        "",
+        "If you don't keep moving, you'll quickly fall behind." 
+      },
+    },    
 		hide = {
 			statusline = false,   -- hide statusline default is true
 			tabline = true,       -- hide the tabline
 			winbar = true,        -- hide winbar
 		},
-		-- preview = {
-		--   command       -- preview command
-		--   file_path     -- preview file path
-		--   file_height   -- preview file height
-		--   file_width    -- preview file width
-		-- },
+  },
+  keys = {
+    { "<leader>d", "<cmd>Dashboard<cr>", desc = "Open dashboard" },
   },
 }
