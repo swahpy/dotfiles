@@ -38,3 +38,13 @@ map("n", "W", "<cmd>w<cr>", { desc = "Save current buffer" })
 map("n", "Q", "<cmd>q<cr>", { desc = "Quit current buffer" })
 map("n", "wq", "<cmd>wq<cr>", { desc = "Save and quit current buffer" })
 map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
+
+-- navigation
+map("n", "n", "nzz", { noremap = true, silent = true, desc = "" })
+map("n", "N", "Nzz", { noremap = true, silent = true, desc = "" })
+map("n", "*", "*zz", { noremap = true, silent = true, desc = "" })
+map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
+
+-- indent
+map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
+map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
