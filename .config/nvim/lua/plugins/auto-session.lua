@@ -7,7 +7,7 @@ return {
     vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
     local as = require("auto-session")
     as.setup {
-      log_level = "info",
+      log_level = "debug",
       auto_restore_enabled = false,
       auto_session_create_enabled = false,
       auto_save_enabled = false,
@@ -29,5 +29,7 @@ return {
   keys = {
     { "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore session in cwd" },
     { "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save session for cwd" },
+    { "<leader>sp", "<cmd>Autosession search<cr>", desc = "Save session for cwd" },
+    { "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Save session for cwd" },
   },
 }
