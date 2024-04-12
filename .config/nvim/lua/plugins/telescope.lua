@@ -55,6 +55,7 @@ return {
         b = { function() builtin.buffers() end, "Find open buffers in current neovim instance" },
         c = { function() builtin.colorscheme() end, "Find available colorschemes"},
         k = { function() builtin.keymaps() end, "Find normal mode keymappings" },
+        R = { function() builtin.registers() end, "Find vim registers" },
       },
     })
   end
