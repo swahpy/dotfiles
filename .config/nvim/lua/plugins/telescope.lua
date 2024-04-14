@@ -10,9 +10,11 @@ return {
     defaults = {
       layout_strategy = "horizontal",
       layout_config = {
-        scroll_speed = 8,
-        preview_cutoff = 120,
-        preview_width = 0.7,
+        horizontal = {
+          scroll_speed = 8,
+          preview_cutoff = 120,
+          preview_width = 0.7,
+        },
       },
       dynamic_preview_title = true,
       path_display = "smart",
