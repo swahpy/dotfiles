@@ -48,3 +48,6 @@ map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
 -- indent
 map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
 map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
+
+-- Lazy
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane"} )

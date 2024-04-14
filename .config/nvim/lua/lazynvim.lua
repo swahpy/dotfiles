@@ -14,14 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
-  ui = {
-    custom_keys = {
-      ["<leader>L"] = {
-        "<cmd>Lazy<cr>",
-        desc = "Open Lazy Pane",
-      },
-    },
-  },
   change_detection = {
     -- automatically check for config file changes and reload the ui
     enabled = true,
