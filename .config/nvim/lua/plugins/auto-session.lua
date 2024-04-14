@@ -28,8 +28,9 @@ return {
   end,
   keys = {
     { "<leader>sr", "<cmd>SessionRestore<cr>", desc = "Restore session in cwd" },
-    { "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save session for cwd" },
-    { "<leader>sp", "<cmd>Autosession search<cr>", desc = "Save session for cwd" },
-    { "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Save session for cwd" },
+    { "<leader>ss", "<cmd>SessionSave<cr>", desc = "Save current session for cwd" },
+    --{ "<leader>sp", "<cmd>Autosession search<cr>", desc = "Save session for cwd" }, -- See bug: https://github.com/rmagatti/auto-session/issues/287
+    { "<leader>sp", function() require("auto-session.session-lens").search_session() end, desc = "Restore session from a session list" },
+    { "<leader>sd", "<cmd>Autosession delete<cr>", desc = "Delete session(s) from session list" },
   },
 }
