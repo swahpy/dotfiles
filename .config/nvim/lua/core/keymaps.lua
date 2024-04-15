@@ -24,12 +24,6 @@ map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
 map("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split window" })
 
--- map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
--- map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
--- map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
--- map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
--- map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
-
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
 map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
 

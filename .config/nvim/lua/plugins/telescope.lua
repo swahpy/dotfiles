@@ -37,6 +37,8 @@ return {
 
     ts.setup(opts)
     ts.load_extension("fzf")
+    -- used for yanky.nvim
+    ts.load_extension("yank_history")
 
     -- setup keymaps
     local builtin = require("telescope.builtin")
