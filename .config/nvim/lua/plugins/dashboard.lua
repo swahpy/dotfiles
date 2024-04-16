@@ -24,7 +24,7 @@ return {
         { desc = ' File Explorer', group = 'nvim-tree', action = 'NvimTreeToggle', key = 'e' },
         { desc = '󰮗 Find Files', group = 'telescope', action = 'Telescope find_files', key = 'f' },
         { desc = ' Recent Files', group = 'telescope', action = 'Telescope oldfiles', key = 'r' },
-        { desc = ' New File', group = 'vim', action = 'ene', key = 'n' },
+        { desc = ' New File', group = 'vim', action = 'ene | startinsert', key = 'n' },
         { desc = '󰦛 Restore Session', group = 'session', action = 'SessionRestore', key = 's' },
         { desc = '󰿅 Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
       },
