@@ -21,11 +21,24 @@ map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
+map("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
+map("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
 map("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split window" })
+-- Resize window
+map("n", "<leader>wk", "<cmd>resize +3<cr>", { desc = "Increase Window Height" })
+map("n", "<leader>wj", "<cmd>resize -3<cr>", { desc = "Decrease Window Height" })
+map("n", "<leader>wl", "<cmd>vertical resize +3<cr>", { desc = "Increase Window Width" })
+map("n", "<leader>wh", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window Width" })
 
+-- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
 map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })

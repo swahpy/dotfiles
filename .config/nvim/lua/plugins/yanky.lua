@@ -30,12 +30,15 @@ return {
           "<cmd>YankyClearHistory<cr>",
           "Clear yanky history",
         },
+        -- Yanky comes with a text object corresponding to last put text
+        l = {
+          function() 
+            require("yanky.textobj").last_put()
+          end,
+          "Put last put text",
+        },
       },
     })
-    -- Yanky comes with a text object corresponding to last put text
-    vim.keymap.set({ "o", "x" }, "lp", function()
-      require("yanky.textobj").last_put()
-    end, {})
   end,
   keys = {
     { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
