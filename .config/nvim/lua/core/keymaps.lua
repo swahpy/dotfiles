@@ -28,7 +28,7 @@ map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
 map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
 
 -- save and quit buffer
-map("n", "W", "<cmd>w<cr>", { desc = "Save current buffer" })
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "Q", "<cmd>q<cr>", { desc = "Quit current buffer" })
 map("n", "wq", "<cmd>wq<cr>", { desc = "Save and quit current buffer" })
 map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
@@ -45,3 +45,11 @@ map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
 
 -- Lazy
 map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane"} )
+
+-- Move Lines
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
