@@ -28,10 +28,17 @@ return {
         { desc = '󰦛 Restore Session', group = 'session', action = 'SessionRestore', key = 's' },
         { desc = '󰿅 Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
       },
-      footer = {
-        "",
-        "If you don't keep moving, you'll quickly fall behind." 
-      },
+      footer = function()
+        local stats = require("lazy").stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        return { 
+          "",
+          "",
+          "If you don't keep moving, you'll quickly fall behind.",
+          "",
+          "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" 
+        }
+      end,
     },    
 		hide = {
 			statusline = false,   -- hide statusline default is true
