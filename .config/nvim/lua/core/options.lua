@@ -62,7 +62,12 @@ opt.autoread = true
 -- the line.
 opt.whichwrap = "<,>,[,]"
 
--- set foldable
-opt.foldenable = true
-opt.foldmethod = "indent"
-opt.foldlevel = 99
+-- set fold options.
+-- these options are moved to plugins/tree-sitter.lua
+-- because I'm using tree-sitter based folding.
+--opt.foldenable = true
+--opt.foldmethod = "indent"
+--opt.foldlevel = 99
+
+-- enable undo even after closing a file
+opt.undofile = true
