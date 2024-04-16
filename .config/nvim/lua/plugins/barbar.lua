@@ -67,4 +67,8 @@ return {
       },
     })
   end,
+  keys = {
+    { "<S-h>", "<cmd>BufferPrevious<cr>", desc = "Navigate to previous buffer" },
+    { "<S-l>", "<cmd>BufferNext<cr>", desc = "Navigate to next buffer" },
+  },
 }
