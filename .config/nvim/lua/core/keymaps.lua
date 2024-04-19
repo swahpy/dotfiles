@@ -39,18 +39,20 @@ map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- search navigation
+map("n", "n", "nzz", { noremap = true, silent = true, desc = "" })
+map("n", "N", "Nzz", { noremap = true, silent = true, desc = "" })
+map("n", "*", "*zz", { noremap = true, silent = true, desc = "" })
+map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
+-- move in insert mode
+map("i", "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
+map("i", "<C-a>", "<Esc>0i", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "Q", "<cmd>q<cr>", { desc = "Quit current buffer" })
 map("n", "wq", "<cmd>wq<cr>", { desc = "Save and quit current buffer" })
 map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
-
--- navigation
-map("n", "n", "nzz", { noremap = true, silent = true, desc = "" })
-map("n", "N", "Nzz", { noremap = true, silent = true, desc = "" })
-map("n", "*", "*zz", { noremap = true, silent = true, desc = "" })
-map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
 
 -- indent
 map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
