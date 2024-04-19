@@ -5,9 +5,6 @@ return {
     input = {
       relative = "editor",
     },
-    select = {
-      backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui"; },
-    },
   },
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
