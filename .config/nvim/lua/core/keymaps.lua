@@ -45,8 +45,8 @@ map("n", "N", "Nzz", { noremap = true, silent = true, desc = "" })
 map("n", "*", "*zz", { noremap = true, silent = true, desc = "" })
 map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
 -- move in insert mode
-map("i", "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
-map("i", "<C-a>", "<Esc>0i", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
+map({ "n", "i" }, "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
+map({ "n", "i" }, "<C-a>", "<Esc>0i", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
