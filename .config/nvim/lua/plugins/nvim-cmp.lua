@@ -16,7 +16,6 @@ return {
     },
     "rafamadriz/friendly-snippets",
     "saadparwaiz1/cmp_luasnip",
-    'windwp/nvim-autopairs',
   },
   config = function()
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -98,12 +97,5 @@ return {
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
     })
-    -- TODO: not validated. If you want insert `(` after select function or method item
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local cmp = require('cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
   end
 }
