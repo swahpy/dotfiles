@@ -39,6 +39,10 @@ return {
       indent = {
         enable = true
       },
+      -- setup endwise
+      endwise = {
+        enable = true,
+      }
     })
     -- folding setup
     vim.opt.foldmethod = "expr"
