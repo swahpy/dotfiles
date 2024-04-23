@@ -5,6 +5,7 @@ return {
     'nvim-lua/plenary.nvim',
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
+    "folke/todo-comments.nvim",
   },
   opts = {
     defaults = {
@@ -64,6 +65,7 @@ return {
         k = { function() builtin.keymaps() end, "Find normal mode keymappings" },
         F = { function() builtin.filetypes() end, "Find available filetypes" },
         R = { function() builtin.registers() end, "Find vim registers" },
+        T = { "<cmd>TodoTelescope<cr>", "Find Todos" },
       },
     })
   end
