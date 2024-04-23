@@ -2,6 +2,8 @@
 set -o vi
 # Disable EOF marker like "[ble: EOF]"
 bleopt prompt_eol_mark=''
+# setup cursor position
+bleopt prompt_command_changes_layout=1
 # keymaps
 ble-bind -m 'vi_imap' -f 'C-w' 'kill-region-or kill-backward-uword'
 ble-bind -m 'vi_imap' -f 'M-C-?' 'kill-region-or kill-backward-cword' # MacOS Alacritty
