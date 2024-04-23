@@ -14,10 +14,10 @@ return {
     },
     -- Comment below because I use nvim-tree in float mode.
     -- If you set it to sidebar, then enable below config.
-		-- sidebar_filetypes = {
-		-- 	-- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
-		-- 	NvimTree = true,
-		-- },
+    -- sidebar_filetypes = {
+    -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
+    -- NvimTree = true,
+    -- },
   },
   config = function(_, opts)
     local bb = require("barbar")
