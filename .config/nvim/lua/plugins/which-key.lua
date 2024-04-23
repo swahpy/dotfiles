@@ -17,6 +17,7 @@ return {
     wk.register({
       ["<leader>w"] = { name = "+window" },
       ["<leader>t"] = { name = "+tabs" },
+      ["<leader>s"] = { name = "+session" },
     })
     wk.setup(opts)
   end
