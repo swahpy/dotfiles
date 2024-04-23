@@ -1,6 +1,6 @@
 return {
   'rmagatti/auto-session',
-  lazy = false,
+  event = "BufEnter",
   opts = {
   },
   config = function(_, opts) 
