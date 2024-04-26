@@ -12,7 +12,7 @@ return {
       ensure_installed = {
         "gopls",
         "jsonls",
-        "markdown-oxide",
+        "markdown_oxide",
         "pyright",
         "yamlls",
       },
