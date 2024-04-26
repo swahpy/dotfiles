@@ -18,7 +18,7 @@ return {
         },
       },
       dynamic_preview_title = true,
-      path_display = "smart",
+      path_display = { "smart" },
       mappings = {
         i = {
           ["<A-k>"] = "move_selection_previous",
@@ -43,6 +43,8 @@ return {
     ts.load_extension("fzf")
     -- used for yanky.nvim
     ts.load_extension("yank_history")
+    -- used for noice
+    ts.load_extension("noice")
 
     -- setup keymaps
     local builtin = require("telescope.builtin")
@@ -66,6 +68,7 @@ return {
         F = { function() builtin.filetypes() end, "Find available filetypes" },
         R = { function() builtin.registers() end, "Find vim registers" },
         T = { "<cmd>TodoTelescope<cr>", "Find Todos" },
+        n = { "<cmd>NoiceTelescope<cr>", "Open messages history" },
       },
     })
   end

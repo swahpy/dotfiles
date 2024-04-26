@@ -36,6 +36,12 @@ return {
         {require('auto-session.lib').current_session_name},
       },
       lualine_x = {
+        -- show command
+        {
+          function() return require("noice").api.status.command.get() end,
+          cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+        },
+        -- show if has any lazy updates
         {
           require("lazy.status").updates,
           cond = require("lazy.status").has_updates,
