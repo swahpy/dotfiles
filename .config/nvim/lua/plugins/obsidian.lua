@@ -284,6 +284,7 @@ return {
     local obs = require("obsidian")
     obs.setup(opts)
     -- setup keymaps
+    local client = require("obsidian.Client")
     local wk = require("which-key")
     wk.register({
       ["<leader>o"] = {
@@ -356,13 +357,12 @@ return {
           "<cmd>ObsidianToggleCheckbox<cr>",
           "Cycle through checkbox options",
         },
-        ["td"] = {
-          "<cmd>ObsidianTags todo<cr>",
-          "Find all todo items",
-        },
-        ["lt"] = {
-          "<cmd>ObsidianTags long-term<cr>",
-          "Find all long-term items",
+        ["tg"] = {
+          function()
+            local tag = vim.fn.input("Tag: ")
+            vim.cmd("ObsidianTags " .. tag)
+          end,
+          "Find notes of the specified tag",
         },
       },
     })

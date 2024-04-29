@@ -11,6 +11,7 @@ return {
     focus_on_close = "previous",
     icons = {
       pinned = {button = '', filename = true},
+      buffer_index = true,
     },
     -- Comment below because I use nvim-tree in float mode.
     -- If you set it to sidebar, then enable below config.
@@ -34,16 +35,18 @@ return {
         x = { "<cmd>BufferClose<cr>", "Close current buffer" },
         w = { "<cmd>BufferWipeout<cr>", "Wipe out current buffer" },
         s = { "<cmd>BufferPick<cr>", "Enter buffer picking mode" },
-        ["1"] = { "<cmd>BufferGoto 1<cr>", "Navigate to first buffer" },
-        ["2"] = { "<cmd>BufferGoto 2<cr>", "Navigate to second buffer" },
-        ["3"] = { "<cmd>BufferGoto 3<cr>", "Navigate to third buffer" },
-        ["4"] = { "<cmd>BufferGoto 4<cr>", "Navigate to fourth buffer" },
-        ["5"] = { "<cmd>BufferGoto 5<cr>", "Navigate to fifth buffer" },
-        ["6"] = { "<cmd>BufferGoto 6<cr>", "Navigate to sixth buffer" },
-        ["7"] = { "<cmd>BufferGoto 7<cr>", "Navigate to seventh buffer" },
-        ["8"] = { "<cmd>BufferGoto 8<cr>", "Navigate to eighth buffer" },
-        ["9"] = { "<cmd>BufferGoto 9<cr>", "Navigate to ninth buffer" },
-        ["0"] = { "<cmd>BufferLast<cr>", "Navigate to last buffer" },
+        g = {
+          function()
+            local tabnum = vim.fn.input("Tab num: ")
+            if tabnum ~= "" then
+              vim.cmd("BufferGoto " .. tabnum)
+            else
+              print("No buffer specified.")
+            end
+          end,
+          "Go to buffer tabnum",
+        },
+        l = { "<cmd>BufferLast<cr>", "Navigate to last buffer" },
       },
       ["<leader>tm"] = {
         name = "+move",
