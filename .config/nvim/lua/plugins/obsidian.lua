@@ -363,7 +363,10 @@ return {
           "Get the list of daily notes",
         },
         m = {
-          "<cmd>ObsidianTemplate<cr>",
+          function()
+            local temp = vim.fn.input("Please enter template name: ")
+            vim.cmd("ObsidianTemplate " .. temp)
+          end,
           "Insert a template from the template list",
         },
         s = {
