@@ -381,7 +381,7 @@ return {
             local query = vim.fn.input("Please enter a query(nil for selected text): ")
             vim.cmd("ObsidianLink " .. query)
           end,
-          mode = {"n", "v"},
+          mode = "v",
           "Link an existed inline visual selection of text to a note",
         },
         ["ln"] = {
@@ -389,7 +389,7 @@ return {
             local title = vim.fn.input("Please enter note title(nil for selected text): ")
             vim.cmd("ObsidianLinkNew " .. title)
           end,
-          mode = {"n", "v"},
+          mode = "v",
           "Create a new note and link it to an inline visual selection of text",
         },
         L = {
