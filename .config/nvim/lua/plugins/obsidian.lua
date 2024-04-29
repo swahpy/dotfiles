@@ -300,15 +300,15 @@ return {
           "<cmd>ObsidianNew<cr>",
           "Create a new note",
         },
-        s = {
+        S = {
           "<cmd>ObsidianQuickSwitch<cr>",
           "Switch to another note in the vault",
         },
-        ["fx"] = {
+        f = {
           "<cmd>ObsidianFollowLink hsplit<cr>",
           "Open note reference under the cursor in a horizontal split window",
         },
-        ["fv"] = {
+        F = {
           "<cmd>ObsidianFollowLink<cr>",
           "Open note reference under the cursor in a horizontal split window",
         },
@@ -332,7 +332,7 @@ return {
           "<cmd>ObsidianTemplate<cr>",
           "Insert a template from the template list",
         },
-        f = {
+        s = {
           "<cmd>ObsidianSearch<cr>",
           "Find a note in the vault",
         },
@@ -355,6 +355,14 @@ return {
         c = {
           "<cmd>ObsidianToggleCheckbox<cr>",
           "Cycle through checkbox options",
+        },
+        ["td"] = {
+          "<cmd>ObsidianTags todo<cr>",
+          "Find all todo items",
+        },
+        ["lt"] = {
+          "<cmd>ObsidianTags long-term<cr>",
+          "Find all long-term items",
         },
       },
     })
