@@ -289,16 +289,29 @@ return {
     wk.register({
       ["<leader>o"] = {
         name = "+obsidian",
-        t = {
-          "<cmd>ObsidianToday<cr>",
+        ["to"] = {
+          function()
+            local offset = vim.fn.input("Please enter offset(0 or nil for today): ")
+            vim.cmd("ObsidianToday " .. offset)
+          end,
           "Open or create daily note for today",
         },
         o = {
-          "<cmd>ObsidianOpen<cr>",
+          function()
+            local query = vim.fn.input("Please enter a query(nil for current buffer): ")
+            vim.cmd("ObsidianOpen " .. query)
+          end,
           "Open current note in Obsidian App",
         },
         n = {
-          "<cmd>ObsidianNew<cr>",
+          function()
+            local title = vim.fn.input("Enter title or path: ")
+            if title ~= "" then
+              vim.cmd("ObsidianNew " .. title)
+            else
+              print("Cancelled.")
+            end
+          end,
           "Create a new note",
         },
         S = {
@@ -306,12 +319,17 @@ return {
           "Switch to another note in the vault",
         },
         f = {
-          "<cmd>ObsidianFollowLink hsplit<cr>",
-          "Open note reference under the cursor in a horizontal split window",
-        },
-        F = {
-          "<cmd>ObsidianFollowLink<cr>",
-          "Open note reference under the cursor in a horizontal split window",
+          function()
+            local split = vim.fn.input("Enter split(h/v): ")
+            if split == "v" then
+              vim.cmd("ObsidianFollowLink " .. "vsplit")
+            elseif split == "h" then
+              vim.cmd("ObsidianFollowLink " .. "hsplit")
+            else
+              print("Only v or h is accepted.")
+            end
+          end,
+          "Open note reference under the cursor in a horizontal or vertical split window",
         },
         b = {
           "<cmd>ObsidianBacklinks<cr>",
@@ -326,7 +344,22 @@ return {
           "Open or create a daily note for tomorrow",
         },
         d = {
-          "<cmd>ObsidianDailies<cr>",
+          function()
+            local input = vim.fn.input("Please enter daily range(nil for no all dailies): ")
+            if input == "" then
+              vim.cmd("ObsidianDailies")
+            else
+              local match = input:match("%d+%s%d+")
+              if match then
+                local range = vim.split(input, " ")
+                local start = range[1]
+                local stop = range[2]
+                vim.cmd("ObsidianDailies " .. start .. " " .. stop)
+              else
+                print("Please enter in following format: [number number].")
+              end
+            end
+          end,
           "Get the list of daily notes",
         },
         m = {
@@ -334,15 +367,26 @@ return {
           "Insert a template from the template list",
         },
         s = {
-          "<cmd>ObsidianSearch<cr>",
-          "Find a note in the vault",
+          function()
+            local search = vim.fn.input("Please enter you search: ")
+            vim.cmd("ObsidianSearch " .. search)
+          end,
+          "Find or create a note in the vault",
         },
-        l = {
-          "<cmd>ObsidianLink<cr>",
-          "Link an inline visual selection of text to a note",
+        ["le"] = {
+          function()
+            local query = vim.fn.input("Please enter a query(nil for selected text): ")
+            vim.cmd("ObsidianLink " .. query)
+          end,
+          mode = {"n", "v"},
+          "Link an existed inline visual selection of text to a note",
         },
         ["ln"] = {
-          "<cmd>ObsidianLinkNew<cr>",
+          function()
+            local title = vim.fn.input("Please enter note title(nil for selected text): ")
+            vim.cmd("ObsidianLinkNew " .. title)
+          end,
+          mode = {"n", "v"},
           "Create a new note and link it to an inline visual selection of text",
         },
         L = {
@@ -350,14 +394,25 @@ return {
           "Collect all links within the current buffer into a picker window",
         },
         e = {
-          "<cmd>ObsidianExtractNote<cr>",
+          function()
+            local title = vim.fn.input("please enter the note title: ")
+            vim.cmd("ObsidianExtractNote " .. title)
+          end,
+          mode = "v",
           "Extract the visually selected text into a new note and link to it",
         },
         c = {
           "<cmd>ObsidianToggleCheckbox<cr>",
           "Cycle through checkbox options",
         },
-        ["tg"] = {
+        i = {
+          function()
+            local img = vim.fn.input("Please enter the image name: ")
+            vim.cmd("ObsidianPasteImg " .. img)
+          end,
+          "Paste an image from the clipboard into the note at the cursor position"
+        },
+        ["ta"] = {
           function()
             local tag = vim.fn.input("Tag: ")
             vim.cmd("ObsidianTags " .. tag)
