@@ -49,6 +49,12 @@ export PYENV_ROOT="$HOME/.submodules/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH:~/nvim-linux64/bin/"
 eval "$(pyenv init -)"
 
+# setup for goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH:$GOPATH/bin"
+
 # End setup for ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach
 eval "$(starship init bash)"
