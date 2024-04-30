@@ -74,9 +74,10 @@ return {
       --   documentation = cmp.config.window.bordered(),
       -- },
       sources = {
+        { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "path" },
         { name = "buffer" },
+        { name = "path" },
       },
     })
 
