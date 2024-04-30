@@ -1,3 +1,6 @@
 [submodule ".submodules/pyenv"]
 	path = .submodules/pyenv
 	url = https://github.com/pyenv/pyenv.git
+[submodule "/Users/I539906/.goenv"]
+	path = /Users/I539906/.goenv
+	url = https://github.com/go-nv/goenv.git
