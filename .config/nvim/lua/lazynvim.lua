@@ -14,7 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
-  { { import = "plugins" }, { import = "plugins.lsp" } },
+  { { import = "plugins" } },
   {
     change_detection = {
       -- automatically check for config file changes and reload the ui

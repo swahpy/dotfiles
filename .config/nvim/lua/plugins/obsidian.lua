@@ -100,7 +100,9 @@ return {
 
     -- Optional, customize how note file names are generated given 
     -- the ID, target directory, and title.
+    ---@diagnostic disable-next-line
     ---@param spec { id: string, dir: obsidian.Path, title: string|? }
+    ---@diagnostic disable-next-line
     ---@return string|obsidian.Path The full path to the new note.
     note_path_func = function(spec)
       -- This is equivalent to the default behavior.
@@ -259,11 +261,15 @@ return {
       -- A function that determines the text to insert in the note when pasting an image.
       -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
       -- This is the default implementation.
+      ---@diagnostic disable-next-line
       ---@param client obsidian.Client
+      ---@diagnostic disable-next-line
       ---@param path obsidian.Path the absolute path to the image file
       ---@return string
       img_text_func = function(client, path)
+        ---@diagnostic disable-next-line: undefined-field
         path = client:vault_relative_path(path) or path
+        ---@diagnostic disable-next-line: undefined-field
         return string.format("![%s](%s)", path.name, path)
       end,
     },
@@ -273,7 +279,6 @@ return {
     local obs = require("obsidian")
     obs.setup(opts)
     -- setup keymaps
-    local client = require("obsidian.Client")
     local wk = require("which-key")
     wk.register({
       ["<leader>o"] = {
