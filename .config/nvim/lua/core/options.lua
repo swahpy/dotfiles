@@ -45,7 +45,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 -- the minimium lines kept below or above the cursor line
-opt.scrolloff = 20
+opt.scrolloff = 10
 
 -- used to align text
 opt.colorcolumn = "120"
