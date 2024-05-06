@@ -71,4 +71,4 @@ opt.whichwrap = "<,>,[,]"
 
 -- enable undo even after closing a file
 opt.undofile = true
-opt.undodir = "~/.local/share/nvim/undo"
+opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
