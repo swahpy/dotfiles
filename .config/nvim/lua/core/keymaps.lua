@@ -34,19 +34,20 @@ map("n", "<leader>wh", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
 map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
+map({ "n", "i" }, "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
+map({ "n", "i" }, "<C-a>", "<Esc>0wi", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
+map("i", "<A-l>", "<Right>", { desc = "Moving right in insert mode " })
+map("i", "<A-h>", "<Left>", { desc = "Moving left in insert mode " })
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 -- search navigation
-map("n", "n", "nzz", { noremap = true, silent = true, desc = "" })
-map("n", "N", "Nzz", { noremap = true, silent = true, desc = "" })
-map("n", "*", "*zz", { noremap = true, silent = true, desc = "" })
-map("n", "#", "#zz", { noremap = true, silent = true, desc = "" })
--- move in insert mode
-map({ "n", "i" }, "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
-map({ "n", "i" }, "<C-a>", "<Esc>0wi", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
+map("n", "n", "nzz", { noremap = true, silent = true, desc = "center content when searching" })
+map("n", "N", "Nzz", { noremap = true, silent = true, desc = "center content when searching" })
+map("n", "*", "*zz", { noremap = true, silent = true, desc = "center content when searching" })
+map("n", "#", "#zz", { noremap = true, silent = true, desc = "center content when searching" })
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
