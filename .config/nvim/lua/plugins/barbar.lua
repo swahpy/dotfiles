@@ -12,6 +12,7 @@ return {
     icons = {
       pinned = {button = '', filename = true},
       buffer_index = true,
+      buffer_number = "subscript",
     },
     -- Comment below because I use nvim-tree in float mode.
     -- If you set it to sidebar, then enable below config.
