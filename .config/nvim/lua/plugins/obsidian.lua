@@ -33,7 +33,10 @@ return {
           notes_subdir = vim.NIL,  -- have to use 'vim.NIL' instead of 'nil'
           new_notes_location = "current_dir",
           templates = {
-            subdir = vim.NIL,
+            folder = vim.NIL,
+          },
+          daily_notes = {
+            folder = vim.NIL,
           },
           disable_frontmatter = true,
         },
@@ -116,10 +119,10 @@ return {
     --  * "prepend_note_path", e.g. '[[foo-bar.md|Foo Bar]]'
     --  * "use_path_only", e.g. '[[foo-bar.md]]'
     -- Or you can set it to a function that takes a table of options and returns a string, like this:
-    -- wiki_link_func = function(opts)
-    --   return require("obsidian.util").wiki_link_id_prefix(opts)
-    -- end,
-    wiki_link_func = "use_alias_only",
+    wiki_link_func = function(opts)
+      return require("obsidian.util").wiki_link_id_prefix(opts)
+    end,
+    -- wiki_link_func = "use_alias_only",
 
     -- Optional, customize how markdown links are formatted.
     markdown_link_func = function(opts)
@@ -162,7 +165,7 @@ return {
 
     -- Optional, for templates (see below).
     templates = {
-      subdir = "templates",
+      folder = "templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function
