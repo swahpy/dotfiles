@@ -92,11 +92,12 @@ return {
           local row, _ = unpack(api.nvim_win_get_cursor(api.nvim_get_current_win()))
           if line:find("#todo") then
             line = line:gsub("#todo", "#done")
+            api.nvim_buf_set_lines(0, row - 1, row, true, { line })
           elseif line:find("#done") then
             line = line:gsub("#done", "#todo")
+            api.nvim_buf_set_lines(0, row - 1, row, true, { line })
           end
-          api.nvim_buf_set_lines(0, row - 1, row, true, { line })
-          vim.cmd("ObsidianToggleCheckbox")
+          require("obsidian").util.toggle_checkbox()
         end,
         opts = { buffer = true },
       }
