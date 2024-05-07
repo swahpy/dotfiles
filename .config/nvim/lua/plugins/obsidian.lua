@@ -80,9 +80,25 @@ return {
       -- Smart action depending on context, either follow link or toggle checkbox.
       ["<cr>"] = {
         action = function()
-          return require("obsidian").util.smart_action()
+          -- follow link if possible
+          if require("obsidian").util.cursor_on_markdown_link(nil, nil, true) then
+            vim.cmd("ObsidianFollowLink")
+            return
+          end
+          -- toggle task if possible, and update todo to done
+          -- cycles through your custom UI checkboxes, default: [ ] [x]
+          local api = vim.api
+          local line = api.nvim_get_current_line()
+          local row, _ = unpack(api.nvim_win_get_cursor(api.nvim_get_current_win()))
+          if line:find("#todo") then
+            line = line:gsub("#todo", "#done")
+          elseif line:find("#done") then
+            line = line:gsub("#done", "#todo")
+          end
+          api.nvim_buf_set_lines(0, row - 1, row, true, { line })
+          vim.cmd("ObsidianToggleCheckbox")
         end,
-        opts = { buffer = true, expr = true },
+        opts = { buffer = true },
       }
     },
 
@@ -323,7 +339,7 @@ return {
             elseif split == "h" then
               vim.cmd("ObsidianFollowLink " .. "hsplit")
             else
-              print("Only v or h is accepted.")
+              vim.cmd("ObsidianFollowLink")
             end
           end,
           "Open note reference under the cursor in a horizontal or vertical split window",
@@ -421,5 +437,5 @@ return {
         },
       },
     })
-  end
+  end,
 }
