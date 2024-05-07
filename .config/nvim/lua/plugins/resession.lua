@@ -1,8 +1,17 @@
 return {
   "stevearc/resession.nvim",
+  enabled = false,
   config = function ()
     local rs = require("resession")
     rs.setup()
+
+    --> automatically save a session when exiting nvim
+    vim.api.nvim_create_autocmd("VimLeavePre", {
+      callback = function()
+      -- Always save a special session named "last"
+      rs.save("last")
+      end,
+    })
 
     --> setup keymaps
     local map = vim.keymap.set
