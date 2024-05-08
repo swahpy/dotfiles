@@ -51,8 +51,7 @@ map("n", "#", "#zz", { noremap = true, silent = true, desc = "center content whe
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map("n", "Q", "<cmd>q<cr>", { desc = "Quit current buffer" })
-map("n", "wq", "<cmd>wq<cr>", { desc = "Save and quit current buffer" })
+map("n", "<a-q>", "<cmd>qa<cr>", { desc = "Quit nvim" })
 map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
 
 -- indent
