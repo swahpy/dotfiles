@@ -25,21 +25,21 @@ return {
         { desc = '󰮗 Find Files', group = 'telescope', action = 'Telescope find_files', key = 'f' },
         { desc = ' Recent Files', group = 'telescope', action = 'Telescope oldfiles', key = 'r' },
         { desc = ' New File', group = 'vim', action = 'ene | startinsert', key = 'n' },
-        { desc = '󰦛 Restore Session', group = 'session', action = 'SessionRestore', key = 's' },
+        { desc = '󰦛 Restore Session', group = 'session', action = 'SessionLoad', key = 's' },
         { desc = '󰿅 Quit Neovim', group = 'vim', action = 'qa', key = 'q' },
       },
       footer = function()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-        return { 
+        return {
           "",
           "",
           "If you don't keep moving, you'll quickly fall behind.",
           "",
-          "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" 
+          "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
         }
       end,
-    },    
+    },
 		hide = {
 			statusline = false,   -- hide statusline default is true
 			tabline = true,       -- hide the tabline

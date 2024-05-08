@@ -18,7 +18,7 @@ return {
         },
       },
       dynamic_preview_title = true,
-      path_display = { "smart" },
+      path_display = { "filename_first" }, -- formerly smart used
       mappings = {
         i = {
           ["<A-k>"] = "move_selection_previous",
@@ -45,6 +45,8 @@ return {
     ts.load_extension("yank_history")
     -- used for noice
     ts.load_extension("noice")
+    -- used for persisted. if you want lazy loading, then comment below line.
+    ts.load_extension("persisted")
 
     -- setup keymaps
     local builtin = require("telescope.builtin")
@@ -55,7 +57,7 @@ return {
         f = { function() builtin.find_files() end, "Fuzzy find files in cwd" },
         r = { function() builtin.oldfiles() end, "Fuzzy find recent files" },
         g = { function() builtin.live_grep() end, "Find string in cwd" },
-        s = { function() builtin.grep_string() end, "Find the string under your cursor or the visual selection in cwd" },
+        S = { function() builtin.grep_string() end, "Find the string under your cursor or the visual selection in cwd" },
         t = { function() builtin.treesitter() end, "Find function names, variables, and other symbols from treesitter queries" },
         B = { function() builtin.builtin() end, "Find all of the community maintained pickers built into Telescope" },
         q = { function() builtin.quickfix() end, "Find items in the quickfix list" },
@@ -69,6 +71,7 @@ return {
         R = { function() builtin.registers() end, "Find vim registers" },
         T = { "<cmd>TodoTelescope<cr>", "Find Todos" },
         n = { "<cmd>NoiceTelescope<cr>", "Open messages history" },
+        s = { "<cmd>Telescope persisted<cr>", "Open session list" },
       },
     })
   end

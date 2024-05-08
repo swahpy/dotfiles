@@ -19,11 +19,12 @@ return {
           "filename",
           file_status = true, -- Displays file status (readonly status, modified status)
           newfile_status = false, -- Display new file status (new file means no write after created)
-          path = 3, -- 0: Just the filename
+          -- 0: Just the filename
           -- 1: Relative path
           -- 2: Absolute path
           -- 3: Absolute path, with tilde as the home directory
           -- 4: Filename and parent dir, with tilde as the home directory
+          path = 4,
           shorting_target = 40, -- Shortens path to leave 40 spaces in the window
           -- for other components. (terrible name, any suggestions?)
           symbols = {
@@ -33,7 +34,14 @@ return {
             newfile = "[New]", -- Text to show for newly created file before first write
           },
         },
-        {require('auto-session.lib').current_session_name},
+        {
+          function()
+            local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+            local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
+            return "Current session: " .. session
+          end,
+          -- cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
+        },
       },
       lualine_x = {
         -- show command
