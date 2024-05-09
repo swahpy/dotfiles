@@ -177,6 +177,9 @@ return {
         end
       end
 
+      -- insert note create date and time
+      out.created_at = os.date("%Y-%m-%d %H:%M")
+
       return out
     end,
 
