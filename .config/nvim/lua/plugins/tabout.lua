@@ -33,7 +33,7 @@ return {
     })
   end,
   keys = {
-    { "<A-j>", "<Plug>(TaboutMulti)", mode = "i", desc = "Tabout of current context (multiple lines)" },
-    { "<A-k>", "<Plug>(TaboutBackMulti)", mode = "i", desc = "Tabout backwards of current context (multiple lines)" },
+    { "<A-f>", "<Plug>(TaboutMulti)", mode = "i", desc = "Tabout of current context (multiple lines)" },
+    { "<A-b>", "<Plug>(TaboutBackMulti)", mode = "i", desc = "Tabout backwards of current context (multiple lines)" },
   },
 }

@@ -13,6 +13,8 @@ map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- clear search highlights
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+-- clear visual selection
+map("n", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
 -- increment/decrement numbers
 map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
@@ -68,3 +70,7 @@ map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+
+-- undo & redo
+map("i", "<C-u>", "<cmd>undo<cr>", { desc = "Undo in insert mode" })
+map("i", "<C-r>", "<cmd>redo<cr>", { desc = "Redo in insert mode" })
