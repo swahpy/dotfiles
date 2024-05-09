@@ -3,6 +3,11 @@ return {
   config = function ()
     --> setup Alt-N to enter normal mode
     vim.keymap.set("t", "<A-n>", "<C-\\><C-n>", { desc = "Enter normal mode in terminal" })
+    --> setup floaterm
+    vim.g.floaterm_height = 0.9
+    vim.g.floaterm_width = 0.8
+    vim.g.floaterm_title = "term$1/$2"
+    vim.g.floaterm_titleposition = "center"
     --> setup floaterm keymaps
     local wk = require("which-key")
     wk.register({
@@ -42,14 +47,14 @@ return {
           "<cmd>FloatermUpdate<cr>",
           "Update floaterm window attributes",
         },
-        t = {
+        T = {
           function ()
             local name = vim.fn.input("Please enter floaterm name: ")
             vim.cmd("FloatermToggle " .. name)
           end,
           "Open or hide the floaterm window",
         },
-        T = {
+        t = {
           "<cmd>FloatermToggle!<cr>",
           "Toggle all floaterm windows",
         },
