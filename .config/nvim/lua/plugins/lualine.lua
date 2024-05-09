@@ -17,7 +17,7 @@ return {
       lualine_c = {
         {
           "filename",
-          file_status = true, -- Displays file status (readonly status, modified status)
+          file_status = true,     -- Displays file status (readonly status, modified status)
           newfile_status = false, -- Display new file status (new file means no write after created)
           -- 0: Just the filename
           -- 1: Relative path
@@ -28,22 +28,31 @@ return {
           shorting_target = 40, -- Shortens path to leave 40 spaces in the window
           -- for other components. (terrible name, any suggestions?)
           symbols = {
-            modified = "[+]", -- Text to show when the file is modified.
-            readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+            modified = "[+]",      -- Text to show when the file is modified.
+            readonly = "[-]",      -- Text to show when the file is non-modifiable or readonly.
             unnamed = "[No Name]", -- Text to show for unnamed buffers.
-            newfile = "[New]", -- Text to show for newly created file before first write
+            newfile = "[New]",     -- Text to show for newly created file before first write
           },
         },
+        --> show current session
         {
           function()
             local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
             local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
             return "Current session: " .. session
           end,
-          -- cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
+          cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
         },
       },
       lualine_x = {
+        --> show macro recording
+        {
+          function()
+            local reg = vim.fn.reg_recording()
+            if reg == "" then return "" end -- not recording
+            return "recording to " .. reg
+          end,
+        },
         -- show command
         {
           function() return require("noice").api.status.command.get() end,
