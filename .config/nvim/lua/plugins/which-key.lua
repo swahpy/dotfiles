@@ -15,9 +15,10 @@ return {
   config = function(_, opts)
     local wk = require("which-key")
     wk.register({
-      ["<leader>w"] = { name = "+window" },
-      ["<leader>t"] = { name = "+tabs" },
+      ["<leader>c"] = { name = "+code" },
       ["<leader>s"] = { name = "+session" },
+      ["<leader>t"] = { name = "+tabs" },
+      ["<leader>w"] = { name = "+window" },
     })
     wk.setup(opts)
   end
