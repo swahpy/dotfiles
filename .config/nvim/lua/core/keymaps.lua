@@ -16,10 +16,6 @@ map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- clear visual selection
 map("n", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
--- increment/decrement numbers
-map("n", "<leader>+", "<C-a>", { desc = "Increment number" })
-map("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
-
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
@@ -37,7 +33,7 @@ map("n", "<leader>wh", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window 
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
 map("n", "<C-u>", "12k", { desc = "Scroll up by 12 lines" })
 map({ "n", "i" }, "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "move to end of line in insert mode" })
-map({ "n", "i" }, "<C-a>", "<Esc>0wi", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
+map({ "n", "i" }, "<C-a>", "<Esc>^i", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
 map("i", "<A-l>", "<Right>", { desc = "Moving right in insert mode " })
 map("i", "<A-h>", "<Left>", { desc = "Moving left in insert mode " })
 -- better up/down
