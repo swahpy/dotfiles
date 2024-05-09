@@ -72,6 +72,6 @@ return {
     {"<leader>sr", "<cmd>SessionLoad<cr>", desc = "Load session for cwd"},
     {"<leader>sl", "<cmd>SessionLoadLast<cr>", desc = "Load most recent session"},
     {"<leader>sd", "<cmd>SessionDelete<cr>", desc = "Delete current session"},
-    {"<leader>st", "<cmd>SessionToggle<cr>", desc = "Determine whether to load, start or stop a session"},
+    {"<leader>st", "<cmd>SessionToggle<cr>", desc = "To load, start or stop a session"},
   },
 }
