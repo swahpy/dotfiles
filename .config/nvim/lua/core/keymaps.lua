@@ -14,7 +14,7 @@ map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- clear search highlights
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- clear visual selection
-map("n", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
+map("v", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
