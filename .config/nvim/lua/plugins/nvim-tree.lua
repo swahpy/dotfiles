@@ -84,7 +84,8 @@ return {
       vim.cmd("tabnew " .. file.fname)
     end)
     -- Expand nvim-tree when it's open
-    api.events.subscribe(event.TreeOpen, function(data) 
+    ---@diagnostic disable-next-line: unused-local
+    api.events.subscribe(event.TreeOpen, function(data)
       api.tree.expand_all()
     end
     )
@@ -93,12 +94,11 @@ return {
     wk.register({
       ["<leader>e"] = {
         name = "+explorer",
-        e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
+        t = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
         f = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file" },
         r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
         c = { "<cmd>NvimTreeCollapse<CR>", "Collapse file explorer" },
-        a = { function() 
-          local api = require("nvim-tree.api")
+        e = { function()
           api.tree.expand_all()
         end, "Expand file explorer" },
       },
