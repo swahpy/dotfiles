@@ -1,6 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
+  enabled = false,
   lazy = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
@@ -93,7 +94,7 @@ return {
     local wk = require("which-key")
     wk.register({
       ["<leader>e"] = {
-        name = "+explorer",
+        name = "+nvim-tree",
         t = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
         f = { "<cmd>NvimTreeFindFileToggle<CR>", "Toggle file explorer on current file" },
         r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
