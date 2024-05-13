@@ -24,10 +24,10 @@ map("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
 map("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split window" })
 -- Resize window
-map("n", "<leader>wk", "<cmd>resize +3<cr>", { desc = "Increase Window Height" })
-map("n", "<leader>wj", "<cmd>resize -3<cr>", { desc = "Decrease Window Height" })
-map("n", "<leader>wl", "<cmd>vertical resize +3<cr>", { desc = "Increase Window Width" })
-map("n", "<leader>wh", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window Width" })
+map("n", "<leader>wk", "<cmd>resize +6<cr>", { desc = "Increase Window Height" })
+map("n", "<leader>wj", "<cmd>resize -6<cr>", { desc = "Decrease Window Height" })
+map("n", "<leader>wl", "<cmd>vertical resize +6<cr>", { desc = "Increase Window Width" })
+map("n", "<leader>wh", "<cmd>vertical resize -6<cr>", { desc = "Decrease Window Width" })
 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
