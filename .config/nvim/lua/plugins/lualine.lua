@@ -43,6 +43,9 @@ return {
           end,
           cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
         },
+        {
+          require('auto-session.lib').current_session_name
+        },
       },
       lualine_x = {
         --> show macro recording
