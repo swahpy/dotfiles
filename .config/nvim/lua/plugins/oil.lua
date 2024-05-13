@@ -19,6 +19,8 @@ return {
       ["<C-l>"] = false,
       ["<C-s>"] = false,
     },
+    -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
+    skip_confirm_for_simple_edits = true,
   },
   config = function (_, opts)
     local oil = require("oil")
