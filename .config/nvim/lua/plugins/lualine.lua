@@ -35,16 +35,20 @@ return {
           },
         },
         --> show current session
+        -- {
+        --   function()
+        --     local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+        --     local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
+        --     return "current session: " .. session
+        --   end,
+        --   cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
+        -- },
         {
           function()
-            local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
-            local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
-            return "Current session: " .. session
-          end,
-          cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
-        },
-        {
-          require('auto-session.lib').current_session_name
+              local session = require('auto-session.lib').current_session_name
+              return "current session: " .. session()
+            end,
+            cond = function() return package.loaded["auto-session"] end,
         },
       },
       lualine_x = {

@@ -46,7 +46,7 @@ return {
     -- used for noice
     ts.load_extension("noice")
     -- used for persisted. if you want lazy loading, then comment below line.
-    ts.load_extension("persisted")
+    -- ts.load_extension("persisted")
 
     -- setup keymaps
     local builtin = require("telescope.builtin")
@@ -71,7 +71,7 @@ return {
         R = { function() builtin.registers() end, "Find vim registers" },
         T = { "<cmd>TodoTelescope<cr>", "Find Todos" },
         n = { "<cmd>NoiceTelescope<cr>", "Open messages history" },
-        s = { "<cmd>Telescope persisted<cr>", "Open session list" },
+        -- s = { "<cmd>Telescope persisted<cr>", "Open session list" },
       },
     })
   end
