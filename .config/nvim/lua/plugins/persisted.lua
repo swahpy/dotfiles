@@ -39,7 +39,9 @@ return {
     },
   },
   config = function (_, opts)
-    vim.o.sessionoptions = "buffers,curdir,folds,tabpages,winpos,winsize"
+    -- For a better experience with the plugin,
+    -- below sessionoptions is recommended.
+    vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
     local persisted = require("persisted")
     persisted.setup(opts)
