@@ -3,5 +3,6 @@ return {
   "christoomey/vim-tmux-navigator", -- tmux & split window navigation
   "yorickpeterse/nvim-tree-pairs", -- to fix % jump with tree-sitter
   "RRethy/nvim-treesitter-endwise",
-  { 'numToStr/Comment.nvim', event = "VeryLazy", opts = { ignore = "^$" } },
+  { "numToStr/Comment.nvim", event = "VeryLazy", opts = { ignore = "^$" } },
+  "AndrewRadev/splitjoin.vim",
 }
