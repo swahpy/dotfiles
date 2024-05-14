@@ -16,6 +16,9 @@ map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- clear visual selection
 map("v", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
+-- execute command in commandline window
+map("n", ":", ":<C-f>", { desc = "Open commandline window instead of just commandline" })
+
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
@@ -46,6 +49,16 @@ map("n", "n", "nzz", { noremap = true, silent = true, desc = "center content whe
 map("n", "N", "Nzz", { noremap = true, silent = true, desc = "center content when searching" })
 map("n", "*", "*zz", { noremap = true, silent = true, desc = "center content when searching" })
 map("n", "#", "#zz", { noremap = true, silent = true, desc = "center content when searching" })
+-- navigation in command mode
+map("c", "<A-h>", "<Left>", { desc = "Move left" })
+map("c", "<A-l>", "<Right>", { desc = "Move right" })
+map("c", "<A-b>", "<S-Left>", { desc = "Move back a word" })
+map("c", "<A-f>", "<S-Right>", { desc = "Move forward a word" })
+map("c", "<C-a>", "<Home>", { desc = "Move to start" })
+map("c", "<C-e>", "<End>", { desc = "Move to end" })
+map("c", "<A-k>", "<Up>", { desc = "Previous history" })
+map("c", "<A-j>", "<Down>", { desc = "Next history" })
+
 
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
