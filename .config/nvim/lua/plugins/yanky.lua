@@ -32,7 +32,7 @@ return {
         },
         -- Yanky comes with a text object corresponding to last put text
         l = {
-          function() 
+          function()
             require("yanky.textobj").last_put()
           end,
           "Put last put text",
@@ -53,8 +53,8 @@ return {
     { "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put indented after cursor (linewise)" },
     { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put indented before cursor (linewise)" },
     { ">p", "<Plug>(YankyPutIndentAfterShiftRight)", desc = "Put after and indent right" },
-    { "<p", "<Plug>(YankyPutIndentAfterShiftLeft)", desc = "Put before and indent left" },
-    { ">P", "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put after and indent right" },
+    { "<p", "<Plug>(YankyPutIndentAfterShiftLeft)", desc = "Put after and indent left" },
+    { ">P", "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put before and indent right" },
     { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put before and indent left" },
     { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter" },
     { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
