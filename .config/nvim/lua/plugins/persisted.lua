@@ -1,6 +1,5 @@
 return {
   "olimorris/persisted.nvim",
-  enabled = false,
   lazy = false, -- make sure the plugin is always loaded at startup
   -- comment out below line to enable dashboard first
   -- cmd = "SessionLoad",
@@ -57,6 +56,8 @@ return {
         require("persisted").save({ session = vim.g.persisted_loaded_session })
         -- Delete all of the open buffers
         vim.api.nvim_input("<ESC>:%bd!<CR>")
+        -- refresh lualine session name
+        require("lualine").refresh()
       end,
     })
     -- print info before loading and saving a session
@@ -64,7 +65,7 @@ return {
       pattern = "PersistedSavePost",
       group = group,
       callback = function()
-        print("Session is saved.")
+        print("Session has been saved!")
       end,
     })
   end,

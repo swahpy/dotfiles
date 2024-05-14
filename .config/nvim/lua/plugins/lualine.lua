@@ -35,21 +35,23 @@ return {
           },
         },
         --> show current session
-        -- {
-        --   function()
-        --     local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
-        --     local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
-        --     return "current session: " .. session
-        --   end,
-        --   cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
-        -- },
         {
           function()
-              local session = require('auto-session.lib').current_session_name
-              return "current session: " .. session()
-            end,
-            cond = function() return package.loaded["auto-session"] end,
+            local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+            local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
+            session = vim.fn.fnamemodify(session, ":t:r")
+            return "current session: " .. session
+          end,
+          cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
         },
+        -- setup for auto-session
+        -- {
+        --   function()
+        --       local session = require("auto-session.lib").current_session_name
+        --       return "current session: " .. session()
+        --     end,
+        --     cond = function() return package.loaded["auto-session"] end,
+        -- },
       },
       lualine_x = {
         --> show macro recording
@@ -79,7 +81,11 @@ return {
             mac = " CR", -- e711
           },
         },
-        "filetype",
+        {
+          "filetype",
+          colored = true,   -- Displays filetype icon in color if set to true
+          icon_only = false, -- Display only an icon for filetype
+        },
       },
       lualine_y = { "progress", "location" },
       lualine_z = {
@@ -96,6 +102,12 @@ return {
       lualine_y = {},
       lualine_z = {},
     },
-    extensions = { "neo-tree" },
+    extensions = {
+      "lazy",
+      "mason",
+      "oil",
+      "quickfix",
+      "trouble"
+    },
   },
 }
