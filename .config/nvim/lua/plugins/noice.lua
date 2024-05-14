@@ -79,15 +79,15 @@ return {
         },
       },
     })
-    vim.keymap.set({ "n", "i", "s" }, "<A-m>", function()
+    vim.keymap.set({ "n", "i", "s" }, "<A-u>", function()
       if not require("noice.lsp").scroll(4) then
-        return "<A-m>"
+        return "<A-u>"
       end
     end, { silent = true, expr = true })
 
-    vim.keymap.set({ "n", "i", "s" }, "<A-n>", function()
+    vim.keymap.set({ "n", "i", "s" }, "<A-d>", function()
       if not require("noice.lsp").scroll(-4) then
-        return "<A-n>"
+        return "<A-d>"
       end
     end, { silent = true, expr = true })
   end

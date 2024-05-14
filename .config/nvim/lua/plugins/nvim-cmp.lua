@@ -16,6 +16,8 @@ return {
     },
     "rafamadriz/friendly-snippets",
     "saadparwaiz1/cmp_luasnip",
+    -- cmp source for yanky
+    "chrisgrieser/cmp_yanky",
   },
   config = function()
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -78,6 +80,15 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        {
+          name = "cmp_yanky",
+          option = {
+            -- only suggest items which match the current filetype
+            onlyCurrentFiletype = false,
+            -- only suggest items with a minimum length
+            minLength = 3,
+          },
+        }
       },
     })
 

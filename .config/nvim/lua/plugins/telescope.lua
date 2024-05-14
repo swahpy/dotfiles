@@ -69,9 +69,10 @@ return {
         k = { function() builtin.keymaps() end, "Find normal mode keymappings" },
         F = { function() builtin.filetypes() end, "Find available filetypes" },
         R = { function() builtin.registers() end, "Find vim registers" },
-        T = { "<cmd>TodoTelescope<cr>", "Find Todos" },
-        n = { "<cmd>NoiceTelescope<cr>", "Open messages history" },
-        s = { "<cmd>Telescope persisted<cr>", "Open session list" },
+        T = { "<cmd>TodoTelescope<cr>", "[t]odos" },
+        n = { "<cmd>NoiceTelescope<cr>", "[n]oice messages history" },
+        s = { "<cmd>Telescope persisted<cr>", "[s]ession list" },
+        y = { "<cmd>Telescope yank_history<cr>", "[y]anky history" },
       },
     })
   end
