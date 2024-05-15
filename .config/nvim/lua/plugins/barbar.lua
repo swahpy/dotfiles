@@ -56,11 +56,11 @@ return {
       },
       ["<leader>tc"] = {
         name = "+close",
-        o = { "<cmd>BufferCloseAllButCurrent<cr>", "Close [o]ther buffers" },
-        p = { "<cmd>BufferCloseAllButPinned<cr>", "Close all buffers except the [p]inned one" },
-        l = { "<cmd>BufferCloseBuffersLeft<cr>", "Close [l]eft buffers" },
-        r = { "<cmd>BufferCloseBuffersRight<cr>", "Close [r]ight buffers" },
-        a = { "<cmd>BufferCloseAllButCurrentOrPinned<cr>", "Close all buffers except current one and pinned ones" },
+        o = { "<cmd>BufferCloseAllButCurrent<cr>", "[C]lose [o]ther buffers" },
+        p = { "<cmd>BufferCloseAllButPinned<cr>", "[C]lose all buffers except the [p]inned one" },
+        l = { "<cmd>BufferCloseBuffersLeft<cr>", "[C]lose [l]eft buffers" },
+        r = { "<cmd>BufferCloseBuffersRight<cr>", "[C]lose [r]ight buffers" },
+        a = { "<cmd>BufferCloseAllButCurrentOrPinned<cr>", "[C]lose all buffers except current one and pinned ones" },
       },
       ["<leader>to"] = {
         name = "+order",
