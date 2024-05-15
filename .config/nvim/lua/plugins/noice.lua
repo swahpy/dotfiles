@@ -102,7 +102,8 @@ return {
     --> setup timeout
     require("notify").setup({
       timeout = 1000,
-      stages = "static",
+      stages = "fade",
+      render = "wrapped-compact",
     })
   end
 }
