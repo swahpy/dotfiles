@@ -17,7 +17,7 @@ map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 map("v", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
 -- execute command in commandline window
-map("n", ":", ":<C-f>", { desc = "Open commandline window instead of just commandline" })
+-- map("n", ":", ":<C-f>", { desc = "Open commandline window instead of just commandline" })
 
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
