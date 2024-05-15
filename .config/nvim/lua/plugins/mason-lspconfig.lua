@@ -12,6 +12,7 @@ return {
       "jsonls",
       "lua_ls",
       "marksman",
+      "markdown_oxide",
       "pyright",
       "yamlls",
     },
@@ -63,7 +64,14 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+    -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+    capabilities.workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    }
     local lspconfig = require("lspconfig")
     local handlers = {
       -- default handler for installed servers
@@ -93,6 +101,22 @@ return {
           }
         }
       end,
+      ["markdown_oxide"] = function ()
+        lspconfig.markdown_oxide.setup({
+          capabilities = capabilities, -- again, ensure that capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+          ---@diagnostic disable-next-line:unused-local
+          on_attach = function (client, bufnr)
+            -- refresh codelens on TextChanged and InsertLeave as well
+            vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'CursorHold', 'LspAttach' }, {
+              buffer = bufnr,
+              callback = vim.lsp.codelens.refresh,
+            })
+
+            -- trigger codelens refresh
+            vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
+          end
+        })
+      end
     }
     --> setup mason-lspconfig
     local mlc = require("mason-lspconfig")
