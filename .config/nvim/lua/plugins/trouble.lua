@@ -1,6 +1,12 @@
 return {
-	"folke/trouble.nvim",
-  branch = "dev", -- IMPORTANT!
+  "folke/trouble.nvim",
+  branch = "dev",      -- IMPORTANT!
+  opts = {
+    auto_close = true, -- auto close when there are no items
+    auto_open = true,  -- auto open when there are items
+    auto_jump = true,  -- auto jump to the item when there's only one
+    focus = true,      -- Focus the window when opened
+  },
   keys = {
     {
       "<leader>ct",
@@ -33,5 +39,4 @@ return {
       desc = "Quickfix List (Trouble)",
     },
   },
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
 }
