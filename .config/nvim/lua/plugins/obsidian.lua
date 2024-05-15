@@ -298,7 +298,6 @@ return {
     },
   },
   config = function(_, opts)
-    vim.opt.conceallevel = 2
     local obs = require("obsidian")
     obs.setup(opts)
     -- setup keymaps
@@ -444,5 +443,8 @@ return {
         },
       },
     }, { mode = "v" })
+
+    -- setup conceallevel
+    vim.opt.conceallevel = 2
   end,
 }
