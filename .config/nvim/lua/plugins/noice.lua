@@ -69,6 +69,14 @@ return {
           "<cmd>NoiceErrors<cr>",
           "Show error messages",
         },
+        D = {
+          "<cmd>NoiceDisable<cr>",
+          "[D]isable noice",
+        },
+        E = {
+          "<cmd>NoiceEnable<cr>",
+          "[E]nable noice",
+        },
         s = {
           "<cmd>NoiceStats<cr>",
           "Show debugging stats",
@@ -90,5 +98,11 @@ return {
         return "<A-d>"
       end
     end, { silent = true, expr = true })
+
+    --> setup timeout
+    require("notify").setup({
+      timeout = 1000,
+      stages = "static",
+    })
   end
 }

@@ -44,14 +44,6 @@ return {
           end,
           cond = function() return package.loaded["persisted"] and vim.g.persisted_exists end,
         },
-        -- setup for auto-session
-        -- {
-        --   function()
-        --       local session = require("auto-session.lib").current_session_name
-        --       return "current session: " .. session()
-        --     end,
-        --     cond = function() return package.loaded["auto-session"] end,
-        -- },
       },
       lualine_x = {
         --> show macro recording
@@ -61,11 +53,6 @@ return {
             if reg == "" then return "" end -- not recording
             return "recording to " .. reg
           end,
-        },
-        -- show command
-        {
-          function() return require("noice").api.status.command.get() end,
-          cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
         },
         -- show if has any lazy updates
         {
