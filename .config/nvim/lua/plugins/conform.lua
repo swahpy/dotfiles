@@ -13,10 +13,6 @@ return {
 			markdown = { "markdownlint" },
 			python = { "isort", "black" },
 			yaml = { "yq" },
-			-- Use the "*" filetype to run formatters on all filetypes.
-			["*"] = { "codespell" },
-			-- Use the "_" filetype to run formatters on filetypes that don't have other formatters configured.
-			["_"] = { "trim_whitespace" },
 		},
 		-- Set the log level. Use `:ConformInfo` to see the location of the log file.
 		log_level = vim.log.levels.ERROR,
