@@ -9,9 +9,9 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-      "ansiblels",
-      "dockerls",
-      "docker_compose_language_service",
+			"ansiblels",
+			"dockerls",
+			"docker_compose_language_service",
 			"gopls",
 			"jsonls",
 			"lua_ls",
