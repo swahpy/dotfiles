@@ -19,6 +19,7 @@ return {
       ["<leader>s"] = { name = "+session" },
       ["<leader>t"] = { name = "+tabs" },
       ["<leader>w"] = { name = "+window" },
+      ["<leader><leader>"] = { name = "+misc" },
     })
     wk.setup(opts)
   end

@@ -70,7 +70,7 @@ map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
 map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
 
 -- Lazy
-map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane"} )
+map("n", "<leader><leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane"} )
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
