@@ -28,7 +28,8 @@ return {
       indent = { char = "┇" },
       exclude = {
         filetypes = {
-          "dashboard", -- disable indent line for dashboard
+          -- disable indent line for dashboard
+          "dashboard",
         },
       },
     },
