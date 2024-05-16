@@ -2,9 +2,8 @@ return {
 	"folke/trouble.nvim",
 	branch = "dev", -- IMPORTANT!
 	opts = {
-		auto_close = true, -- auto close when there are no items
-		auto_jump = true, -- auto jump to the item when there's only one
-		focus = true, -- Focus the window when opened
+    -- Focus the window when opened
+		focus = true,
 	},
 	keys = {
 		{
@@ -24,7 +23,7 @@ return {
 		},
 		{
 			"<leader>cl",
-			"<cmd>Trouble lsp toggle<cr>",
+			"<cmd>Trouble lsp toggle focus=true win.position=bottom<cr>",
 			desc = "LSP Definitions / references / ... (Trouble)",
 		},
 		{
