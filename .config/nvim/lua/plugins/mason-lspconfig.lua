@@ -15,7 +15,7 @@ return {
 			"gopls",
 			"jsonls",
 			"lua_ls",
-			"markdown_oxide",
+			"marksman",
 			"pyright",
 			"yamlls",
 		},
