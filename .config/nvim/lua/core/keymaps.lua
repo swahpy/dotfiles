@@ -39,6 +39,8 @@ map({ "n", "i" }, "<C-e>", "<Esc>$a", { noremap = true, silent = true, desc = "m
 map({ "n", "i" }, "<C-a>", "<Esc>^i", { noremap = true, silent = true, desc = "move to start of line in insert mode" })
 map("i", "<A-l>", "<Right>", { desc = "Moving right in insert mode " })
 map("i", "<A-h>", "<Left>", { desc = "Moving left in insert mode " })
+map("i", "<A-m>", "<Up>", { desc = "Moving up in insert mode " })
+map("i", "<A-n>", "<Down>", { desc = "Moving down in insert mode " })
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

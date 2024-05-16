@@ -4,6 +4,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/cmp-nvim-lsp",
   },
   opts = {
@@ -22,10 +23,10 @@ return {
     mason.setup()
     --> setup lsp related keymaps
     vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("user_lsp_attach", {clear = true}),
+      group = vim.api.nvim_create_augroup("user_lsp_attach", { clear = true }),
       callback = function(event)
         local map = vim.keymap.set
-        local opt = {buffer = event.buf, silent = true}
+        local opt = { buffer = event.buf, silent = true }
 
         opt.desc = "Show line diagnostics"
         map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opt)
@@ -50,7 +51,7 @@ return {
         opt.desc = "Smart rename"
         map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
         opt.desc = "Format code"
-        map({"n", "x"}, "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opt)
+        map({ "n", "x" }, "<leader>cf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opt)
         opt.desc = "See available code actions"
         map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opt)
       end,
@@ -80,49 +81,112 @@ return {
         })
       end,
       --> setup for lua language server
-      ["lua_ls"] = function ()
-        lspconfig.lua_ls.setup {
+      ["lua_ls"] = function()
+        lspconfig.lua_ls.setup({
           capabilities = capabilities,
           settings = {
             Lua = {
               runtime = {
-                version = 'LuaJIT',
+                version = "LuaJIT",
               },
               diagnostics = {
-                globals = {'vim'},
+                globals = { "vim" },
               },
               workspace = {
                 library = {
                   vim.env.VIMRUNTIME,
-                }
+                },
               },
-            }
-          }
-        }
+            },
+          },
+        })
       end,
-      ["markdown_oxide"] = function ()
+      ["markdown_oxide"] = function()
         lspconfig.markdown_oxide.setup({
           capabilities = capabilities, -- again, ensure that capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
           ---@diagnostic disable-next-line:unused-local
-          on_attach = function (client, bufnr)
+          on_attach = function(client, bufnr)
             -- refresh codelens on TextChanged and InsertLeave as well
-            vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'CursorHold', 'LspAttach' }, {
+            vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach" }, {
               buffer = bufnr,
               callback = vim.lsp.codelens.refresh,
             })
 
             -- trigger codelens refresh
-            vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
+            vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
 
             -- setup conceallevel
             vim.opt.conceallevel = 2
-          end
+          end,
         })
-      end
+      end,
     }
     --> setup mason-lspconfig
     local mlc = require("mason-lspconfig")
     opts.handlers = handlers
     mlc.setup(opts)
-  end
+    --> setup msaon-tool-installer
+    local mti = require("mason-tool-installer")
+    mti.setup({
+      -- a list of all tools you want to ensure are installed upon start
+      ensure_installed = {
+        "goimports",
+        "gofumpt",
+        "jq",
+        "stylua",
+        "markdownlint",
+        "isort",
+        "black",
+        "yq",
+        "codespell",
+      },
+    })
+    --> setup keymaps
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>m"] = {
+        name = "+mason",
+        m = {
+          "<cmd>Mason<cr>",
+          "[M]ason open",
+        },
+        L = {
+          "<cmd>MasonLog<cr>",
+          "[L]og of mason",
+        },
+      },
+      ["<leader>ml"] = {
+        name = "+lspconfig",
+        i = {
+          function()
+            local servers = vim.fn.input("Please enter lsp servers to install: ")
+            vim.cmd("LspInstall " .. servers)
+          end,
+          "[M]ason install lsp servers",
+        },
+        u = {
+          function()
+            local servers = vim.fn.input("Please enter lsp servers to install: ")
+            vim.cmd("LspUninstall " .. servers)
+          end,
+          "[U]ninstall mason lsp servers",
+        },
+      },
+      ["<leader>mt"] = {
+        name = "+formatter",
+        i = {
+          "<cmd>MasonToolsInstall<cr>",
+          "[I]install mason formatters via mason-tool-installer",
+        },
+        u = {
+          "<cmd>MasonToolsInstall<cr>",
+          "[U]pdate mason formatters via mason-tool-installer",
+        },
+        c = {
+          "<cmd>MasonToolsClean<cr>",
+          "[C]lean mason linters not in ensure_installed list",
+        },
+      },
+    })
+  end,
 }
