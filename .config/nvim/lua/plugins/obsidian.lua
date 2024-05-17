@@ -16,6 +16,9 @@ return {
 		-- For running lightweight timer
 		"epwalsh/pomo.nvim",
 	},
+	init = function()
+		vim.opt.conceallevel = 2
+	end,
 	opts = {
 		workspaces = {
 			{
@@ -443,8 +446,5 @@ return {
 				},
 			},
 		}, { mode = "v" })
-
-		-- setup conceallevel
-		vim.opt.conceallevel = 2
 	end,
 }

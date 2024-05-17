@@ -117,9 +117,6 @@ return {
 
 						-- trigger codelens refresh
 						vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
-
-						-- setup conceallevel
-						vim.opt.conceallevel = 2
 					end,
 				})
 			end,
