@@ -1,5 +1,6 @@
 return {
 	"folke/trouble.nvim",
+	lazy = true,
 	branch = "dev", -- IMPORTANT!
 	keys = {
 		{
