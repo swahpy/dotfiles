@@ -139,6 +139,9 @@ return {
 				"black",
 				"yq",
 				"codespell",
+				"ruff",
+				"markdownlint",
+				"golangci-lint",
 			},
 		})
 		--> setup keymaps

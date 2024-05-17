@@ -5,9 +5,21 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		lint.linters_by_ft({
+		lint.linters_by_ft = {
+			go = { "golangcilint" },
 			markdown = { "markdownlint" },
-			python = { "pylint" },
+			python = { "ruff" },
+		}
+
+		vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "TextChanged" }, {
+			callback = function()
+				-- try_lint without arguments runs the linters defined in `linters_by_ft` for the current filetype
+				require("lint").try_lint()
+			end,
 		})
+
+		vim.keymap.set("n", "<leader><leader>l", function()
+			lint.try_lint()
+		end, { desc = "Trigger linting for current file" })
 	end,
 }
