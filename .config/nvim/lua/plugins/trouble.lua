@@ -1,10 +1,6 @@
 return {
 	"folke/trouble.nvim",
 	branch = "dev", -- IMPORTANT!
-	opts = {
-    -- Focus the window when opened
-		focus = true,
-	},
 	keys = {
 		{
 			"<leader>ct",
