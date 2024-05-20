@@ -1,7 +1,9 @@
 return {
 	"folke/trouble.nvim",
-	lazy = true,
 	branch = "dev", -- IMPORTANT!
+	opts = {
+		focus = true,
+	},
 	keys = {
 		{
 			"<leader>ct",
