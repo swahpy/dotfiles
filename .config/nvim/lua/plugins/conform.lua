@@ -11,7 +11,7 @@ return {
 			jason = { "jq" },
 			lua = { "stylua" },
 			markdown = { "markdownlint" },
-			python = { "isort", "black" },
+			python = { "ruff" },
 			yaml = { "yq" },
 		},
 		-- Set the log level. Use `:ConformInfo` to see the location of the log file.
