@@ -23,7 +23,15 @@ return {
 				},
 			},
 			dynamic_preview_title = true,
-			path_display = { "filename_first" }, -- formerly smart used
+			path_display = function(_, path)
+				local tail = vim.fs.basename(path)
+				local parent = vim.fs.dirname(path)
+				if parent == "." then
+					return tail
+				else
+					return string.format("%s - %s", tail, parent)
+				end
+			end,
 			mappings = {
 				i = {
 					["<A-k>"] = "move_selection_previous",
