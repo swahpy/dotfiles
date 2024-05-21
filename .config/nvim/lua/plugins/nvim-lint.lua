@@ -1,6 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
-	enabled = false,
+	enabled = true,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
@@ -18,7 +18,7 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader><leader>l", function()
+		vim.keymap.set("n", "<leader><leader>L", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 	end,

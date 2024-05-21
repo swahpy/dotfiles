@@ -25,7 +25,6 @@ return {
 		--> cmp setup <--
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		local neotab = require("neotab")
 		cmp.setup({
 			snippet = {
 				expand = function(args)
@@ -62,7 +61,8 @@ return {
 					elseif luasnip.locally_jumpable(1) then
 						luasnip.jump(1)
 					else
-						neotab.tabout()
+						require("neotab").tabout()
+						-- vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>(Tabout)", true, true, true), "")
 					end
 				end, { "i", "s" }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
