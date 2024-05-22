@@ -42,4 +42,10 @@ return {
 			{ "<leader>wm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split window" },
 		},
 	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		opts = true,
+	},
 }
