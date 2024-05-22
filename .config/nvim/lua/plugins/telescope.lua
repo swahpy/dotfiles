@@ -32,6 +32,12 @@ return {
 					return string.format("%s - %s", tail, parent)
 				end
 			end,
+			-- FIX: doesn't work
+			-- path_display = {
+			--   filename_first = {
+			--     reverse_directories = true
+			--   }
+			-- },
 			mappings = {
 				i = {
 					["<A-k>"] = "move_selection_previous",
