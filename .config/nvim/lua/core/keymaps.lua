@@ -61,18 +61,18 @@ map("c", "<C-e>", "<End>", { desc = "Move to end" })
 map("c", "<A-k>", "<Up>", { desc = "Previous history" })
 map("c", "<A-j>", "<Down>", { desc = "Next history" })
 
-
 -- save and quit buffer
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "<a-q>", "<cmd>qa<cr>", { desc = "Quit nvim" })
-map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
+-- seldom use this, disable it.
+-- map("n", "so", "<cmd>so %<cr>", { desc = "Source current buffer" })
 
 -- indent
 map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
 map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
 
 -- Lazy
-map("n", "<leader><leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane"} )
+map("n", "<leader><leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane" })
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
