@@ -37,15 +37,25 @@ return {
 				--> show current session
 				{
 					function()
-						local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
-						local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
-						session = vim.fn.fnamemodify(session, ":t:r")
-						return "current session: " .. session
+						local session = vim.v.this_session
+						return "current session: " .. vim.fn.fnamemodify(session, ":t")
 					end,
 					cond = function()
-						return package.loaded["persisted"] and vim.g.persisted_exists
+						return vim.v.this_session ~= ""
 					end,
 				},
+				-- setup for persisted
+				-- {
+				-- 	function()
+				-- 		local session_dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+				-- 		local session = vim.g.persisted_loaded_session:gsub(session_dir, ""):gsub("%%", "%/")
+				-- 		session = vim.fn.fnamemodify(session, ":t:r")
+				-- 		return "current session: " .. session
+				-- 	end,
+				-- 	cond = function()
+				-- 		return package.loaded["persisted"] and vim.g.persisted_exists
+				-- 	end,
+				-- },
 			},
 			lualine_x = {
 				--> setup for pomo tiemr
