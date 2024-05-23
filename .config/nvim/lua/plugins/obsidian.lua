@@ -74,11 +74,11 @@ return {
 		-- way then set 'mappings = {}'.
 		mappings = {
 			-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-			["gf"] = {
+			["gF"] = {
 				action = function()
 					return require("obsidian").util.gf_passthrough()
 				end,
-				opts = { noremap = false, expr = true, buffer = true },
+				opts = { noremap = false, expr = true, buffer = true, desc = "Obsidian gf passthrough" },
 			},
 			-- Smart action depending on context, either follow link or toggle checkbox.
 			["<cr>"] = {
