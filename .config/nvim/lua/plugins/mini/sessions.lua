@@ -25,20 +25,25 @@ return {
 			desc = "[p]ick a session",
 		})
 		vim.keymap.set("n", "<Leader>sd", function()
-			local keys = {}
+			local sessions = {}
+			local keystr = ""
+			local n = 0
 			for k, _ in pairs(session.detected) do
-				table.insert(keys, k)
+				n = n + 1
+				sessions[n] = k
+				keystr = keystr .. n .. ": " .. k .. "\n"
 			end
-			table.sort(keys)
-			local keystr = table.concat(keys, "\n")
-			print(keystr)
-			local sessionname = vim.fn.input(
-				"Below are current sessions, please enter the name you want to delete:\n" .. keystr .. "\n> "
+			local numstr = vim.fn.input(
+				"Below are current sessions, please select the one to delete(1/2/...):\n" .. keystr .. "\n> "
 			)
-			if sessionname ~= nil then
-				session.delete(sessionname)
+			if numstr == "" then
+				return
+			end
+			local num = tonumber(numstr)
+			if num <= n then
+				session.delete(sessions[num])
 			else
-				print("deletion needs a session name.")
+				print("You entered a wrong number")
 			end
 		end, {
 			desc = "[d]elete a session",
