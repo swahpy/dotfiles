@@ -9,19 +9,6 @@ return {
 		opts = { ignore = "^$" },
 	},
 	{
-		"Wansmer/treesj",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("treesj").setup({ --[[ your config ]]
-			})
-		end,
-		keys = {
-			{ "<leader><leader>t", "<cmd>TSJToggle<cr>", desc = "[T]oggle join and split" },
-			{ "<leader><leader>j", "<cmd>TSJJoin<cr>", desc = "[J]oin node under cursor" },
-			{ "<leader><leader>s", "<cmd>TSJSplit<cr>", desc = "[S]plit node under cursor" },
-		},
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		enabled = true,
 		event = { "BufReadPre", "BufNewFile" },
@@ -39,12 +26,17 @@ return {
 	{
 		"szw/vim-maximizer",
 		keys = {
-			{ "<leader>wm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split window" },
+			{
+				"<leader>wm",
+				"<cmd>MaximizerToggle<CR>",
+				desc = "Maximize/minimize a split window",
+			},
 		},
 	},
 	{
 		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		-- Use for stability; omit to use `main` branch for the latest features
+		version = "*",
 		event = "VeryLazy",
 		opts = true,
 	},
