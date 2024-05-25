@@ -4,11 +4,6 @@ return {
 	"yorickpeterse/nvim-tree-pairs", -- to fix % jump with tree-sitter
 	"RRethy/nvim-treesitter-endwise",
 	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		opts = { ignore = "^$" },
-	},
-	{
 		"szw/vim-maximizer",
 		keys = {
 			{
