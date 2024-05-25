@@ -9,21 +9,6 @@ return {
 		opts = { ignore = "^$" },
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		enabled = true,
-		event = { "BufReadPre", "BufNewFile" },
-		main = "ibl",
-		opts = {
-			indent = { char = "┇" },
-			exclude = {
-				filetypes = {
-					-- disable indent line for dashboard
-					"dashboard",
-				},
-			},
-		},
-	},
-	{
 		"szw/vim-maximizer",
 		keys = {
 			{
@@ -44,8 +29,7 @@ return {
 		"Wansmer/treesj",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			require("treesj").setup({ --[[ your config ]]
-			})
+			require("treesj").setup()
 		end,
 		keys = {
 			{ "<leader><leader>t", "<cmd>TSJToggle<cr>", desc = "[T]oggle join and split" },
