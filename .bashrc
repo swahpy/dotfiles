@@ -44,8 +44,9 @@ alias tl='tmux ls'
 alias v='nvim'
 alias vim='nvim'
 alias nvimconf='v ~/.config/nvim'
+alias goenvupdate='cd ~/.goenv && git fetch --all && git pull'
 
-export PYENV_ROOT="$HOME/.submodules/pyenv"
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH:~/nvim-linux64/bin/"
 eval "$(pyenv init -)"
 
