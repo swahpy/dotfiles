@@ -1,6 +1,5 @@
 return {
 	"olimorris/persisted.nvim",
-	enabled = false,
 	lazy = false, -- make sure the plugin is always loaded at startup
 	-- comment out below line to enable dashboard first
 	-- cmd = "SessionLoad",
