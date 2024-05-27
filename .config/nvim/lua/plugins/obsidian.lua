@@ -73,13 +73,6 @@ return {
 		-- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
 		-- way then set 'mappings = {}'.
 		mappings = {
-			-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-			["gF"] = {
-				action = function()
-					return require("obsidian").util.gf_passthrough()
-				end,
-				opts = { noremap = false, expr = true, buffer = true, desc = "Obsidian gf passthrough" },
-			},
 			-- Smart action depending on context, either follow link or toggle checkbox.
 			["<cr>"] = {
 				action = function()
@@ -303,6 +296,14 @@ return {
 	config = function(_, opts)
 		local obs = require("obsidian")
 		obs.setup(opts)
+		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+		vim.keymap.set("n", "gf", function()
+			if require("obsidian").util.cursor_on_markdown_link() then
+				return "<cmd>ObsidianFollowLink<CR>"
+			else
+				return "gf"
+			end
+		end, { noremap = false, expr = true, desc = "Obsidian gf_passthrough or normal go to file under cursor" })
 		-- setup keymaps
 		local wk = require("which-key")
 		wk.register({
