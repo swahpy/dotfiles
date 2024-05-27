@@ -180,8 +180,8 @@ return {
 				end
 			end
 
-			-- insert note create date and time
-			out.created_at = os.date("%Y-%m-%d %H:%M")
+			-- insert note update date and time
+			out.updated_at = os.date("%Y-%m-%d %H:%M")
 
 			return out
 		end,
