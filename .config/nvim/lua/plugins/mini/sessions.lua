@@ -12,9 +12,15 @@ return {
 		})
 		--> keymaps
 		vim.keymap.set("n", "<Leader>ss", function()
-			local cwd = vim.fn.getcwd()
-			local basename = vim.fn.fnamemodify(cwd, ":t")
-			session.write(basename)
+			local cur_session = vim.v.this_session
+			local ss = ""
+			if cur_session then
+				ss = vim.fn.fnamemodify(cur_session, ":t")
+			else
+				local cwd = vim.fn.getcwd()
+				ss = vim.fn.fnamemodify(cwd, ":t")
+			end
+			session.write(ss)
 		end, { desc = "[s]ave a global session" })
 		vim.keymap.set("n", "<Leader>sl", function()
 			session.write(session.config.file)
