@@ -24,6 +24,17 @@ return {
 			lsp_fallback = true,
 		},
 	},
+	config = function(_, opts)
+		local conform = require("conform")
+		conform.setup(opts)
+		conform.formatters.markdownlint = {
+			prepend_args = {
+				"--disable",
+				"MD034",
+				"--",
+			},
+		}
+	end,
 	keys = {
 		{
 			"<leader><leader>f",

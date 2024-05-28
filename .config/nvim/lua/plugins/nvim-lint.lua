@@ -1,6 +1,5 @@
 return {
 	"mfussenegger/nvim-lint",
-	enabled = true,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
@@ -14,7 +13,10 @@ return {
 		--> setup lint rules for markdown_lint
 		local mdl = lint.linters.markdownlint
 		mdl.args = {
-			"--disable MD013",
+			"--disable",
+			"MD013",
+			"MD034",
+			"--",
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "TextChanged" }, {
