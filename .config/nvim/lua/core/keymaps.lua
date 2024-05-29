@@ -21,11 +21,11 @@ map("v", "<leader>nv", "<Esc>", { desc = "Exit visual mode" })
 
 -- window management
 map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
-map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
+map("n", "<leader>wx", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
-map("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split window" })
+map("n", "<leader>ww", "<cmd>close<CR>", { desc = "Close current split window" })
 -- Resize window
 map("n", "<leader>wk", "<cmd>resize +6<cr>", { desc = "Increase Window Height" })
 map("n", "<leader>wj", "<cmd>resize -6<cr>", { desc = "Decrease Window Height" })
