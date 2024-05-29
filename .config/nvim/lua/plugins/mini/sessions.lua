@@ -14,7 +14,7 @@ return {
 		vim.keymap.set("n", "<Leader>ss", function()
 			local cur_session = vim.v.this_session
 			local ss = ""
-			if cur_session then
+			if cur_session and cur_session ~= "" then
 				ss = vim.fn.fnamemodify(cur_session, ":t")
 			else
 				local cwd = vim.fn.getcwd()
