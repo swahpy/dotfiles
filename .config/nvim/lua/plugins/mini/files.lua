@@ -27,9 +27,9 @@ return {
 			},
 		})
 		--> setup keymap for files
-		vim.keymap.set("n", "-", function(...)
+		vim.keymap.set("n", "-", function()
 			if not files.close() then
-				files.open(...)
+				files.open(vim.api.nvim_buf_get_name(0))
 			end
 		end, { desc = "Open mini files" })
 		--> show/hide dotfiles
