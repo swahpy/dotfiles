@@ -23,7 +23,9 @@ return {
 				-- Whether to show preview of file/directory under cursor
 				preview = true,
 				-- Width of preview window
-				width_preview = 120,
+				width_preview = 80,
+				-- Width of focused window
+				width_focus = 25,
 			},
 		})
 		--> setup keymap for files
