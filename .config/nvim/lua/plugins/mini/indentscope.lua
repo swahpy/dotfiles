@@ -10,6 +10,7 @@ return {
 			callback = function()
 				local ignore_filetypes = {
 					"dashboard",
+					"floaterm",
 					"help",
 					"lazy",
 					"mason",
