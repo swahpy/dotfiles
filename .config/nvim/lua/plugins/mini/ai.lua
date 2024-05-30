@@ -16,6 +16,8 @@ return {
 				c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
 				t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
 				d = { "%f[%d]%d+" }, -- digits
+				h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- between space
+				j = { "%f[^%z].*%f[%z]", "^%s+().*()$" }, -- a whole line
 				e = { -- Word with case
 					{
 						"%u[%l%d]+%f[^%l%d]",
