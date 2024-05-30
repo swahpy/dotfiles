@@ -10,8 +10,8 @@ return {
 			-- Module mappings created only inside explorer.
 			-- Use `''` (empty string) to not create one.
 			mappings = {
-				show_help = "?",
-				synchronize = "<Space>",
+				synchronize = "w",
+				go_in_plus = "<CR>",
 			},
 			-- General options
 			options = {
@@ -28,7 +28,7 @@ return {
 				width_focus = 25,
 			},
 		})
-		--> setup keymap for files
+		--> setup keymap for mini.files
 		vim.keymap.set("n", "-", function()
 			if not files.close() then
 				files.open(vim.api.nvim_buf_get_name(0))
@@ -48,14 +48,6 @@ return {
 			local new_filter = show_dotfiles and filter_show or filter_hide
 			files.refresh({ content = { filter = new_filter } })
 		end
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "MiniFilesBufferCreate",
-			callback = function(args)
-				local buf_id = args.data.buf_id
-				-- Tweak left-hand side of mapping to your liking
-				vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Show/hide dotfiles" })
-			end,
-		})
 		--> set current working directory
 		---@diagnostic disable-next-line
 		local files_set_cwd = function(path)
@@ -64,12 +56,6 @@ return {
 			local cur_directory = vim.fs.dirname(cur_entry_path)
 			vim.fn.chdir(cur_directory)
 		end
-		vim.api.nvim_create_autocmd("User", {
-			pattern = "MiniFilesBufferCreate",
-			callback = function(args)
-				vim.keymap.set("n", "gd", files_set_cwd, { buffer = args.data.buf_id, desc = "Set cwd" })
-			end,
-		})
 		--> open in split window
 		local map_split = function(buf_id, lhs, direction)
 			local rhs = function()
@@ -85,12 +71,15 @@ return {
 			local desc = "Split " .. direction
 			vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
 		end
+
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "MiniFilesBufferCreate",
 			callback = function(args)
 				local buf_id = args.data.buf_id
 				map_split(buf_id, "gs", "belowright horizontal")
 				map_split(buf_id, "gv", "belowright vertical")
+				vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Show/hide dotfiles" })
+				vim.keymap.set("n", "gd", files_set_cwd, { buffer = args.data.buf_id, desc = "Set cwd" })
 			end,
 		})
 	end,
