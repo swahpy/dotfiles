@@ -12,6 +12,7 @@ return {
 			mappings = {
 				synchronize = "w",
 				go_in_plus = "<CR>",
+				go_out = "-",
 			},
 			-- General options
 			options = {
@@ -30,9 +31,7 @@ return {
 		})
 		--> setup keymap for mini.files
 		vim.keymap.set("n", "-", function()
-			if not files.close() then
-				files.open(vim.api.nvim_buf_get_name(0))
-			end
+			files.open(vim.api.nvim_buf_get_name(0))
 		end, { desc = "Open mini files" })
 		--> show/hide dotfiles
 		local show_dotfiles = true
