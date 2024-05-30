@@ -21,7 +21,17 @@ return {
 				ss = vim.fn.fnamemodify(cwd, ":t")
 			end
 			session.write(ss)
-		end, { desc = "[s]ave a global session" })
+		end, { desc = "[s]ave a global session based on current working directory" })
+		vim.keymap.set("n", "<Leader>sn", function()
+			local cur_session = vim.v.this_session
+			local ss = ""
+			if cur_session and cur_session ~= "" then
+				ss = vim.fn.fnamemodify(cur_session, ":t")
+			else
+				ss = vim.fn.input("Please enter new session name: \n> ")
+			end
+			session.write(ss)
+		end, { desc = "Create a new session" })
 		vim.keymap.set("n", "<Leader>sl", function()
 			session.write(session.config.file)
 		end, { desc = "save a [l]ocal session" })
