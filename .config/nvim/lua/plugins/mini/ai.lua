@@ -7,6 +7,11 @@ return {
 		local ai = require("mini.ai")
 		ai.setup({
 			n_lines = 500,
+			mappings = {
+				-- Move cursor to corresponding edge of `a` textobject
+				goto_left = "[[",
+				goto_right = "]]",
+			},
 			custom_textobjects = {
 				o = ai.gen_spec.treesitter({
 					a = { "@block.outer", "@conditional.outer", "@loop.outer" },
@@ -16,8 +21,8 @@ return {
 				c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
 				t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
 				d = { "%f[%d]%d+" }, -- digits
-				h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- between space
-				j = { "%f[%C][ \t]*.*%f[%c]" }, -- a whole line
+				h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- match content between space
+				j = { "%f[^%c][^%c]*" }, -- match whole line
 				e = { -- Word with case
 					{
 						"%u[%l%d]+%f[^%l%d]",
