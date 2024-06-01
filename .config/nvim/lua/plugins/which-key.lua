@@ -15,6 +15,7 @@ return {
 	config = function(_, opts)
 		local wk = require("which-key")
 		wk.register({
+			["<leader>b"] = { name = "+buffers" },
 			["<leader>c"] = { name = "+code" },
 			["<leader>p"] = { name = "+pomo" },
 			["<leader>s"] = { name = "+session" },

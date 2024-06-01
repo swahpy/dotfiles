@@ -31,6 +31,11 @@ map("n", "<leader>wk", "<cmd>resize +6<cr>", { desc = "Increase Window Height" }
 map("n", "<leader>wj", "<cmd>resize -6<cr>", { desc = "Decrease Window Height" })
 map("n", "<leader>wl", "<cmd>vertical resize +6<cr>", { desc = "Increase Window Width" })
 map("n", "<leader>wh", "<cmd>vertical resize -6<cr>", { desc = "Decrease Window Width" })
+-- Move window
+map("n", "<leader>wK", "<C-w>K", { desc = "Move window to top" })
+map("n", "<leader>wJ", "<C-w>J", { desc = "Move window to bottom" })
+map("n", "<leader>wH", "<C-w>H", { desc = "Move window to left" })
+map("n", "<leader>wL", "<C-w>L", { desc = "Move window to right" })
 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
@@ -80,3 +85,17 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 -- undo & redo
 map("i", "<C-u>", "<cmd>undo<cr>", { desc = "Undo in insert mode" })
 map("i", "<C-r>", "<cmd>redo<cr>", { desc = "Redo in insert mode" })
+
+-- Buffers
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Goto right buffer" })
+map("n", "<S-h>", "<cmd>bprev<cr>", { desc = "Goto left buffer" })
+map("n", "<leader>bp", "<cmd>b#<cr>", { desc = "Goto previous buffer" })
+map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "Goto first buffer" })
+map("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Goto last buffer" })
+map("n", "<leader>bm", "<cmd>bmod<cr>", { desc = "Goto next buffer" })
+map("n", "<leader>ba", "<cmd>buffers<cr>", { desc = "List all listed-buffers" })
+map("n", "<leader>bg", function()
+	local buf = vim.fn.input("Please enter the buffer number you want to go: \n> ")
+	vim.cmd("buffer " .. buf)
+end, { desc = "List all listed-buffers" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete current buffer" })
