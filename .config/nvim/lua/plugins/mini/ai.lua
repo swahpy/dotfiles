@@ -22,7 +22,7 @@ return {
 				t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
 				d = { "%f[%d]%d+" }, -- digits
 				h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- match content between space
-				j = { "%f[^%c][^%c]*" }, -- match whole line
+				j = { "%f[^%c][^%c]*", "^%s*().-()%s*$" }, -- match whole line
 				e = { -- Word with case
 					{
 						"%u[%l%d]+%f[^%l%d]",
