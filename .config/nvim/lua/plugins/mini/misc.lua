@@ -7,7 +7,6 @@ return {
 			-- Array of fields to make global (to be used as independent variables)
 			make_global = { "put", "put_text" },
 		})
-		misc.setup_auto_root()
 		misc.setup_restore_cursor()
 		--> keymaps
 		local map = vim.keymap.set
