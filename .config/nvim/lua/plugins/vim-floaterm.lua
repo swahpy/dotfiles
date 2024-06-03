@@ -11,7 +11,7 @@ return {
 		--> setup floaterm keymaps
 		local wk = require("which-key")
 		wk.register({
-			["<leader>a"] = {
+			["<leader>t"] = {
 				name = "floaterm",
 				O = {
 					function()
