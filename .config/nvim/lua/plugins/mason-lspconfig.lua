@@ -15,7 +15,7 @@ return {
 			"gopls",
 			"jsonls",
 			"lua_ls",
-			"marksman",
+			"markdown_oxide",
 			"pyright",
 			"yamlls",
 		},
@@ -67,13 +67,42 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+		-- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+		-- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+		capabilities.workspace = {
+			didChangeWatchedFiles = {
+				dynamicRegistration = true,
+			},
+		}
 		local lspconfig = require("lspconfig")
 		local handlers = {
 			-- default handler for installed servers
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
+				})
+			end,
+			--> setup for markdown_oxide
+			["markdown_oxide"] = function()
+				lspconfig.markdown_oxide.setup({
+					capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						-- refresh codelens on TextChanged and InsertLeave as well
+						vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach" }, {
+							buffer = bufnr,
+							callback = vim.lsp.codelens.refresh,
+						})
+						-- trigger codelens refresh
+						vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+						-- setup Markdown Oxide daily note commands
+						if client.name == "markdown_oxide" then
+							vim.api.nvim_create_user_command("Daily", function(args)
+								local input = args.args
+								vim.lsp.buf.execute_command({ command = "jump", arguments = { input } })
+							end, { desc = "Open daily note", nargs = "*" })
+						end
+					end,
 				})
 			end,
 			--> setup for lua language server
@@ -147,7 +176,6 @@ return {
 				"yq",
 				"codespell",
 				"ruff",
-				"markdownlint",
 				"golangci-lint",
 			},
 		})
