@@ -6,7 +6,7 @@ return {
 		session.setup({
 			directory = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"),
 			-- Whether to read latest session if Neovim opened without file arguments
-			autoread = true,
+			-- autoread = true,
 			-- File for local session (use `''` to disable)
 			file = "Session.vim",
 		})
