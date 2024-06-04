@@ -75,7 +75,7 @@ return {
 			pattern = "MiniFilesBufferCreate",
 			callback = function(args)
 				local buf_id = args.data.buf_id
-				map_split(buf_id, "gs", "belowright horizontal")
+				map_split(buf_id, "gx", "belowright horizontal")
 				map_split(buf_id, "gv", "belowright vertical")
 				vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Show/hide dotfiles" })
 				vim.keymap.set("n", "gd", files_set_cwd, { buffer = args.data.buf_id, desc = "Set cwd" })
