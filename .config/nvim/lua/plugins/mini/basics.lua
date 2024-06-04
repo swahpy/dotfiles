@@ -11,7 +11,14 @@ return {
 				-- Extra UI features ('winblend', 'cmdheight=0', ...)
 				extra_ui = true,
 				-- Presets for window borders ('single', 'double', ...)
-				win_borders = "default",
+				win_borders = "bold",
+			},
+			mappings = {
+				windows = true,
+				move_with_alt = true,
+			},
+			autocommands = {
+				relnum_in_visual_mode = true,
 			},
 		})
 	end,
