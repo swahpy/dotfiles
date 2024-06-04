@@ -4,16 +4,6 @@ return {
 	"yorickpeterse/nvim-tree-pairs", -- to fix % jump with tree-sitter
 	"RRethy/nvim-treesitter-endwise",
 	{
-		"szw/vim-maximizer",
-		keys = {
-			{
-				"<leader>wm",
-				"<cmd>MaximizerToggle<CR>",
-				desc = "Maximize/minimize a split window",
-			},
-		},
-	},
-	{
 		"kylechui/nvim-surround",
 		-- Use for stability; omit to use `main` branch for the latest features
 		version = "*",
