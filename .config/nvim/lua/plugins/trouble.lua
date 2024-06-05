@@ -1,9 +1,9 @@
 return {
 	"folke/trouble.nvim",
-	branch = "dev", -- IMPORTANT!
 	opts = {
 		focus = true,
 	},
+	cmd = "Trouble",
 	keys = {
 		{
 			"<leader>ct",
@@ -11,13 +11,13 @@ return {
 			desc = "Diagnostics (Trouble)",
 		},
 		{
-			"<leader>cT",
+			"<leader>cb",
 			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
 			desc = "Buffer Diagnostics (Trouble)",
 		},
 		{
 			"<leader>cs",
-			"<cmd>Trouble symbols toggle<cr>",
+			"<cmd>Trouble symbols toggle focus=false<cr>",
 			desc = "Symbols (Trouble)",
 		},
 		{
