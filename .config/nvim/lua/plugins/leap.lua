@@ -1,11 +1,12 @@
 return {
 	"ggandor/leap.nvim",
+	enabled = true,
 	lazy = false,
 	keys = {
-		{ "s", mode = { "n" }, desc = "Leap Forward or Backward to" },
-		{ "S", mode = { "n" }, desc = "Leap from windows" },
-		{ "s", mode = { "x", "o" }, desc = "Leap Forward to" },
-		{ "S", mode = { "x", "o" }, desc = "Leap Backward to" },
+		{ "S", mode = { "n" }, desc = "Leap Forward or Backward to" },
+		{ "<A-s>", mode = { "n" }, desc = "Leap from windows" },
+		-- { "s", mode = { "x", "o" }, desc = "Leap Forward to" },
+		{ "S", mode = { "x", "o" }, desc = "Leap Forward or Backward to" },
 	},
 	config = function(_, opts)
 		local leap = require("leap")
@@ -13,10 +14,10 @@ return {
 			leap.opts[k] = v
 		end
 		local map = vim.keymap.set
-		map("n", "s", "<Plug>(leap)")
-		map("n", "S", "<Plug>(leap-from-window)")
-		map({ "x", "o" }, "s", "<Plug>(leap-forward)")
-		map({ "x", "o" }, "S", "<Plug>(leap-backward)")
+		map("n", "S", "<Plug>(leap)")
+		map("n", "<A-s>", "<Plug>(leap-from-window)")
+		map({ "x", "o" }, "S", "<Plug>(leap)")
+		-- map({ "x", "o" }, "S", "<Plug>(leap-backward)")
 		-- Define equivalence classes for brackets and quotes, in addition to
 		-- the default whitespace group.
 		leap.opts.equivalence_classes = { " \t\r\n", "([{", ")]}", "'\"`" }
