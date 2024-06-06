@@ -31,3 +31,5 @@ opt.autoread = true
 -- previous/next line when the cursor is on the first/last character in
 -- the line.
 opt.whichwrap = "<,>,[,]"
+
+opt.textwidth = 120
