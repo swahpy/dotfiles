@@ -10,6 +10,7 @@ return {
 	opts = {
 		ensure_installed = {
 			"ansiblels",
+			"bashls",
 			"dockerls",
 			"docker_compose_language_service",
 			"gopls",
@@ -177,6 +178,8 @@ return {
 				"codespell",
 				"ruff",
 				"golangci-lint",
+				"shellcheck",
+				"shfmt",
 			},
 		})
 		--> setup keymaps
