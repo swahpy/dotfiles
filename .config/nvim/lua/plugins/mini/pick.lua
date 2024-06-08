@@ -3,6 +3,18 @@ return {
 	version = false,
 	config = function()
 		local pick = require("mini.pick")
+		-- Centered on screen
+		local win_config = function()
+			local height = math.floor(0.618 * vim.o.lines)
+			local width = math.floor(0.618 * vim.o.columns)
+			return {
+				anchor = "NW",
+				height = height,
+				width = width,
+				row = math.floor(0.5 * (vim.o.lines - height)),
+				col = math.floor(0.5 * (vim.o.columns - width)),
+			}
+		end
 		pick.setup({
 			-- Keys for performing actions. See `:h MiniPick-actions`.
 			mappings = {
@@ -43,6 +55,9 @@ return {
 				-- Whether to cache matches (more speed and memory on repeated prompts)
 				use_cache = true,
 			},
+			window = {
+				config = win_config,
+			},
 			-- Source definition. See `:h MiniPick-source`.
 			source = {
 				items = nil,
@@ -50,12 +65,27 @@ return {
 				cwd = nil,
 
 				match = nil,
-				show = nil,
+				show = pick.default_show,
 				preview = nil,
 
 				choose = nil,
 				choose_marked = nil,
 			},
 		})
+		--> keymaps
+		local map = vim.keymap.set
+		local builtin = pick.builtin
+		map("n", "<leader>pb", function()
+			builtin.buffers()
+		end, { desc = "Pick from buffers" })
+		map("n", "<leader>pf", function()
+			builtin.files()
+		end, { desc = "Pick from files" })
+		map("n", "<leader>pg", function()
+			builtin.grep_live()
+		end, { desc = "Pick from pattern matches with live feedback" })
+		map("n", "<leader>ph", function()
+			builtin.help()
+		end, { desc = "Pick from help tags" })
 	end,
 }
