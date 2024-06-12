@@ -44,10 +44,10 @@ return {
 				refine = "<A-r>",
 				refine_marked = "<C-r>",
 
-				scroll_down = "<C-d>",
-				scroll_left = "<C-b>",
-				scroll_right = "<C-f>",
-				scroll_up = "<C-u>",
+				scroll_down = "<A-d>",
+				scroll_left = "<A-b>",
+				scroll_right = "<A-f>",
+				scroll_up = "<A-u>",
 			},
 
 			-- General options
