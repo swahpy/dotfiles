@@ -3,6 +3,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local map = vim.keymap.set -- for conciseness
+local nmap_leader = function(suffix, rhs, desc)
+	vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
+end
+local xmap_leader = function(suffix, rhs, desc)
+	vim.keymap.set("x", "<Leader>" .. suffix, rhs, { desc = desc })
+end
 
 ---------------------
 -- General Keymaps -------------------
@@ -15,13 +21,13 @@ map("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- map("n", ":", ":<C-f>", { desc = "Open commandline window instead of just commandline" })
 
 -- window management
-map("n", "<leader>we", "<C-w>=", { desc = "Make splits equal size" })
-map("n", "<leader>ww", "<cmd>close<CR>", { desc = "Close current split window" })
+nmap_leader("we", "<C-w>=", "Make splits equal size")
+nmap_leader("ww", "<cmd>close<CR>", "Close current split window")
 -- Move window
-map("n", "<leader>wK", "<C-w>K", { desc = "Move window to top" })
-map("n", "<leader>wJ", "<C-w>J", { desc = "Move window to bottom" })
-map("n", "<leader>wH", "<C-w>H", { desc = "Move window to left" })
-map("n", "<leader>wL", "<C-w>L", { desc = "Move window to right" })
+nmap_leader("wK", "<C-w>K", "Move window to top")
+nmap_leader("wJ", "<C-w>J", "Move window to bottom")
+nmap_leader("wH", "<C-w>H", "Move window to left")
+nmap_leader("wL", "<C-w>L", "Move window to right")
 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
@@ -49,7 +55,7 @@ map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
 map("v", ">", ">gv", { noremap = true, silent = true, desc = "" })
 
 -- Lazy
-map("n", "<leader><leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy Pane" })
+nmap_leader("<leader>l", "<cmd>Lazy<cr>", "Open Lazy Pane")
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -66,12 +72,12 @@ map("i", "<C-r>", "<cmd>redo<cr>", { desc = "Redo in insert mode" })
 -- Buffers
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Goto right buffer" })
 map("n", "<S-h>", "<cmd>bprev<cr>", { desc = "Goto left buffer" })
-map("n", "<leader>bp", "<cmd>b#<cr>", { desc = "Goto previous buffer" })
-map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "Goto first buffer" })
-map("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Goto last buffer" })
-map("n", "<leader>bn", "<cmd>bmod<cr>", { desc = "Goto next buffer" })
-map("n", "<leader>ba", "<cmd>buffers<cr>", { desc = "List all listed-buffers" })
-map("n", "<leader>bg", function()
+nmap_leader("bp", "<cmd>b#<cr>", "Goto previous buffer")
+nmap_leader("bf", "<cmd>bfirst<cr>", "Goto first buffer")
+nmap_leader("bl", "<cmd>blast<cr>", "Goto last buffer")
+nmap_leader("bn", "<cmd>bmod<cr>", "Goto next buffer")
+nmap_leader("ba", "<cmd>buffers<cr>", "List all listed-buffers")
+nmap_leader("bg", function()
 	local buf = vim.fn.input("Please enter the buffer number you want to go: \n> ")
 	vim.cmd("buffer " .. buf)
-end, { desc = "List all listed-buffers" })
+end, "List all listed-buffers")
