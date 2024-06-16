@@ -15,10 +15,5 @@ return {
 		config = function()
 			require("treesj").setup()
 		end,
-		keys = {
-			{ "<leader><leader>t", "<cmd>TSJToggle<cr>", desc = "[T]oggle join and split" },
-			{ "<leader><leader>j", "<cmd>TSJJoin<cr>", desc = "[J]oin node under cursor" },
-			{ "<leader><leader>s", "<cmd>TSJSplit<cr>", desc = "[S]plit node under cursor" },
-		},
 	},
 }

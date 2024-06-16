@@ -1,6 +1,5 @@
 return {
 	"echasnovski/mini.pick",
-	version = false,
 	config = function()
 		local pick = require("mini.pick")
 		-- Centered on screen
@@ -86,6 +85,9 @@ return {
 		end, { desc = "Pick from pattern matches with live feedback" })
 		map("n", "<leader>ph", function()
 			builtin.help()
+		end, { desc = "Pick from help tags" })
+		map("n", "<leader>pr", function()
+			builtin.resume()
 		end, { desc = "Pick from help tags" })
 	end,
 }

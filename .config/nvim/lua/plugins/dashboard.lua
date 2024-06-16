@@ -53,7 +53,4 @@ return {
 			winbar = true, -- hide winbar
 		},
 	},
-	keys = {
-		{ "<leader>d", "<cmd>Dashboard<cr>", desc = "Open dashboard" },
-	},
 }
