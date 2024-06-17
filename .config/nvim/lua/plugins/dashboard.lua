@@ -53,4 +53,12 @@ return {
 			winbar = true, -- hide winbar
 		},
 	},
+	config = function(_, opts)
+		local db = require("dashboard")
+		db.setup(opts)
+		local nmap_leader = function(suffix, rhs, desc)
+			vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
+		end
+		nmap_leader("d", "<cmd>Dashboard<cr>", "Open dashboard")
+	end,
 }

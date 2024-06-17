@@ -81,9 +81,3 @@ nmap_leader("bg", function()
 	local buf = vim.fn.input("Please enter the buffer number you want to go: \n> ")
 	vim.cmd("buffer " .. buf)
 end, "List all listed-buffers")
--- dashboard
-nmap_leader("d", "<cmd>Dashboard<cr>", "Open dashboard")
--- tresssj
-nmap_leader("<leader>t", "<cmd>TSJToggle<cr>", "[T]oggle join and split")
-nmap_leader("<leader>s", "<cmd>TSJSplit<cr>", "[S]plit node under cursor")
-nmap_leader("<leader>j", "<cmd>TSJSplit<cr>", "[J]oin node under cursor")

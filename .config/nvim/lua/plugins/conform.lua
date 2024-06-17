@@ -1,7 +1,5 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
 	init = function()
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
@@ -36,7 +34,7 @@ return {
 			},
 		}
 		vim.keymap.set({ "n", "v" }, "<leader><leader>f", function()
-			require("conform").format({ timeout_ms = 500, lsp_fallback = true })
+			conform.format({ timeout_ms = 500, lsp_fallback = true })
 		end, { desc = "Format buffer" })
 	end,
 }
