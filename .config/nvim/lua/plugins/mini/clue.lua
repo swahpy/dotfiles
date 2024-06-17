@@ -10,7 +10,8 @@ return {
 				{ mode = "x", keys = "<leader>" },
 				-- Built-in completion
 				{ mode = "i", keys = "<C-x>" },
-
+				-- `\` key
+				{ mode = "n", keys = "\\" },
 				-- `g` key
 				{ mode = "n", keys = "g" },
 				{ mode = "x", keys = "g" },
