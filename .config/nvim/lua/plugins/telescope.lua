@@ -63,7 +63,7 @@ return {
 		ts.setup(opts)
 		ts.load_extension("fzf")
 		-- used for yanky.nvim
-		ts.load_extension("yank_history")
+		-- ts.load_extension("yank_history")
 		-- used for noice
 		ts.load_extension("noice")
 		-- used for persisted. if you want lazy loading, then comment below line.
@@ -168,7 +168,7 @@ return {
 				T = { "<cmd>TodoTelescope<cr>", "[t]odos" },
 				n = { "<cmd>NoiceTelescope<cr>", "[n]oice messages history" },
 				s = { "<cmd>Telescope persisted<cr>", "[s]ession list" },
-				y = { "<cmd>Telescope yank_history<cr>", "[y]anky history" },
+				-- y = { "<cmd>Telescope yank_history<cr>", "[y]anky history" },
 			},
 		})
 	end,

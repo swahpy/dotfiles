@@ -35,18 +35,8 @@ return {
 				"--",
 			},
 		}
+		vim.keymap.set({ "n", "v" }, "<leader><leader>f", function()
+			require("conform").format({ timeout_ms = 500, lsp_fallback = true })
+		end, { desc = "Format buffer" })
 	end,
-	keys = {
-		{
-			"<leader><leader>f",
-			function()
-				require("conform").format({
-					timeout_ms = 500,
-					lsp_fallback = true,
-				})
-			end,
-			mode = { "n", "v" },
-			desc = "Format buffer",
-		},
-	},
 }

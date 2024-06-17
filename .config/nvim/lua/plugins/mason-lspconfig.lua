@@ -183,51 +183,21 @@ return {
 			},
 		})
 		--> setup keymaps
-		local wk = require("which-key")
-		wk.register({
-			["<leader>m"] = {
-				name = "+mason",
-				m = {
-					"<cmd>Mason<cr>",
-					"[M]ason open",
-				},
-				L = {
-					"<cmd>MasonLog<cr>",
-					"[L]og of mason",
-				},
-			},
-			["<leader>ml"] = {
-				name = "+lspconfig",
-				i = {
-					function()
-						local servers = vim.fn.input("Please enter lsp servers to install: ")
-						vim.cmd("LspInstall " .. servers)
-					end,
-					"[M]ason install lsp servers",
-				},
-				u = {
-					function()
-						local servers = vim.fn.input("Please enter lsp servers to install: ")
-						vim.cmd("LspUninstall " .. servers)
-					end,
-					"[U]ninstall mason lsp servers",
-				},
-			},
-			["<leader>mt"] = {
-				name = "+formatter",
-				i = {
-					"<cmd>MasonToolsInstall<cr>",
-					"[I]install mason formatters via mason-tool-installer",
-				},
-				u = {
-					"<cmd>MasonToolsInstall<cr>",
-					"[U]pdate mason formatters via mason-tool-installer",
-				},
-				c = {
-					"<cmd>MasonToolsClean<cr>",
-					"[C]lean mason linters not in ensure_installed list",
-				},
-			},
-		})
+		local nmap_leader = function(suffix, rhs, desc)
+			vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
+		end
+		nmap_leader("mm", "<cmd>Mason<cr>", "[M]ason open")
+		nmap_leader("mL", "<cmd>MasonLog<cr>", "[L]og of mason")
+		nmap_leader("mli", function()
+			local servers = vim.fn.input("Please enter lsp servers to install: ")
+			vim.cmd("LspInstall " .. servers)
+		end, "[M]ason install lsp servers")
+		nmap_leader("mlu", function()
+			local servers = vim.fn.input("Please enter lsp servers to install: ")
+			vim.cmd("LspUninstall " .. servers)
+		end, "[U]ninstall mason lsp servers")
+		nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "[I]install mason formatters via mason-tool-installer")
+		nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "[U]pdate mason formatters via mason-tool-installer")
+		nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "[C]lean mason linters not in ensure_installed list")
 	end,
 }
