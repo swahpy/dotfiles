@@ -74,7 +74,6 @@ return {
 				clue.gen_clues.z(),
 				{ mode = "n", keys = "<Leader>b", desc = "+Buffers" },
 				{ mode = "n", keys = "<Leader>c", desc = "+Code" },
-				{ mode = "n", keys = "<Leader>l", desc = "+LSP" },
 				{ mode = "n", keys = "<Leader>m", desc = "+Mason" },
 				{ mode = "n", keys = "<Leader>p", desc = "+Pick" },
 				{ mode = "n", keys = "<Leader>s", desc = "+Session" },
