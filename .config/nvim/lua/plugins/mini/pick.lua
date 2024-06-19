@@ -74,19 +74,19 @@ return {
 		--> keymaps
 		local map = vim.keymap.set
 		local builtin = pick.builtin
-		map("n", "<leader>pb", function()
+		map("n", "<leader>fb", function()
 			builtin.buffers()
 		end, { desc = "Pick from buffers" })
-		map("n", "<leader>pf", function()
+		map("n", "<leader>ff", function()
 			builtin.files()
 		end, { desc = "Pick from files" })
-		map("n", "<leader>pg", function()
+		map("n", "<leader>fg", function()
 			builtin.grep_live()
 		end, { desc = "Pick from pattern matches with live feedback" })
-		map("n", "<leader>ph", function()
+		map("n", "<leader>fh", function()
 			builtin.help()
 		end, { desc = "Pick from help tags" })
-		map("n", "<leader>pr", function()
+		map("n", "<leader>fr", function()
 			builtin.resume()
 		end, { desc = "Pick from help tags" })
 	end,
