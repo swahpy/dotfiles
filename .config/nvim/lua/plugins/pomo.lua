@@ -73,5 +73,4 @@ return {
 			vim.cmd("TimerResume " .. timerId)
 		end, "[r]esume timer")
 	end,
-	keys = {},
 }
