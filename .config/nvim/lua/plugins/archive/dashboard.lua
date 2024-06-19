@@ -22,7 +22,7 @@ return {
 			-- disable_move  = true, -- boolean default is false disable move key
 			shortcut = {
 				{ desc = "💤 Lazy", group = "lazy", action = "Lazy", key = "L" },
-				{ desc = " File Explorer", group = "oil", action = "Oil", key = "e" },
+				-- { desc = " File Explorer", group = "oil", action = "Oil", key = "e" },
 				-- { desc = "󰮗 Find Files", group = "telescope", action = "Telescope find_files", key = "f" },
 				-- { desc = " Recent Files", group = "telescope", action = "Telescope oldfiles", key = "r" },
 				{ desc = " New File", group = "vim", action = "ene | startinsert", key = "n" },

@@ -8,7 +8,7 @@ return {
 			-- Whether to read latest session if Neovim opened without file arguments
 			-- autoread = true,
 			-- File for local session (use `''` to disable)
-			file = "Session.vim",
+			file = "session.vim",
 		})
 		--> keymaps
 		vim.keymap.set("n", "<Leader>ss", function()
