@@ -55,6 +55,7 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH:$GOPATH/bin"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep.conf"
 
 # End setup for ble.sh
 [[ ${BLE_VERSION-} ]] && ble-attach

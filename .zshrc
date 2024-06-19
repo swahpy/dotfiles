@@ -114,7 +114,8 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 PATH="$PATH:/Users/I539906/nvim-macos/bin/:/opt/homebrew/bin/"
 export PYENV_ROOT="$HOME/.submodules/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep.conf"
 
+eval "$(pyenv init -)"
 # To enable starship
 eval "$(starship init zsh)"
