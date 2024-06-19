@@ -10,7 +10,7 @@ return {
 		-- For completion
 		"hrsh7th/nvim-cmp",
 		-- For pickers
-		"nvim-telescope/telescope.nvim",
+		-- "nvim-telescope/telescope.nvim",
 		-- For syntax highlighting
 		"nvim-treesitter/nvim-treesitter",
 		-- For running lightweight timer

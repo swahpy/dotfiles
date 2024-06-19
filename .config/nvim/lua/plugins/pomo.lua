@@ -38,12 +38,6 @@ return {
 	config = function(_, opts)
 		require("pomo").setup(opts)
 
-		require("telescope").load_extension("pomodori")
-
-		vim.keymap.set("n", "<leader>fp", function()
-			require("telescope").extensions.pomodori.timers()
-		end, { desc = "[P]omodori Timers" })
-
 		--> setup key bindings
 		local nmap_leader = function(suffix, rhs, desc)
 			vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })

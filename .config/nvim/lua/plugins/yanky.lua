@@ -1,26 +1,26 @@
 return {
 	"gbprod/yanky.nvim",
 	config = function(_, opts)
-		local pk = require("yanky.picker")
-		local map = require("yanky.telescope.mapping")
+		-- local pk = require("yanky.picker")
+		-- local map = require("yanky.telescope.mapping")
 		local yk = require("yanky")
 		yk.setup(opts)
 		yk.setup({
-			picker = {
-				select = {
-					action = pk.actions.put("gp"),
-				},
-				telescope = {
-					mappings = {
-						i = {
-							["<c-p>"] = map.put("p"),
-							["<c-P>"] = map.put("P"),
-							["<c-d>"] = map.delete(),
-							["<c-r>"] = map.set_register(require("yanky.utils").get_default_register()),
-						},
-					},
-				},
-			},
+			-- picker = {
+			-- 	select = {
+			-- 		action = pk.actions.put("gp"),
+			-- 	},
+			-- 	telescope = {
+			-- 		mappings = {
+			-- 			i = {
+			-- 				["<c-p>"] = map.put("p"),
+			-- 				["<c-P>"] = map.put("P"),
+			-- 				["<c-d>"] = map.delete(),
+			-- 				["<c-r>"] = map.set_register(require("yanky.utils").get_default_register()),
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 		})
 
 		-- yanky
