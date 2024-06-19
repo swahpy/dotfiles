@@ -3,7 +3,7 @@ require("mini.base16").setup({
 		base00 = "#E0E0E0", -- Default Background
 		base01 = "#C0C0C0", -- Lighter Background (Used for status bars, line number and folding marks)
 		base02 = "#909090", -- Selection Background
-		base03 = "#B0B0B0", -- Comments, Invisibles, Line Highlighting
+		base03 = "#A0A0A0", -- Comments, Invisibles, Line Highlighting
 		base04 = "#707070", -- Dark Foreground (Used for status bars)
 		base05 = "#505050", -- Default Foreground, Caret, Delimiters, Operators
 		base06 = "#303030", -- Light Foreground (Not often used)
