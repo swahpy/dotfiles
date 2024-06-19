@@ -49,44 +49,17 @@ return {
 		noice.setup(opts)
 
 		-- setup keymaps for noice
-		local wk = require("which-key")
-		wk.register({
-			["<leader>n"] = {
-				name = "+noice",
-				a = {
-					"<cmd>Noice<cr>",
-					"Show message history",
-				},
-				l = {
-					"<cmd>NoiceLast<cr>",
-					"Show last message",
-				},
-				d = {
-					"<cmd>NoiceDismiss<cr>",
-					"Dismiss all messages",
-				},
-				e = {
-					"<cmd>NoiceErrors<cr>",
-					"Show error messages",
-				},
-				D = {
-					"<cmd>NoiceDisable<cr>",
-					"[D]isable noice",
-				},
-				E = {
-					"<cmd>NoiceEnable<cr>",
-					"[E]nable noice",
-				},
-				s = {
-					"<cmd>NoiceStats<cr>",
-					"Show debugging stats",
-				},
-				w = {
-					"<cmd>NoiceWarnings<cr>",
-					"Show warning messages",
-				},
-			},
-		})
+		local nmap_leader = function(suffix, rhs, desc)
+			vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
+		end
+		nmap_leader("na", "<cmd>Noice<cr>", "+noice message history")
+		nmap_leader("nl", "<cmd>NoiceLast<cr>", "+last message")
+		nmap_leader("nd", "<cmd>NoiceDismiss<cr>", "+dismiss all messages")
+		nmap_leader("ne", "<cmd>NoiceErrors<cr>", "+error messages")
+		nmap_leader("nD", "<cmd>NoiceDisable<cr>", "+disable noice")
+		nmap_leader("nE", "<cmd>NoiceEnable<cr>", "+enable noice")
+		nmap_leader("ns", "<cmd>NoiceStats<cr>", "+debugging stats")
+		nmap_leader("nw", "<cmd>NoiceWarnings<cr>", "+warning messages")
 		vim.keymap.set({ "n", "i", "s" }, "<A-u>", function()
 			if not require("noice.lsp").scroll(4) then
 				return "<A-u>"

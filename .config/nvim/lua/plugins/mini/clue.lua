@@ -76,6 +76,7 @@ return {
 				{ mode = "n", keys = "<Leader>c", desc = "+Code" },
 				{ mode = "x", keys = "<Leader>c", desc = "+Code" },
 				{ mode = "n", keys = "<Leader>m", desc = "+Mason" },
+				{ mode = "n", keys = "<Leader>n", desc = "+Noice" },
 				{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
 				{ mode = "x", keys = "<Leader>o", desc = "+Obsidian" },
 				{ mode = "n", keys = "<Leader>p", desc = "+Pick" },

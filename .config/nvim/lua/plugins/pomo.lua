@@ -45,61 +45,33 @@ return {
 		end, { desc = "[P]omodori Timers" })
 
 		--> setup key bindings
-		local wk = require("which-key")
-		wk.register({
-			["<leader>p"] = {
-				name = "+[p]omodori",
-			},
-		})
+		local nmap_leader = function(suffix, rhs, desc)
+			vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
+		end
+		nmap_leader("pc", function()
+			local params = vim.fn.input("Pomo parameters - time-limit name(could be empty): ")
+			vim.cmd("TimerStart " .. params)
+		end, "[c]reate a timer")
+		nmap_leader("po", function()
+			local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
+			vim.cmd("TimerStop " .. timerId)
+		end, "st[o]p timer")
+		nmap_leader("ph", function()
+			local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
+			vim.cmd("TimerHide " .. timerId)
+		end, "[h]ide timer")
+		nmap_leader("ps", function()
+			local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
+			vim.cmd("TimerShow " .. timerId)
+		end, "[s]how timer")
+		nmap_leader("pp", function()
+			local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
+			vim.cmd("TimerPause " .. timerId)
+		end, "[p]ause timer")
+		nmap_leader("pr", function()
+			local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
+			vim.cmd("TimerResume " .. timerId)
+		end, "[r]esume timer")
 	end,
-	keys = {
-		{
-			"<leader>pc",
-			function()
-				local params = vim.fn.input("Pomo parameters - time-limit name(could be empty): ")
-				vim.cmd("TimerStart " .. params)
-			end,
-			desc = "[c]reate a timer",
-		},
-		{
-			"<leader>po",
-			function()
-				local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
-				vim.cmd("TimerStop " .. timerId)
-			end,
-			desc = "st[o]p timer",
-		},
-		{
-			"<leader>ph",
-			function()
-				local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
-				vim.cmd("TimerHide " .. timerId)
-			end,
-			desc = "[h]ide timer",
-		},
-		{
-			"<leader>ps",
-			function()
-				local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
-				vim.cmd("TimerShow " .. timerId)
-			end,
-			desc = "[s]how timer",
-		},
-		{
-			"<leader>pp",
-			function()
-				local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
-				vim.cmd("TimerPause " .. timerId)
-			end,
-			desc = "[p]ause timer",
-		},
-		{
-			"<leader>pr",
-			function()
-				local timerId = vim.fn.input("Pomo timer ID(empty for latest): ")
-				vim.cmd("TimerResume " .. timerId)
-			end,
-			desc = "[r]esume timer",
-		},
-	},
+	keys = {},
 }

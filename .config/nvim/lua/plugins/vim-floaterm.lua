@@ -49,10 +49,5 @@ return {
 			vim.cmd("FloatermToggle " .. name)
 		end, "+toggle a floaterm window")
 		nmap_leader("tu", "<cmd>FloatermUpdate<cr>", "Update floaterm window attributes")
-
-		local wk = require("which-key")
-		wk.register({
-			["<leader>t"] = {},
-		})
 	end,
 }
