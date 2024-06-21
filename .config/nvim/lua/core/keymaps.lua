@@ -8,7 +8,7 @@ local nmap_leader = function(suffix, rhs, desc)
 end
 
 ---------------------
--- General Keymaps -------------------
+-- General Keymaps --
 ---------------------
 
 -- use jk to exit insert mode
@@ -46,6 +46,8 @@ map("c", "<C-e>", "<End>", { desc = "Move to end" })
 
 -- save and quit buffer
 map("n", "<a-q>", "<cmd>qa<cr>", { desc = "Quit nvim" })
+-- save file
+map({ "i", "x", "n", "s" }, "<A-w>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- indent
 map("v", "<", "<gv", { noremap = true, silent = true, desc = "" })
