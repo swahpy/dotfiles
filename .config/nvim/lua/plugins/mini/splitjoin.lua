@@ -4,7 +4,9 @@ return {
 	config = function()
 		local sj = require("mini.splitjoin")
 		sj.setup({
-			mappings = { toggle = "J" },
+			mappings = {
+				toggle = "<leader>sj",
+			},
 		})
 		-- setup for certain filetypes
 		vim.api.nvim_create_autocmd({ "FileType" }, {
