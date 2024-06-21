@@ -3,6 +3,11 @@ return {
 	version = false,
 	config = function()
 		local jump2d = require("mini.jump2d")
-		jump2d.setup()
+		jump2d.setup({
+			-- Module mappings. Use `''` (empty string) to disable one.
+			mappings = {
+				start_jumping = "<A-CR>",
+			},
+		})
 	end,
 }
