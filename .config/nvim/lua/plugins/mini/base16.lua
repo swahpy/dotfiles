@@ -12,9 +12,9 @@ return {
 				base05 = "#505050", -- Default Foreground, Caret, Delimiters, Operators
 				base06 = "#303030", -- Light Foreground (Not often used)
 				base07 = "#101010", -- Light Background (Not often used)
-				base08 = "#32A22D", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+				base08 = "#ED4841", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 				base09 = "#205710", -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
-				base0A = "#ED4841", -- Classes, Markup Bold, Search Text Background
+				base0A = "#32A22D", -- Classes, Markup Bold, Search Text Background
 				base0B = "#CB4541", -- Strings, Inherited Class, Markup Code, Diff Inserted
 				base0C = "#2F8FFB", -- Support, Regular Expressions, Escape Characters, Markup Quotes
 				base0D = "#0F6FDB", -- Functions, Methods, Attribute IDs, Headings
