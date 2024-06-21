@@ -3,35 +3,6 @@ return {
 	version = false,
 	config = function()
 		local clue = require("mini.clue")
-		local compute_dynamic_width = function(buf_id)
-			local max_width = 0.4 * vim.o.columns
-			local widths = vim.tbl_map(vim.fn.strdisplaywidth, vim.api.nvim_buf_get_lines(buf_id, 0, -1, false))
-			table.sort(widths)
-			for i = #widths, 1, -1 do
-				if widths[i] <= max_width then
-					return widths[i]
-				end
-			end
-
-			return max_width
-		end
-
-		local round = function(x)
-			return math.floor(x + 0.5)
-		end
-
-		local win_config_center = function(buf_id)
-			local height = vim.api.nvim_buf_line_count(buf_id)
-			local width = compute_dynamic_width(buf_id)
-			return {
-
-				height = height,
-				width = width,
-				anchor = "NW",
-				row = round(0.5 * (vim.o.lines - height)),
-				col = round(0.5 * (vim.o.columns - width)),
-			}
-		end
 		clue.setup({
 			triggers = {
 				-- Leader triggers
@@ -84,9 +55,35 @@ return {
 				{ mode = "n", keys = "<Leader>t", desc = "+Terminal" },
 				{ mode = "n", keys = "<Leader>w", desc = "+Window" },
 			},
-			window = {
-				config = win_config_center,
-			},
+			-- local compute_dynamic_width = function(buf_id)
+			--   local max_width = 0.4 * vim.o.columns
+			--   local widths = vim.tbl_map(vim.fn.strdisplaywidth, vim.api.nvim_buf_get_lines(buf_id, 0, -1, false))
+			--   table.sort(widths)
+			--   for i = #widths, 1, -1 do
+			--     if widths[i] <= max_width then
+			--       return widths[i]
+			--     end
+			--   end
+			--
+			--   return max_width
+			-- end
+			--
+			--   local round = function(x)
+			--     return math.floor(x + 0.5)
+			--   end
+			--
+			--   local win_config_center = function(buf_id)
+			--   local height = vim.api.nvim_buf_line_count(buf_id)
+			--   local width = compute_dynamic_width(buf_id)
+			--   return {
+			--
+			--     height = height,
+			--     width = width,
+			--     anchor = "NW",
+			--     row = round(0.5 * (vim.o.lines - height)),
+			--     col = round(0.5 * (vim.o.columns - width)),
+			--   }
+			-- end
 		})
 	end,
 }

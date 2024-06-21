@@ -3,17 +3,17 @@ return {
 	config = function()
 		local pick = require("mini.pick")
 		-- Centered on screen
-		local win_config = function()
-			local height = math.floor(0.618 * vim.o.lines)
-			local width = math.floor(0.618 * vim.o.columns)
-			return {
-				anchor = "NW",
-				height = height,
-				width = width,
-				row = math.floor(0.5 * (vim.o.lines - height)),
-				col = math.floor(0.5 * (vim.o.columns - width)),
-			}
-		end
+		-- local win_config = function()
+		-- 	local height = math.floor(0.618 * vim.o.lines)
+		-- 	local width = math.floor(0.618 * vim.o.columns)
+		-- 	return {
+		-- 		anchor = "NW",
+		-- 		height = height,
+		-- 		width = width,
+		-- 		row = math.floor(0.5 * (vim.o.lines - height)),
+		-- 		col = math.floor(0.5 * (vim.o.columns - width)),
+		-- 	}
+		-- end
 		pick.setup({
 			-- Keys for performing actions. See `:h MiniPick-actions`.
 			mappings = {
@@ -53,9 +53,6 @@ return {
 			options = {
 				-- Whether to cache matches (more speed and memory on repeated prompts)
 				use_cache = true,
-			},
-			window = {
-				config = win_config,
 			},
 			-- Source definition. See `:h MiniPick-source`.
 			source = {
