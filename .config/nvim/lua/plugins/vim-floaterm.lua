@@ -48,6 +48,9 @@ return {
 			local name = vim.fn.input("Please enter floaterm name: ")
 			vim.cmd("FloatermToggle " .. name)
 		end, "+toggle a floaterm window")
-		nmap_leader("tu", "<cmd>FloatermUpdate<cr>", "Update floaterm window attributes")
+		nmap_leader("tu", function()
+			local params = vim.fn.input("Please enter floaterm window attributes: \n> ")
+			vim.cmd("FloatermUpdate " .. params)
+		end, "Update floaterm window attributes")
 	end,
 }
