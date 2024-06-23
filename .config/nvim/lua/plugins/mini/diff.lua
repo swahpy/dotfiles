@@ -7,7 +7,7 @@ return {
 			-- source = diff.gen_source.save(),
 			view = {
 				style = "sign",
-				signs = { add = "+", change = "~", delete = "-" },
+				-- signs = { add = "+", change = "~", delete = "-" },
 			},
 		})
 		vim.keymap.set("n", "<leader><leader>o", function()
