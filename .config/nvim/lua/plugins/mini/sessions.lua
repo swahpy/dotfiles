@@ -30,7 +30,9 @@ return {
 			else
 				ss = vim.fn.input("Please enter new session name: \n> ")
 			end
-			session.write(ss)
+			if ss ~= "" then
+				session.write(ss)
+			end
 		end, { desc = "Create a new session" })
 		vim.keymap.set("n", "<Leader>sl", function()
 			session.write(session.config.file)
