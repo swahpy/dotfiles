@@ -4,7 +4,7 @@ return {
 	config = function()
 		local diff = require("mini.diff")
 		diff.setup({
-			source = diff.gen_source.save(),
+			-- source = diff.gen_source.save(),
 			view = {
 				style = "sign",
 				signs = { add = "+", change = "~", delete = "-" },
