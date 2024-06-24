@@ -3,11 +3,7 @@ return {
 	version = false,
 	config = function()
 		local sj = require("mini.splitjoin")
-		sj.setup({
-			mappings = {
-				toggle = "<leader>sj",
-			},
-		})
+		sj.setup()
 		-- setup for certain filetypes
 		vim.api.nvim_create_autocmd({ "FileType" }, {
 			desc = "Splitjoin behavior for lua file",
@@ -29,5 +25,8 @@ return {
 				end
 			end,
 		})
+		vim.keymap.set("n", "<leader>sj", function()
+			sj.toggle()
+		end, { desc = "+toggle splitjoin" })
 	end,
 }
