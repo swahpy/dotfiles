@@ -25,6 +25,10 @@ nmap_leader("wK", "<C-w>K", "Move window to top")
 nmap_leader("wJ", "<C-w>J", "Move window to bottom")
 nmap_leader("wH", "<C-w>H", "Move window to left")
 nmap_leader("wL", "<C-w>L", "Move window to right")
+nmap_leader("w-", "<cmd>split<cr>", "Split window horizontally")
+nmap_leader("w|", "<cmd>vsplit<cr>", "Split window vertically")
+nmap_leader("wx", "<cmd>split<cr>", "Split window horizontally")
+nmap_leader("wv", "<cmd>vsplit<cr>", "Split window vertically")
 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })
