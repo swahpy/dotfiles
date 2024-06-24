@@ -9,17 +9,4 @@ return {
 		event = "VeryLazy",
 		opts = true,
 	},
-	{
-		"Wansmer/treesj",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("treesj").setup()
-			local nmap_leader = function(suffix, rhs, desc)
-				vim.keymap.set("n", "<Leader>" .. suffix, rhs, { desc = desc })
-			end
-			nmap_leader("<leader>t", "<cmd>TSJToggle<cr>", "+toggle join and split")
-			nmap_leader("<leader>s", "<cmd>TSJSplit<cr>", "+split node under cursor")
-			nmap_leader("<leader>j", "<cmd>TSJSplit<cr>", "+join node under cursor")
-		end,
-	},
 }
