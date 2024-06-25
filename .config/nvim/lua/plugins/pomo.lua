@@ -1,6 +1,6 @@
 return {
 	"epwalsh/pomo.nvim",
-	enabled = false,
+	enabled = true,
 	version = "*", -- Recommended, use latest release instead of latest commit
 	lazy = true,
 	cmd = { "TimerStart", "TimerRepeat" },
