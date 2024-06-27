@@ -27,11 +27,6 @@ opt.hlsearch = true
 -- auto reload file when it is changed outside
 opt.autoread = true
 
--- Allow specified keys that move the cursor left/right to move to the
--- previous/next line when the cursor is on the first/last character in
--- the line.
-opt.whichwrap = "<,>,[,]"
-
 opt.textwidth = 120
 
 -- enable float window and colorscheme work properly
