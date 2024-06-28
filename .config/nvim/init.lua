@@ -120,12 +120,8 @@ now(function()
 	-- ╔═══════════════════════╗
 	-- ║      mini.starter     ║
 	-- ╚═══════════════════════╝
-	-- Get the current hour
 	local current_hour = tonumber(os.date("%H"))
-
-	-- Define the greeting variable
 	local greeting
-
 	if current_hour < 5 then
 		greeting = "  Good night!"
 	elseif current_hour < 12 then
@@ -158,7 +154,7 @@ now(function()
 		footer = "󰃭 " .. os.date("%Y-%m-%d") .. "  " .. os.date("%H:%M:%S") .. " 󱨱 " .. os.date("%A"),
 	})
 end)
--- mini.pick
+-- Safely execute later
 later(function()
 	-- ╔═══════════════════════╗
 	-- ║     dependencies      ║
@@ -334,26 +330,21 @@ later(function()
 			-- `g` key
 			{ mode = "n", keys = "g" },
 			{ mode = "x", keys = "g" },
-
 			-- Marks
 			{ mode = "n", keys = "'" },
 			{ mode = "n", keys = "`" },
 			{ mode = "x", keys = "'" },
 			{ mode = "x", keys = "`" },
-
 			-- Registers
 			{ mode = "n", keys = '"' },
 			{ mode = "x", keys = '"' },
 			{ mode = "i", keys = "<C-r>" },
 			{ mode = "c", keys = "<C-r>" },
-
 			-- Window commands
 			{ mode = "n", keys = "<C-w>" },
-
 			-- `z` key
 			{ mode = "n", keys = "z" },
 			{ mode = "x", keys = "z" },
-
 			-- `[` and `]` key
 			{ mode = "n", keys = "[" },
 			{ mode = "x", keys = "[" },
@@ -368,17 +359,15 @@ later(function()
 			clue.gen_clues.registers(),
 			clue.gen_clues.windows(),
 			clue.gen_clues.z(),
-			{ mode = "n", keys = "<Leader>b", desc = "+Buffers" },
-			{ mode = "n", keys = "<Leader>c", desc = "+Code" },
-			{ mode = "x", keys = "<Leader>c", desc = "+Code" },
-			{ mode = "n", keys = "<Leader>f", desc = "+Find" },
-			{ mode = "n", keys = "<Leader>m", desc = "+Mason" },
-			{ mode = "n", keys = "<Leader>n", desc = "+Noice" },
-			{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
-			{ mode = "x", keys = "<Leader>o", desc = "+Obsidian" },
-			{ mode = "n", keys = "<Leader>s", desc = "+Session" },
-			{ mode = "n", keys = "<Leader>t", desc = "+Terminal" },
-			{ mode = "n", keys = "<Leader>w", desc = "+Window" },
+			{ mode = "n", keys = "<Leader>b", desc = "+buffers" },
+			{ mode = "n", keys = "<Leader>c", desc = "+code" },
+			{ mode = "x", keys = "<Leader>c", desc = "+code" },
+			{ mode = "n", keys = "<Leader>f", desc = "+find" },
+			{ mode = "n", keys = "<Leader>m", desc = "+mason" },
+			{ mode = "n", keys = "<Leader>o", desc = "+obsidian" },
+			{ mode = "x", keys = "<Leader>o", desc = "+obsidian" },
+			{ mode = "n", keys = "<Leader>s", desc = "+session" },
+			{ mode = "n", keys = "<Leader>w", desc = "+window" },
 		},
 	})
 	-- ╔═══════════════════════╗
@@ -752,6 +741,11 @@ later(function()
 	)
 	nmap_leader("cL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
 	nmap_leader("cQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
+	---------------------------
+	-- nvim-highlight-colors --
+	---------------------------
+	add("brenoprata10/nvim-highlight-colors")
+	require("nvim-highlight-colors").setup()
 end)
 
 -- ╔══════════════════════════════════╗
