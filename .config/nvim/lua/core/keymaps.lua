@@ -29,6 +29,10 @@ nmap_leader("w-", "<cmd>split<cr>", "Split window horizontally")
 nmap_leader("w|", "<cmd>vsplit<cr>", "Split window vertically")
 nmap_leader("wx", "<cmd>split<cr>", "Split window horizontally")
 nmap_leader("wv", "<cmd>vsplit<cr>", "Split window vertically")
+nmap_leader("wk", "<C-w><C-k>", "Move focus to top window")
+nmap_leader("wj", "<C-w><C-j>", "Move focus to bottom window")
+nmap_leader("wh", "<C-w><C-h>", "Move focus to left window")
+nmap_leader("wl", "<C-w><C-l>", "Move focus to right window")
 
 -- move and navigation
 map("n", "<C-d>", "12j", { desc = "Scroll down by 12 lines" })

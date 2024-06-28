@@ -5,9 +5,6 @@ return {
 		local session = require("mini.sessions")
 		session.setup({
 			directory = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"),
-			-- Whether to read latest session if Neovim opened without file arguments
-			-- autoread = true,
-			-- File for local session (use `''` to disable)
 			file = "session.vim",
 		})
 		--> keymaps
