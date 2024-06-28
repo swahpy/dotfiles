@@ -54,7 +54,7 @@ obs.setup({
 	-- way then set 'mappings = {}'.
 	mappings = {
 		-- Smart action depending on context, either follow link or toggle checkbox.
-		["<leader><leader>c"] = {
+		["<leader>g"] = {
 			action = function()
 				-- follow link if possible
 				if require("obsidian").util.cursor_on_markdown_link(nil, nil, true) then
