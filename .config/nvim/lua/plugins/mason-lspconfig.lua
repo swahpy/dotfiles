@@ -64,16 +64,23 @@ local handlers = {
 			},
 		})
 	end,
-	["ruff_lsp"] = function()
-		lspconfig.ruff_lsp.setup({
+	["ruff"] = function()
+		lspconfig.ruff.setup({
 			capabilities = capabilities,
 			---@diagnostic disable-next-line:unused-local
 			on_attach = function(client, bufnr)
-				if client.name == "ruff_lsp" then
+				if client.name == "ruff" then
 					-- Disable hover in favor of Pyright
 					client.server_capabilities.hoverProvider = false
 				end
 			end,
+			cmd_env = { RUFF_TRACE = "messages" },
+			init_options = {
+				settings = {
+					logLevel = "debug",
+					logFile = "~/.local/state/nvim/ruff.log",
+				},
+			},
 		})
 	end,
 	-- refer to https://github.com/astral-sh/ruff-lsp/issues/384
@@ -90,6 +97,11 @@ local handlers = {
 						diagnosticSeverityOverrides = {
 							-- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
 							reportUndefinedVariable = "none",
+							-- reportAssignmentType = "none",
+							-- Just put below line here as per official documents, but it doesn't workspace
+							-- so I used above setup to disable certain diagnostics.
+							-- Ignore all files for analysis to exclusively use Ruff for linting
+							ignore = { "*" },
 						},
 					},
 				},
@@ -110,6 +122,7 @@ mlc.setup({
 		"lua_ls",
 		"markdown_oxide",
 		"pyright",
+		"ruff",
 		"yamlls",
 	},
 	handlers = handlers,

@@ -138,7 +138,7 @@ now(function()
 		evaluate_single = true,
 		items = {
 			starter.sections.builtin_actions(),
-			starter.sections.recent_files(6, false),
+			starter.sections.recent_files(12, false),
 			starter.sections.sessions(6, true),
 		},
 		header = ""
@@ -194,9 +194,9 @@ later(function()
 			"shfmt",
 		},
 	})
-	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install formatters")
-	nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "+update formatters")
-	nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "+clean mason linters not in ensure_installed list")
+	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")
+	nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "+update tools")
+	nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "+clean tools not in ensure_installed list")
 	-- mason-lspconfig
 	add("hrsh7th/cmp-nvim-lsp")
 	-- nvim-cmp
@@ -665,7 +665,7 @@ later(function()
 			jason = { "jq" },
 			lua = { "stylua" },
 			markdown = { "markdownlint" },
-			python = { "ruff" },
+			python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
 			yaml = { "yq" },
 		},
 		log_level = vim.log.levels.ERROR,
