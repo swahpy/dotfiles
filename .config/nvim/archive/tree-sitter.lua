@@ -1,3 +1,7 @@
+return {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
 		local ts = require("nvim-treesitter.configs")
 		ts.setup({
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -59,4 +63,5 @@
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 		vim.opt.foldenable = false
-
+	end,
+}

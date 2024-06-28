@@ -32,3 +32,6 @@ opt.textwidth = 120
 -- enable float window and colorscheme work properly
 opt.winblend = 0
 opt.termguicolors = true
+
+-- needed by obsidian plugin
+vim.opt.conceallevel = 2

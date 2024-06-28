@@ -11,7 +11,7 @@ return {
 			},
 		})
 		vim.keymap.set("n", "<leader><leader>o", function()
-			diff.toggle_overlay()
+			diff.toggle_overlay(0)
 		end, { desc = "+mini diff toggle overlay" })
 	end,
 }
