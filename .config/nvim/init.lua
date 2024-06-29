@@ -163,64 +163,6 @@ later(function()
 	-- mini.tabline, mini.files
 	add("nvim-tree/nvim-web-devicons")
 	require("nvim-web-devicons").setup()
-	-- obsidian
-	add("nvim-lua/plenary.nvim")
-	-- obsidian
-	add("hrsh7th/nvim-cmp")
-	-- obsidian
-	add("nvim-treesitter/nvim-treesitter")
-	-- mason-lspconfig
-	add("williamboman/mason.nvim")
-	require("mason").setup()
-	nmap_leader("mm", "<cmd>Mason<cr>", "+mason open")
-	nmap_leader("mL", "<cmd>MasonLog<cr>", "+mason log")
-	-- mason-lspconfig
-	add("neovim/nvim-lspconfig")
-	-- mason-lspconfig
-	add("WhoIsSethDaniel/mason-tool-installer.nvim")
-	require("mason-tool-installer").setup({
-		-- a list of all tools you want to ensure are installed upon start
-		ensure_installed = {
-			"goimports",
-			"gofumpt",
-			"jq",
-			"stylua",
-			"markdownlint",
-			"yq",
-			"codespell",
-			"ruff",
-			"golangci-lint",
-			"shellcheck",
-			"shfmt",
-		},
-	})
-	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")
-	nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "+update tools")
-	nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "+clean tools not in ensure_installed list")
-	-- mason-lspconfig
-	add("hrsh7th/cmp-nvim-lsp")
-	-- nvim-cmp
-	add("hrsh7th/cmp-buffer")
-	-- nvim-cmp
-	add("hrsh7th/cmp-path")
-	-- nvim-cmp
-	add("hrsh7th/cmp-cmdline")
-	-- nvim-cmp
-	add({
-		source = "L3MON4D3/LuaSnip",
-		checkout = "v2.3.0",
-		hooks = {
-			post_checkout = function()
-				vim.cmd("make install_jsregexp")
-			end,
-		},
-	})
-	-- nvim-cmp, L3MON4D3/LuaSnip
-	add("rafamadriz/friendly-snippets")
-	-- nvim-cmp
-	add("saadparwaiz1/cmp_luasnip")
-	-- nvim-cmp
-	add("chrisgrieser/cmp_yanky")
 	-- ╔═══════════════════════╗
 	-- ║       mini.nvim       ║
 	-- ╚═══════════════════════╝
@@ -647,7 +589,14 @@ later(function()
 	--------------
 	-- obsidian --
 	--------------
-	add("epwalsh/obsidian.nvim")
+	add({
+		source = "epwalsh/obsidian.nvim",
+		depends = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	})
 	require("plugins/nvim-obsidian")
 	------------------------
 	-- vim-tmux-navigator --
@@ -686,10 +635,42 @@ later(function()
 		conform.format({ timeout_ms = 500, lsp_fallback = true })
 	end, { desc = "Format buffer" })
 	o.formatexpr = "v:lua.require'conform'.formatexpr()"
-	---------------------
-	-- mason-lspconfig --
-	---------------------
-	add("williamboman/mason-lspconfig.nvim")
+	---------------
+	-- lspconfig --
+	---------------
+	add({
+		source = "williamboman/mason-lspconfig.nvim",
+		depends = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	})
+	-- mason setup
+	require("mason").setup()
+	nmap_leader("mm", "<cmd>Mason<cr>", "+mason open")
+	nmap_leader("mL", "<cmd>MasonLog<cr>", "+mason log")
+	-- mason tool installer setup
+	require("mason-tool-installer").setup({
+		ensure_installed = {
+			"goimports",
+			"gofumpt",
+			"jq",
+			"stylua",
+			"markdownlint",
+			"yq",
+			"codespell",
+			"ruff",
+			"golangci-lint",
+			"shellcheck",
+			"shfmt",
+		},
+	})
+	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")
+	nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "+update tools")
+	nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "+clean tools not in ensure_installed list")
+	-- mason-lspconfig
 	require("plugins/mason-lspconfig")
 	---------------
 	-- nvim-lint --
@@ -725,6 +706,26 @@ later(function()
 	--------------
 	-- nvim-cmp --
 	--------------
+	add({
+		source = "hrsh7th/nvim-cmp",
+		depends = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			{
+				source = "L3MON4D3/LuaSnip",
+				checkout = "v2.3.0",
+				hooks = {
+					post_checkout = function()
+						vim.cmd("make install_jsregexp")
+					end,
+				},
+			},
+			"rafamadriz/friendly-snippets",
+			"saadparwaiz1/cmp_luasnip",
+			"chrisgrieser/cmp_yanky",
+		},
+	})
 	require("plugins/nvim-cmp")
 	--------------
 	-- trouble  --
