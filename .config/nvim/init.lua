@@ -313,6 +313,10 @@ later(function()
 		},
 	})
 	-- ╔═══════════════════════╗
+	-- ║    mini.completion    ║
+	-- ╚═══════════════════════╝
+	require("mini.completion").setup()
+	-- ╔═══════════════════════╗
 	-- ║       mini.diff       ║
 	-- ╚═══════════════════════╝
 	local diff = require("mini.diff")

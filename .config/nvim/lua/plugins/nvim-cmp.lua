@@ -10,11 +10,13 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<A-j>"] = cmp.mapping.select_next_item(),
+		["<A-k>"] = cmp.mapping.select_prev_item(),
+		["<A-d>"] = cmp.mapping.scroll_docs(-4),
+		["<A-u>"] = cmp.mapping.scroll_docs(4),
+		["<C-d>"] = cmp.mapping.open_docs(),
+		["<C-h>"] = cmp.mapping.close_docs(),
+		["<C-c>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
