@@ -315,7 +315,12 @@ later(function()
 	-- ╔═══════════════════════╗
 	-- ║    mini.completion    ║
 	-- ╚═══════════════════════╝
-	require("mini.completion").setup()
+	require("mini.completion").setup({
+		window = {
+			info = { border = "rounded" },
+			signature = { border = "rounded" },
+		},
+	})
 	-- ╔═══════════════════════╗
 	-- ║       mini.diff       ║
 	-- ╚═══════════════════════╝
@@ -531,6 +536,44 @@ later(function()
 	map("n", "<leader>sj", function()
 		sj.toggle()
 	end, { desc = "+toggle splitjoin" })
+	-- ╔═══════════════════════╗
+	-- ║    mini.statusline    ║
+	-- ╚═══════════════════════╝
+	local statusline = require("mini.statusline")
+	local get_session = function()
+		local session_name = vim.v.this_session
+		if session_name and session_name ~= "" then
+			return "| session: " .. vim.fn.fnamemodify(session_name, ":t")
+		else
+			return ""
+		end
+	end
+	statusline.setup({
+		content = {
+			active = function()
+				local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
+				local git = statusline.section_git({ trunc_width = 40 })
+				local mini_diff = statusline.section_diff({ trunc_width = 75 })
+				local diagnostics = statusline.section_diagnostics({ trunc_width = 75 })
+				local lsp = statusline.section_lsp({ trunc_width = 75 })
+				local filename = statusline.section_filename({ trunc_width = 140 })
+				local current_session = get_session()
+				local fileinfo = statusline.section_fileinfo({ trunc_width = 120 })
+				local location = statusline.section_location({ trunc_width = 75 })
+				local search = statusline.section_searchcount({ trunc_width = 75 })
+
+				return statusline.combine_groups({
+					{ hl = mode_hl, strings = { mode } },
+					{ hl = "MiniStatuslineDevinfo", strings = { git, mini_diff, diagnostics, lsp } },
+					"%<", -- Mark general truncate point
+					{ hl = "MiniStatuslineFilename", strings = { filename, current_session } },
+					"%=", -- End left alignment
+					{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+					{ hl = mode_hl, strings = { search, location } },
+				})
+			end,
+		},
+	})
 	-- ╔═══════════════════════╗
 	-- ║     mini.surround     ║
 	-- ╚═══════════════════════╝
