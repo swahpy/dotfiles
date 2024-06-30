@@ -154,6 +154,7 @@ now(function()
 		footer = "󰃭 " .. os.date("%Y-%m-%d") .. "  " .. os.date("%H:%M:%S") .. " 󱨱 " .. os.date("%A"),
 	})
 end)
+
 -- Safely execute later
 later(function()
 	-- ╔═══════════════════════╗
@@ -177,6 +178,7 @@ later(function()
 	-- ╔═══════════════════════╗
 	-- ║        mini.ai        ║
 	-- ╚═══════════════════════╝
+	local gen_ai_spec = require("mini.extra").gen_ai_spec
 	local ai = require("mini.ai")
 	ai.setup({
 		n_lines = 500,
@@ -193,7 +195,6 @@ later(function()
 			f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
 			c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
 			t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
-			d = { "%f[%d]%d+" }, -- digits
 			h = { "%f[%S][%w%p]+%f[%s]", "^().*()$" }, -- match content between space
 			j = { "%f[^%c][^%c]*", "^%s*().-()%s*$" }, -- match whole line
 			e = { -- Word with case
@@ -215,6 +216,12 @@ later(function()
 			end,
 			u = ai.gen_spec.function_call(), -- u for "Usage"
 			U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
+			-- from mini.extra
+			B = gen_ai_spec.buffer(),
+			D = gen_ai_spec.diagnostic(),
+			I = gen_ai_spec.indent(),
+			L = gen_ai_spec.line(),
+			d = gen_ai_spec.number(),
 		},
 	})
 	-- ╔═══════════════════════╗
@@ -335,6 +342,11 @@ later(function()
 	map("n", "<leader><leader>o", function()
 		diff.toggle_overlay(0)
 	end, { desc = "+mini diff toggle overlay" })
+	-- ╔═══════════════════════╗
+	-- ║      mini.extra       ║
+	-- ╚═══════════════════════╝
+	local extra = require("mini.extra")
+	extra.setup()
 	-- ╔═══════════════════════╗
 	-- ║      mini.files       ║
 	-- ╚═══════════════════════╝
@@ -516,18 +528,60 @@ later(function()
 	map("n", "<leader>fb", function()
 		builtin.buffers()
 	end, { desc = "Pick from buffers" })
+	map("n", "<leader>fB", function()
+		extra.pickers.git_branches()
+	end, { desc = "Pick from git branches" })
+	map("n", "<leader>fc", function()
+		extra.pickers.commands()
+	end, { desc = "Pick from commands" })
+	map("n", "<leader>fC", function()
+		extra.pickers.git_commits()
+	end, { desc = "Pick from git commits" })
+	map("n", "<leader>fd", function()
+		extra.pickers.diagnostic()
+	end, { desc = "Pick from diagnostics" })
+	map("n", "<leader>fe", function()
+		extra.pickers.explorer()
+	end, { desc = "Pick from file explorer" })
 	map("n", "<leader>ff", function()
 		builtin.files()
 	end, { desc = "Pick from files" })
+	map("n", "<leader>fF", function()
+		extra.pickers.git_files()
+	end, { desc = "Pick from git files" })
 	map("n", "<leader>fg", function()
 		builtin.grep_live()
 	end, { desc = "Pick from pattern matches with live feedback" })
 	map("n", "<leader>fh", function()
 		builtin.help()
-	end, { desc = "Pick from help tags" })
+	end, { desc = "Pick from help docs" })
+	map("n", "<leader>fH", function()
+		extra.pickers.history()
+	end, { desc = "Pick from neovim history" })
+	map("n", "<leader>fl", function()
+		extra.pickers.buf_lines()
+	end, { desc = "Pick from buffer lines" })
+	map("n", "<leader>fm", function()
+		extra.pickers.marks()
+	end, { desc = "Pick from marks" })
+	map("n", "<leader>fo", function()
+		extra.pickers.oldfiles()
+	end, { desc = "Pick from old files" })
+	map("n", "<leader>fO", function()
+		extra.pickers.options()
+	end, { desc = "Pick from neovim options" })
 	map("n", "<leader>fr", function()
 		builtin.resume()
 	end, { desc = "Pick from help tags" })
+	map("n", "<leader>fR", function()
+		extra.pickers.registers()
+	end, { desc = "Pick from neovim registers" })
+	map("n", "<leader>fs", function()
+		extra.pickers.spellsuggest()
+	end, { desc = "Pick from spell suggestions" })
+	map("n", "<leader>ft", function()
+		extra.pickers.treesitter()
+	end, { desc = "Pick from treesitter nodes" })
 	-- ╔═══════════════════════╗
 	-- ║     mini.splitjoin    ║
 	-- ╚═══════════════════════╝
