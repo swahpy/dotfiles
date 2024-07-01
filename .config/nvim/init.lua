@@ -898,6 +898,11 @@ later(function()
 	---------------------------
 	-- add("brenoprata10/nvim-highlight-colors")
 	-- require("nvim-highlight-colors").setup()
+	--------------------
+	-- nvim-lspimport --
+	--------------------
+	add("stevanmilic/nvim-lspimport")
+	nmap_leader("ci", require("lspimport").import, "+auto import for python")
 end)
 
 -- ╔══════════════════════════════════╗

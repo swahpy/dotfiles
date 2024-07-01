@@ -96,12 +96,12 @@ local handlers = {
 					analysis = {
 						diagnosticSeverityOverrides = {
 							-- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-							reportUndefinedVariable = "none",
+							-- reportUndefinedVariable = "none",
 							-- reportAssignmentType = "none",
 							-- Just put below line here as per official documents, but it doesn't workspace
 							-- so I used above setup to disable certain diagnostics.
 							-- Ignore all files for analysis to exclusively use Ruff for linting
-							ignore = { "*" },
+							-- ignore = { "*" },
 						},
 					},
 				},
