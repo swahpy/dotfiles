@@ -425,6 +425,10 @@ later(function()
 		end,
 	})
 	-- ╔═══════════════════════╗
+	-- ║       mini.git        ║
+	-- ╚═══════════════════════╝
+	require("mini.git").setup()
+	-- ╔═══════════════════════╗
 	-- ║    mini.hipatterns    ║
 	-- ╚═══════════════════════╝
 	local hipatterns = require("mini.hipatterns")
