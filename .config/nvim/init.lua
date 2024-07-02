@@ -458,13 +458,15 @@ later(function()
 			right_gravity = false,
 		}
 	end
-	vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { fg = "#FFFFFF", bg = "#ff0000" })
-	vim.api.nvim_set_hl(0, "MiniHipatternsDone", { fg = "#FFFFFF", bg = "#11bb55" })
+	vim.api.nvim_set_hl(0, "MiniHipatternsTodo", { fg = "#FFFFFF", bg = "#FF0000" })
+	vim.api.nvim_set_hl(0, "MiniHipatternsDone", { fg = "#FFFFFF", bg = "#11BB55" })
+	vim.api.nvim_set_hl(0, "MiniHipatternsInProgress", { fg = "#FFFFFF", bg = "#FFA500" })
 	vim.api.nvim_set_hl(0, "MiniHipatternsArrow", { fg = "#1E5ED2", bg = "#E0E0E0" })
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
 			todo = { pattern = "TODO", group = "MiniHipatternsTodo" },
-			note = { pattern = "DONE", group = "MiniHipatternsDone" },
+			done = { pattern = "DONE", group = "MiniHipatternsDone" },
+			inprogress = { pattern = "IN PROGRESS", group = "MiniHipatternsInProgress" },
 			arrow = { pattern = "->", group = "MiniHipatternsArrow" },
 			censor = {
 				pattern = "password: ()%S+()",
