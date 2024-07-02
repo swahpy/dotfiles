@@ -537,7 +537,7 @@ later(function()
 			caret_right = "<A-l>",
 
 			choose = "<CR>",
-			choose_in_split = "<A-s>",
+			choose_in_split = "<A-x>",
 			choose_in_tabpage = "<A-t>",
 			choose_in_vsplit = "<A-v>",
 			choose_marked = "<A-CR>",
