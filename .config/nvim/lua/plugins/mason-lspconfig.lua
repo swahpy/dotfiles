@@ -83,31 +83,44 @@ local handlers = {
 			},
 		})
 	end,
-	-- refer to https://github.com/astral-sh/ruff-lsp/issues/384
-	["pyright"] = function()
-		lspconfig.pyright.setup({
+	["basedpyright"] = function()
+		lspconfig.basedpyright.setup({
 			capabilities = capabilities,
 			settings = {
-				pyright = {
-					-- Using Ruff's import organizer
+				basedpyright = {
 					disableOrganizeImports = true,
-				},
-				python = {
 					analysis = {
-						diagnosticSeverityOverrides = {
-							-- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-							-- reportUndefinedVariable = "none",
-							-- reportAssignmentType = "none",
-							-- Just put below line here as per official documents, but it doesn't workspace
-							-- so I used above setup to disable certain diagnostics.
-							-- Ignore all files for analysis to exclusively use Ruff for linting
-							-- ignore = { "*" },
-						},
+						autoImportCompletions = true,
 					},
 				},
 			},
 		})
 	end,
+	-- refer to https://github.com/astral-sh/ruff-lsp/issues/384
+	-- ["pyright"] = function()
+	-- 	lspconfig.pyright.setup({
+	-- 		capabilities = capabilities,
+	-- 		settings = {
+	-- 			pyright = {
+	-- 				-- Using Ruff's import organizer
+	-- 				disableOrganizeImports = true,
+	-- 			},
+	-- 			python = {
+	-- 				analysis = {
+	-- 					diagnosticSeverityOverrides = {
+	-- 						-- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+	-- 						-- reportUndefinedVariable = "none",
+	-- 						-- reportAssignmentType = "none",
+	-- 						-- Just put below line here as per official documents, but it doesn't workspace
+	-- 						-- so I used above setup to disable certain diagnostics.
+	-- 						-- Ignore all files for analysis to exclusively use Ruff for linting
+	-- 						-- ignore = { "*" },
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	})
+	-- end,
 }
 --> setup mason-lspconfig
 local mlc = require("mason-lspconfig")
@@ -121,8 +134,9 @@ mlc.setup({
 		"jsonls",
 		"lua_ls",
 		"markdown_oxide",
-		"pyright",
-		"ruff",
+		-- "pyright",
+		"basedpyright",
+		-- "ruff",
 		"yamlls",
 	},
 	handlers = handlers,
