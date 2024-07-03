@@ -4,6 +4,7 @@ autocmd({ "FileType" }, {
 	group = vim.api.nvim_create_augroup("FormatOptions", { clear = true }),
 	pattern = { "*" },
 	callback = function()
+		vim.opt_local.fo:append("2")
 		vim.opt_local.fo:remove("o")
 	end,
 })
