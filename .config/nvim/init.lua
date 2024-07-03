@@ -373,7 +373,7 @@ later(function()
 		},
 	})
 	--> setup keymap for mini.files
-	map("n", "<A-h>", function()
+	map("n", "<A-e>", function()
 		files.open(vim.api.nvim_buf_get_name(0))
 	end, { desc = "Open mini files" })
 	--> show/hide dotfiles
@@ -508,6 +508,10 @@ later(function()
 	map("n", "<leader><leader>z", function()
 		misc.zoom()
 	end, { desc = "Toggle [z]oom current buffer" })
+	-- ╔═══════════════════════╗
+	-- ║      mini.move        ║
+	-- ╚═══════════════════════╝
+	require("mini.move").setup()
 	-- ╔═══════════════════════╗
 	-- ║     mini.notify       ║
 	-- ╚═══════════════════════╝
