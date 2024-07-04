@@ -279,12 +279,6 @@ later(function()
 			-- `g` key
 			{ mode = "n", keys = "g" },
 			{ mode = "x", keys = "g" },
-			-- test `a` key
-			{ mode = "n", keys = "a" },
-			{ mode = "x", keys = "a" },
-			-- test `i` key
-			{ mode = "n", keys = "i" },
-			{ mode = "x", keys = "i" },
 			-- Marks
 			{ mode = "n", keys = "'" },
 			{ mode = "n", keys = "`" },
