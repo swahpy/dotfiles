@@ -17,24 +17,24 @@ autocmd("LspAttach", {
 
 		opt.desc = "Show line diagnostics"
 		map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opt)
-		opt.desc = "Go to previous diagnostic"
-		map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opt)
-		opt.desc = "Go to next diagnostic"
-		map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opt)
+		-- opt.desc = "Go to previous diagnostic"
+		-- map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opt)
+		-- opt.desc = "Go to next diagnostic"
+		-- map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opt)
 		opt.desc = "Show documentation for what is under cursor"
 		map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opt)
-		opt.desc = "Show LSP definitions"
-		map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opt)
-		opt.desc = "Go to declaration"
-		map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opt)
-		opt.desc = "Show LSP implementations"
-		map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opt)
-		opt.desc = "Show LSP type definitions"
-		map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opt)
-		opt.desc = "Show LSP references"
-		map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opt)
-		opt.desc = "Show LSP signature help"
-		map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opt)
+		-- opt.desc = "Show LSP definitions"
+		-- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opt)
+		-- opt.desc = "Go to declaration"
+		-- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opt)
+		-- opt.desc = "Show LSP implementations"
+		-- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opt)
+		-- opt.desc = "Show LSP type definitions"
+		-- map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opt)
+		-- opt.desc = "Show LSP references"
+		-- map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opt)
+		-- opt.desc = "Show LSP signature help"
+		-- map("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opt)
 		opt.desc = "Smart rename"
 		map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>", opt)
 		opt.desc = "Format code"
