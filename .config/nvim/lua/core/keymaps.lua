@@ -70,10 +70,6 @@ nmap_leader("<leader>l", "<cmd>Lazy<cr>", "Open Lazy Pane")
 -- map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 -- map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
--- undo & redo
-map("i", "<C-u>", "<cmd>undo<cr>", { desc = "Undo in insert mode" })
-map("i", "<C-r>", "<cmd>redo<cr>", { desc = "Redo in insert mode" })
-
 -- Buffers
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Goto right buffer" })
 map("n", "<S-h>", "<cmd>bprev<cr>", { desc = "Goto left buffer" })

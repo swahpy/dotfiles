@@ -279,6 +279,12 @@ later(function()
 			-- `g` key
 			{ mode = "n", keys = "g" },
 			{ mode = "x", keys = "g" },
+			-- test `a` key
+			{ mode = "n", keys = "a" },
+			{ mode = "x", keys = "a" },
+			-- test `i` key
+			{ mode = "n", keys = "i" },
+			{ mode = "x", keys = "i" },
 			-- Marks
 			{ mode = "n", keys = "'" },
 			{ mode = "n", keys = "`" },
@@ -462,6 +468,7 @@ later(function()
 		highlighters = { -- %f[%w]()TODO()%f[%W]
 			todo = { pattern = "TODO", group = "MiniHipatternsFixme" },
 			done = { pattern = "DONE", group = "MiniHipatternsNote" },
+			note = { pattern = "NOTE", group = "MiniHipatternsFixme" },
 			inprogress = { pattern = "IN PROGRESS", group = "MiniHipatternsHack" },
 			arrow = { pattern = "->", group = "MiniHipatternsTodo" },
 			censor = {
