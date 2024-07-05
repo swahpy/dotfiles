@@ -54,7 +54,7 @@ obs.setup({
 	-- way then set 'mappings = {}'.
 	mappings = {
 		-- Smart action depending on context, either follow link or toggle checkbox.
-		["<leader>g"] = {
+		["<leader>tc"] = {
 			action = function()
 				-- follow link if possible
 				if require("obsidian").util.cursor_on_markdown_link(nil, nil, true) then
@@ -75,7 +75,7 @@ obs.setup({
 				end
 				require("obsidian").util.toggle_checkbox()
 			end,
-			opts = { buffer = true, desc = "Toggle checkbox and switch tag" },
+			opts = { buffer = true, desc = "obsidian checkbox" },
 		},
 	},
 

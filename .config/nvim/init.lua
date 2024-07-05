@@ -238,7 +238,7 @@ later(function()
 	-- ╚═══════════════════════╝
 	local clue = require("mini.clue")
 	local compute_dynamic_width = function(buf_id)
-		local max_width = 0.4 * vim.o.columns
+		local max_width = 0.6 * vim.o.columns
 		local widths = vim.tbl_map(vim.fn.strdisplaywidth, vim.api.nvim_buf_get_lines(buf_id, 0, -1, false))
 		table.sort(widths)
 		for i = #widths, 1, -1 do
@@ -308,6 +308,7 @@ later(function()
 			{ mode = "n", keys = "<Leader>o", desc = "+obsidian" },
 			{ mode = "x", keys = "<Leader>o", desc = "+obsidian" },
 			{ mode = "n", keys = "<Leader>s", desc = "+session" },
+			{ mode = "n", keys = "<Leader>t", desc = "+toggle" },
 			{ mode = "n", keys = "<Leader>w", desc = "+window" },
 		},
 	})
@@ -331,9 +332,9 @@ later(function()
 			-- signs = { add = "+", change = "~", delete = "-" },
 		},
 	})
-	map("n", "<leader><leader>o", function()
+	map("n", "<leader>to", function()
 		diff.toggle_overlay(0)
-	end, { desc = "+mini diff toggle overlay" })
+	end, { desc = "+mini diff overlay" })
 	-- ╔═══════════════════════╗
 	-- ║      mini.extra       ║
 	-- ╚═══════════════════════╝
@@ -498,9 +499,9 @@ later(function()
 	})
 	misc.setup_restore_cursor()
 	--> keymaps
-	map("n", "<leader><leader>z", function()
+	map("n", "<leader>tz", function()
 		misc.zoom()
-	end, { desc = "Toggle [z]oom current buffer" })
+	end, { desc = "+buffer zoom" })
 	-- ╔═══════════════════════╗
 	-- ║      mini.move        ║
 	-- ╚═══════════════════════╝
@@ -645,16 +646,17 @@ later(function()
 	nmap("gi", "<cmd>Pick lsp scope='implementation'<cr>", "go to implementation")
 	nmap("gr", "<cmd>Pick lsp scope='references'<cr>", "go to references")
 	nmap("gs", "<cmd>Pick lsp scope='document_symbol'<cr>", "show symbols in current file")
+	nmap("gS", "<cmd>Pick lsp scope='workspace_symbol'<cr>", "show symbols in workspace")
 	nmap("gt", "<cmd>Pick lsp scope='type_definition'<cr>", "go to type_definition")
-	nmap("gw", "<cmd>Pick lsp scope='workspace_symbol'<cr>", "show symbols in workspace")
 	-- ╔═══════════════════════╗
 	-- ║     mini.splitjoin    ║
 	-- ╚═══════════════════════╝
 	local sj = require("mini.splitjoin")
-	sj.setup()
-	map("n", "<leader>sj", function()
-		sj.toggle()
-	end, { desc = "+toggle splitjoin" })
+	sj.setup({
+		mappings = {
+			toggle = "<leader>ts",
+		},
+	})
 	-- ╔═══════════════════════╗
 	-- ║    mini.statusline    ║
 	-- ╚═══════════════════════╝
