@@ -11,6 +11,7 @@ local mdl = lint.linters.markdownlint
 mdl.args = {
 	"--disable",
 	"MD013",
+	"MD024",
 	"MD034",
 	"--",
 }
