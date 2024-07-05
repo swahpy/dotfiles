@@ -895,26 +895,6 @@ later(function()
 		},
 	})
 	require("plugins/nvim-cmp")
-	--------------
-	-- trouble  --
-	--------------
-	add("folke/trouble.nvim")
-	require("trouble").setup({ focus = true, auto_close = true })
-	nmap_leader("ct", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
-	nmap_leader("cb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)")
-	nmap_leader("cs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)")
-	nmap_leader(
-		"cl",
-		"<cmd>Trouble lsp toggle focus=true win.position=bottom<cr>",
-		"LSP Definitions / references / ... (Trouble)"
-	)
-	nmap_leader("cL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
-	nmap_leader("cQ", "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
-	---------------------------
-	-- nvim-highlight-colors --
-	---------------------------
-	-- add("brenoprata10/nvim-highlight-colors")
-	-- require("nvim-highlight-colors").setup()
 end)
 
 -- ╔══════════════════════════════════╗
