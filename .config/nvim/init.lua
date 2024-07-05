@@ -441,6 +441,7 @@ later(function()
 	-- ╔═══════════════════════╗
 	-- ║    mini.hipatterns    ║
 	-- ╚═══════════════════════╝
+	local hi_words = require("mini.extra").gen_highlighter.words
 	local hipatterns = require("mini.hipatterns")
 	local censor_extmark_opts = function(_, match, _)
 		local mask = string.rep("x", vim.fn.strchars(match))
@@ -453,11 +454,11 @@ later(function()
 	end
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
-			todo = { pattern = "TODO", group = "MiniHipatternsFixme" },
-			done = { pattern = "DONE", group = "MiniHipatternsNote" },
-			note = { pattern = "NOTE", group = "MiniHipatternsFixme" },
-			inprogress = { pattern = "IN PROGRESS", group = "MiniHipatternsHack" },
-			arrow = { pattern = "->", group = "MiniHipatternsTodo" },
+			todo = hi_words({ "TODO", "Todo", "todo" }, "hl_todo"),
+			done = hi_words({ "DONE", "Done", "done" }, "hl_done"),
+			note = hi_words({ "NOTE", "Note", "note" }, "hl_note"),
+			doing = hi_words({ "DOING", "Doing", "doing" }, "hl_doing"),
+			arrow = { pattern = "[-]*>", group = "hl_arrow" },
 			censor = {
 				pattern = "password: ()%S+()",
 				group = "",
@@ -799,9 +800,9 @@ later(function()
 			"--",
 		},
 	}
-	map({ "n", "v" }, "<leader><leader>f", function()
+	map({ "n", "v" }, "<leader>tf", function()
 		conform.format({ timeout_ms = 500, lsp_fallback = true })
-	end, { desc = "Format buffer" })
+	end, { desc = "+format buffer using formatter" })
 	o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	---------------
 	-- lspconfig --

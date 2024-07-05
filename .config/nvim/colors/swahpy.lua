@@ -45,4 +45,9 @@ end
 if palette then
 	require("mini.base16").setup({ palette = palette })
 	vim.g.colors_name = "swahpy"
+	vim.api.nvim_set_hl(0, "hl_todo", { default = true, fg = "#FFFFFF", bg = "#D22B2B" })
+	vim.api.nvim_set_hl(0, "hl_done", { default = true, fg = "#FFFFFF", bg = "#228B22" })
+	vim.api.nvim_set_hl(0, "hl_note", { default = true, fg = "#FFFFFF", bg = "#FFAC1C" })
+	vim.api.nvim_set_hl(0, "hl_doing", { default = true, fg = "#FFFFFF", bg = "#0096FF" })
+	vim.api.nvim_set_hl(0, "hl_arrow", { default = true, fg = "#FFFFFF", bg = "#DA70D6" })
 end
