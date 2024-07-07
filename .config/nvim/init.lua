@@ -31,7 +31,14 @@ now(function()
 	-- ╔═══════════════════════╗
 	-- ║      colorscheme      ║
 	-- ╚═══════════════════════╝
-	vim.cmd("colorscheme swahpy")
+	-- vim.cmd("colorscheme swahpy")
+	add("sainnhe/gruvbox-material")
+	vim.g.gruvbox_material_background = "hard"
+	vim.g.gruvbox_material_enable_bold = 1
+	vim.g.gruvbox_material_enable_italic = 1
+	vim.g.gruvbox_material_current_word = "underline"
+	vim.g.gruvbox_material_better_performance = 1
+	vim.cmd.colorscheme("gruvbox-material")
 	-- ╔═══════════════════════╗
 	-- ║      mini.basics      ║
 	-- ╚═══════════════════════╝
@@ -54,7 +61,7 @@ now(function()
 		},
 	})
 	-- ╔═══════════════════════╗
-	-- ║      mini.sessions     ║
+	-- ║      mini.sessions    ║
 	-- ╚═══════════════════════╝
 	local session = require("mini.sessions")
 	session.setup({
