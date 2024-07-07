@@ -461,11 +461,11 @@ later(function()
 	end
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
-			todo = hi_words({ "TODO", "Todo", "todo" }, "hl_todo"),
-			done = hi_words({ "DONE", "Done", "done" }, "hl_done"),
-			note = hi_words({ "NOTE", "Note", "note" }, "hl_note"),
-			doing = hi_words({ "DOING", "Doing", "doing" }, "hl_doing"),
-			arrow = { pattern = "[-]*>", group = "hl_arrow" },
+			todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsFixme"),
+			done = hi_words({ "DONE", "Done", "done" }, "MiniHipatternsTodo"),
+			note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsHack"),
+			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsNote"),
+			-- arrow = { pattern = "[-]*>", group = "MoreMsg" },
 			censor = {
 				pattern = "password: ()%S+()",
 				group = "",
