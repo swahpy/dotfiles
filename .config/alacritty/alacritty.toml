@@ -1,0 +1,24 @@
+import = [
+  "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+]
+
+# [shell]
+# program = "/opt/homebrew/bin/bash"
+# args = ["--login"]
+
+[window]
+dynamic_padding = true
+# opacity = 0.95
+dimensions = { columns = 120, lines = 40 }
+startup_mode = "Maximized"
+option_as_alt = "Both"
+
+[font]
+normal = { family = "0xProto Nerd Font", style = "Regular" }
+size = 18
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+   { key = "Escape", mods = "Control", action = "ToggleViMode" },
+]
