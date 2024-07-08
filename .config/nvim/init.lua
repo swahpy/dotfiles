@@ -32,13 +32,18 @@ now(function()
 	-- ║      colorscheme      ║
 	-- ╚═══════════════════════╝
 	-- vim.cmd("colorscheme swahpy")
-	add("sainnhe/gruvbox-material")
-	vim.g.gruvbox_material_background = "hard"
-	vim.g.gruvbox_material_enable_bold = 1
-	vim.g.gruvbox_material_enable_italic = 1
-	vim.g.gruvbox_material_current_word = "underline"
-	vim.g.gruvbox_material_better_performance = 1
-	vim.cmd.colorscheme("gruvbox-material")
+	-- add("sainnhe/gruvbox-material")
+	-- vim.g.gruvbox_material_background = "hard"
+	-- vim.g.gruvbox_material_enable_bold = 1
+	-- vim.g.gruvbox_material_enable_italic = 1
+	-- vim.g.gruvbox_material_current_word = "underline"
+	-- vim.g.gruvbox_material_better_performance = 1
+	add("folke/tokyonight.nvim")
+	require("tokyonight").setup({
+		style = "moon",
+	})
+	vim.cmd.colorscheme("tokyonight")
+	-- vim.cmd.colorscheme("gruvbox-material")
 	-- ╔═══════════════════════╗
 	-- ║      mini.basics      ║
 	-- ╚═══════════════════════╝
@@ -462,9 +467,9 @@ later(function()
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
 			todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsFixme"),
-			done = hi_words({ "DONE", "Done", "done" }, "MiniHipatternsTodo"),
+			done = hi_words({ "DONE", "Done", "done" }, "MiniHipatternsNote"),
 			note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsHack"),
-			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsNote"),
+			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsTodo"),
 			-- arrow = { pattern = "[-]*>", group = "MoreMsg" },
 			censor = {
 				pattern = "password: ()%S+()",
