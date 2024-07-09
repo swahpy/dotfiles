@@ -31,6 +31,7 @@ now(function()
 	-- ╔═══════════════════════╗
 	-- ║      colorscheme      ║
 	-- ╚═══════════════════════╝
+	-- add("sainnhe/gruvbox-material")
 	-- add("folke/tokyonight.nvim")
 	-- add("catppuccin/nvim")
 	-- add("scottmckendry/cyberdream.nvim")
@@ -166,8 +167,9 @@ later(function()
 	-- ╚═══════════════════════╝
 	-- comments indicate that which plugin(s) are using this dependency.
 	-- mini.tabline, mini.files
-	add("nvim-tree/nvim-web-devicons")
-	require("nvim-web-devicons").setup()
+	-- add("nvim-tree/nvim-web-devicons")
+	-- require("nvim-web-devicons").setup()
+	require("mini.icons").setup()
 	-- ╔═══════════════════════╗
 	-- ║       mini.nvim       ║
 	-- ╚═══════════════════════╝
@@ -720,6 +722,7 @@ later(function()
 			local suffix = vim.bo[buf_id].modified and "* " or ""
 			return "" .. tabline.default_format(buf_id, label) .. suffix .. ""
 		end,
+		tabpage_section = "right",
 	})
 	-- ╔═══════════════════════╗
 	-- ║    non-mini-plugins   ║
