@@ -725,6 +725,17 @@ later(function()
 		tabpage_section = "right",
 	})
 	-- ╔═══════════════════════╗
+	-- ║    mini.trailspace    ║
+	-- ╚═══════════════════════╝
+	local trail = require("mini.trailspace")
+	trail.setup()
+	nmap_leader("T", function()
+		trail.trim()
+	end, "+trim trailing whitespace")
+	nmap_leader("l", function()
+		trail.trim_last_lines()
+	end, "+trim trailing last lines")
+	-- ╔═══════════════════════╗
 	-- ║    non-mini-plugins   ║
 	-- ╚═══════════════════════╝
 	-- tree-sitter
