@@ -1,4 +1,4 @@
-vim.g.everforest_background = "hard"
+vim.g.everforest_background = "medium"
 vim.g.everforest_ui_contrast = "high"
 vim.g.everforest_current_word = "underline"
 vim.g.everforest_enable_italic = true
