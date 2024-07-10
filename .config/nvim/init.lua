@@ -464,7 +464,7 @@ later(function()
 			done = hi_words({ "DONE", "Done", "done" }, "MiniHipatternsTodo"),
 			note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsHack"),
 			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsNote"),
-			-- arrow = { pattern = "[-]*>", group = "MoreMsg" },
+			arrow = { pattern = "[-]+>", group = "MiniHipatternsHack" },
 			censor = {
 				pattern = "password: ()%S+()",
 				group = "",
