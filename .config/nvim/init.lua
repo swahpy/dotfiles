@@ -806,10 +806,10 @@ later(function()
 		},
 		log_level = vim.log.levels.ERROR,
 		notify_on_error = true,
-		format_on_save = {
-			timeout_ms = 2500,
-			lsp_fallback = true,
-		},
+		-- format_on_save = {
+		-- 	lsp_format = "fallback",
+		-- 	timeout_ms = 500,
+		-- },
 	})
 	conform.formatters.markdownlint = {
 		prepend_args = {
