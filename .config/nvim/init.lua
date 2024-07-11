@@ -533,9 +533,21 @@ later(function()
 			["'"] = {
 				action = "closeopen",
 				pair = "''",
-				neigh_pattern = "[^a-eg-zA-Z\\].",
+				neigh_pattern = "[^a-eg-zA-Z\\'].",
 				register = { cr = false },
 			},
+      ['"'] = {
+        action = 'closeopen',
+        pair = '""',
+        neigh_pattern = '[^\\"].',
+        register = { cr = false },
+      },
+      ['`'] = {
+        action = 'closeopen',
+        pair = '``',
+        neigh_pattern = '[^\\`].',
+        register = { cr = false },
+      },
 		},
 	})
 	-- ╔═══════════════════════╗
