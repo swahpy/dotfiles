@@ -82,3 +82,13 @@ nmap_leader("bg", function()
 	local buf = vim.fn.input("Please enter the buffer number you want to go: \n> ")
 	vim.cmd("buffer " .. buf)
 end, "List all listed-buffers")
+
+-- lsp
+-- toggle lsp inlay hints:
+nmap_leader("ti", function ()
+  if vim.lsp.inlay_hint.is_enabled({}) then
+    vim.lsp.inlay_hint.enable(false)
+    return
+  end
+  vim.lsp.inlay_hint.enable(true)
+end, "+toggle lsp inlay hints")
