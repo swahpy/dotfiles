@@ -1,4 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
+local usercmd = vim.api.nvim_create_user_command
+
 --> setup for formatoptions
 autocmd({ "FileType" }, {
 	group = vim.api.nvim_create_augroup("FormatOptions", { clear = true }),
@@ -64,3 +66,11 @@ autocmd({ "FileType" }, {
 		end
 	end,
 })
+-- create command Dotfile to perform git actions for dotfiles
+usercmd("Dotfiles", function(args)
+	local git_cmd = "Git --work-tree=$HOME --git-dir=$HOME/.dotfiles"
+	if args["args"] then
+		git_cmd = git_cmd .. " " .. args["args"]
+	end
+	vim.cmd(git_cmd)
+end, { desc = "command to perform git actions for dotfiles", nargs = "*" })
