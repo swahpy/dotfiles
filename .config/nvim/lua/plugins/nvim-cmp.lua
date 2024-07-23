@@ -1,5 +1,7 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 require("luasnip.loaders.from_vscode").lazy_load()
+--> import custom snippets
+require("snippets").register_cmp_source()
 --> cmp setup <--
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -81,6 +83,7 @@ cmp.setup({
 				minLength = 3,
 			},
 		},
+		{ name = "custom_snippets" },
 	},
 })
 
