@@ -536,18 +536,18 @@ later(function()
 				neigh_pattern = "[^a-eg-zA-Z\\'].",
 				register = { cr = false },
 			},
-      ['"'] = {
-        action = 'closeopen',
-        pair = '""',
-        neigh_pattern = '[^\\"].',
-        register = { cr = false },
-      },
-      ['`'] = {
-        action = 'closeopen',
-        pair = '``',
-        neigh_pattern = '[^\\`].',
-        register = { cr = false },
-      },
+			['"'] = {
+				action = "closeopen",
+				pair = '""',
+				neigh_pattern = '[^\\"].',
+				register = { cr = false },
+			},
+			["`"] = {
+				action = "closeopen",
+				pair = "``",
+				neigh_pattern = "[^\\`].",
+				register = { cr = false },
+			},
 		},
 	})
 	-- ╔═══════════════════════╗
@@ -633,6 +633,9 @@ later(function()
 		extra.pickers.history()
 	end, "Pick from neovim history")
 	nmap_leader("fl", function()
+		extra.pickers.buf_lines({ scope = "current" })
+	end, "Pick from buffer lines")
+	nmap_leader("fL", function()
 		extra.pickers.buf_lines()
 	end, "Pick from buffer lines")
 	nmap_leader("fm", function()
@@ -931,6 +934,4 @@ end)
 -- ╔══════════════════════════════════╗
 -- ║  options, keymaps and autocmds   ║
 -- ╚══════════════════════════════════╝
-require("core/options")
-require("core/keymaps")
-require("core/autocmds")
+require("core")

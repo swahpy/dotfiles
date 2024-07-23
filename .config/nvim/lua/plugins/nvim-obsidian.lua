@@ -127,25 +127,22 @@ obs.setup({
 		return out
 	end,
 
-	-- Optional, for templates (see below).
-	templates = {
-		folder = "templates",
-		date_format = "%Y-%m-%d",
-		time_format = "%H:%M",
-		-- A map for custom variables, the key should be the variable and the value a function
-		substitutions = {},
-	},
-
 	picker = {
 		-- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
 		name = "mini.pick",
 		-- Optional, configure key mappings for the picker. These are the defaults.
 		-- Not all pickers support all mappings.
-		mappings = {
+		note_mappings = {
 			-- Create a new note from your query.
-			new = "<C-n>",
+			new = "<C-x>",
 			-- Insert a link to the selected note.
 			insert_link = "<C-l>",
+		},
+		tag_mappings = {
+			-- Add tag(s) to current note.
+			tag_note = "<C-x>",
+			-- Insert a tag at the current location.
+			insert_tag = "<C-l>",
 		},
 	},
 
@@ -158,6 +155,15 @@ obs.setup({
 			["x"] = { char = "", hl_group = "ObsidianDone" },
 		},
 	},
+
+  -- Optional, for templates (see below).
+  templates = {
+    folder = "templates",
+    date_format = "%Y-%m-%d",
+    time_format = "%H:%M",
+    -- A map for custom variables, the key should be the variable and the value a function
+    substitutions = {},
+  },
 
 	-- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
 	-- URL it will be ignored but you can customize this behavior here.
