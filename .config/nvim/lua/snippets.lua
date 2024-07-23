@@ -1,7 +1,7 @@
 local global_snippets = {
 	{
-	  trigger = "shebang",
-	  body = "#!/bin sh",
+		trigger = "shebang",
+		body = "#!/bin sh",
 	},
 }
 local snippets_by_filetype = {
@@ -10,12 +10,21 @@ local snippets_by_filetype = {
 			trigger = "fun",
 			body = "function ${1:name}(${2:args}) $0 end",
 		},
-    {
-      trigger = "var",
-      body = "local ${1:name} = ${2:value}",
-    },
+		{
+			trigger = "var",
+			body = "local ${1:name} = ${2:value}",
+		},
 	},
-	-- other filetypes
+	python = {
+		{
+			trigger = "__main",
+			body = 'def main() -> None:\n    ...\n\nif __name__ == "__main__":\n    main()',
+		},
+		{
+			trigger = "def",
+			body = 'def ${1:fname}(${2:param}) -> ${3:return}:\n    ...',
+		},
+	},
 }
 local function get_snippets()
 	local ft = vim.bo.filetype
