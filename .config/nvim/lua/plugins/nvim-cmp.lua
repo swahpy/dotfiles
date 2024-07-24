@@ -1,7 +1,9 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 require("luasnip.loaders.from_vscode").lazy_load()
+--> loading custom snippets
+require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/" })
 --> import custom snippets
-require("snippets").register_cmp_source()
+-- require("snippets").register_cmp_source()
 --> cmp setup <--
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -103,4 +105,13 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 	matching = { disallow_symbol_nonprefix_matching = false },
+})
+
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
+local fmt = require("luasnip.extras.fmt").fmt
+
+luasnip.add_snippets("lua", {
+	s("var", fmt("local {} = {}\n{}", { i(1, "name"), i(2, "value"), i(0) })),
 })

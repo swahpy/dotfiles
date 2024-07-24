@@ -922,8 +922,8 @@ later(function()
 						vim.cmd("make install_jsregexp")
 					end,
 				},
+				depends = { "rafamadriz/friendly-snippets" },
 			},
-			"rafamadriz/friendly-snippets",
 			"saadparwaiz1/cmp_luasnip",
 			"chrisgrieser/cmp_yanky",
 		},
