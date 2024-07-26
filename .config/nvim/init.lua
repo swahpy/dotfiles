@@ -750,6 +750,10 @@ later(function()
 	nmap_leader("l", function()
 		trail.trim_last_lines()
 	end, "+trim trailing last lines")
+  -- ╔═══════════════════════╗
+  -- ║    mini.trailspace    ║
+  -- ╚═══════════════════════╝
+  require('mini.visits').setup()
 	-- ╔═══════════════════════╗
 	-- ║    non-mini-plugins   ║
 	-- ╚═══════════════════════╝
