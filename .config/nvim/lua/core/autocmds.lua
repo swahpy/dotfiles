@@ -66,7 +66,9 @@ autocmd({ "FileType" }, {
 		end
 	end,
 })
--- create command Dotfile to perform git actions for dotfiles
+-- ╔══════════════════════════════════╗
+-- ║   dotfiles operations command    ║
+-- ╚══════════════════════════════════╝
 usercmd("Dotfiles", function(args)
 	local git_cmd = "Git --work-tree=$HOME --git-dir=$HOME/.dotfiles"
 	if args["args"] then
@@ -74,3 +76,46 @@ usercmd("Dotfiles", function(args)
 	end
 	vim.cmd(git_cmd)
 end, { desc = "command to perform git actions for dotfiles", nargs = "*" })
+-- ╔══════════════════════════════════╗
+-- ║       git related commands       ║
+-- ╚══════════════════════════════════╝
+--> git add files
+usercmd("Ga", function(args)
+  local git_cmd = "Git add"
+  if args["args"] then
+    git_cmd = git_cmd .. " " .. args["args"]
+  end
+  vim.cmd(git_cmd)
+end, { desc = "add file contents to git index", nargs = "*" })
+--> git commit
+usercmd("Gc", function()
+  vim.cmd("Git commit")
+end, { desc = "record changes to repository", nargs = 0 })
+--> git diff
+usercmd("Gd", function(args)
+  local git_cmd = "Git diff"
+  if args["args"] then
+    git_cmd = git_cmd .. " " .. args["args"]
+  end
+  vim.cmd(git_cmd)
+end, { desc = "show changes between commits, commit and working tree", nargs = "*" })
+--> git push
+usercmd("Gp", function(args)
+  local git_cmd = "Git push"
+  if args["args"] then
+    git_cmd = git_cmd .. " " .. args["args"]
+  end
+  vim.cmd(git_cmd)
+end, { desc = "push records to remote repository", nargs = "*" })
+--> git restore files
+usercmd("Gr", function(args)
+  local git_cmd = "Git restore"
+  if args["args"] then
+    git_cmd = git_cmd .. " " .. args["args"]
+  end
+  vim.cmd(git_cmd)
+end, { desc = "restore working tree files", nargs = "*" })
+--> git status
+usercmd("Gs", function()
+  vim.cmd("Git status")
+end, { desc = "check git status", nargs = 0 })
