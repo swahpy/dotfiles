@@ -3,10 +3,17 @@
     "prefix": "main",
     "body": [
       "def main() -> None:",
-      "    ...",
+      "    ${0: ...}",
       "",
       "if __name__ == \"__main__\":",
       "    main()"
+    ]
+  },
+  "init method": {
+    "prefix": "init",
+    "body": [
+      "def __init__(self$1) -> None:",
+      "    ${2: ...}"
     ]
   }
 }
