@@ -29,5 +29,12 @@
       "while True:",
       "    ${0: ...}"
     ]
+  },
+  "normal function": {
+    "prefix": "func",
+    "body": [
+      "def ${1:fname}($2) -> ${3:None}:",
+      "    ${0: ...}"
+    ]
   }
 }
