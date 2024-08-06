@@ -209,7 +209,12 @@ nmap_leader("od", function()
 		end
 	end
 end, "+getting daily notes")
-nmap_leader("of", function()
+nmap_leader(
+  "of",
+  "<cmd>ObsidianFollowLink<cr>",
+  "+followlink: Open note reference under the cursor in a horizontal or vertical split window"
+)
+nmap_leader("oF", function()
 	local split = vim.fn.input("Enter split(h/v): ")
 	if split == "v" then
 		vim.cmd("ObsidianFollowLink " .. "vsplit")
