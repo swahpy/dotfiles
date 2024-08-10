@@ -13,7 +13,8 @@
     "prefix": "init",
     "body": [
       "def __init__(self$1) -> None:",
-      "    ${2: ...}"
+      "    ${2: ...}",
+      "$0"
     ]
   },
   "class method": {
@@ -35,6 +36,12 @@
     "body": [
       "def ${1:fname}($2) -> ${3:None}:",
       "    ${0: ...}"
+    ]
+  },
+  "format string": {
+    "prefix": "fstr",
+    "body": [
+      "print(f'$1')$0"
     ]
   }
 }
