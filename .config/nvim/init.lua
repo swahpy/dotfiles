@@ -373,8 +373,10 @@ later(function()
 	})
 	--> setup keymap for mini.files
 	map("n", "<A-e>", function()
-		-- files.open(vim.api.nvim_buf_get_name(0))
 		files.open()
+	end, { desc = "Open mini files" })
+	map("n", "<A-f>", function()
+		files.open(vim.api.nvim_buf_get_name(0))
 	end, { desc = "Open mini files" })
 	--> show/hide dotfiles
 	local show_dotfiles = true
