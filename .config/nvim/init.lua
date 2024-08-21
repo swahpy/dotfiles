@@ -942,8 +942,8 @@ later(function()
 	--------------
   add("mbbill/undotree")
   nmap_leader("tu", "<cmd>UndotreeToggle<cr>", "+toggle undo tree")
-  vim.g.loaded_undotree = 1
   vim.g.undotree_WindowLayout = 2
+  vim.g.undotree_DiffAutoOpen = 0
   vim.g.undotree_SplitWidth = 35
   vim.g.undotree_ShortIndicators = 1
   vim.g.undotree_SetFocusWhenToggle = 1

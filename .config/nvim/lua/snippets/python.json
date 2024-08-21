@@ -13,8 +13,7 @@
     "prefix": "init",
     "body": [
       "def __init__(self$1) -> None:",
-      "    ${2: ...}",
-      "$0"
+      "    ${2: ...}"
     ]
   },
   "class method": {
