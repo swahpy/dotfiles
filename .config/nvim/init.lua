@@ -680,7 +680,7 @@ later(function()
 	local sj = require("mini.splitjoin")
 	sj.setup({
 		mappings = {
-			toggle = "<leader>ts",
+			toggle = "<leader>ta",
 		},
 	})
 	-- ╔═══════════════════════╗
