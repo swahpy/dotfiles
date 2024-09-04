@@ -452,15 +452,15 @@ later(function()
 	-- ╚═══════════════════════╝
 	local hi_words = require("mini.extra").gen_highlighter.words
 	local hipatterns = require("mini.hipatterns")
-	local censor_extmark_opts = function(_, match, _)
-		local mask = string.rep("x", vim.fn.strchars(match))
-		return {
-			virt_text = { { mask, "Comment" } },
-			virt_text_pos = "overlay",
-			priority = 200,
-			right_gravity = false,
-		}
-	end
+	-- local censor_extmark_opts = function(_, match, _)
+	-- 	local mask = string.rep("x", vim.fn.strchars(match))
+	-- 	return {
+	-- 		virt_text = { { mask, "Comment" } },
+	-- 		virt_text_pos = "overlay",
+	-- 		priority = 200,
+	-- 		right_gravity = false,
+	-- 	}
+	-- end
 	hipatterns.setup({
 		highlighters = { -- %f[%w]()TODO()%f[%W]
 			todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsFixme"),
@@ -468,11 +468,11 @@ later(function()
 			note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsHack"),
 			doing = hi_words({ "DOING", "Doing", "doing" }, "MiniHipatternsNote"),
 			arrow = { pattern = "[-]+>", group = "MiniHipatternsHack" },
-			censor = {
-				pattern = "password: ()%S+()",
-				group = "",
-				extmark_opts = censor_extmark_opts,
-			},
+			-- censor = {
+			-- 	pattern = "password: ()%S+()",
+			-- 	group = "",
+			-- 	extmark_opts = censor_extmark_opts,
+			-- },
 			hex_color = hipatterns.gen_highlighter.hex_color(),
 		},
 	})
