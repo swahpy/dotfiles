@@ -812,81 +812,6 @@ later(function()
 	-- vim-tmux-navigator --
 	------------------------
 	add("christoomey/vim-tmux-navigator")
-	-------------
-	-- conform --
-	-------------
-	add("stevearc/conform.nvim")
-	local conform = require("conform")
-	conform.setup({
-		formatters_by_ft = {
-			bash = { "shellcheck", "shfmt" },
-			go = { "goimports", "gofumpt" },
-			jason = { "jq" },
-			lua = { "stylua" },
-			markdown = { "markdownlint" },
-			python = { "ruff_organize_imports", "ruff_fix", "ruff_format" },
-			yaml = { "yq" },
-		},
-		log_level = vim.log.levels.ERROR,
-		notify_on_error = true,
-		-- format_on_save = {
-		-- 	lsp_format = "fallback",
-		-- 	timeout_ms = 500,
-		-- },
-	})
-	conform.formatters.markdownlint = {
-		prepend_args = {
-			"--disable",
-			"MD034",
-			"--",
-		},
-	}
-	map({ "n", "v" }, "<leader>tf", function()
-		conform.format({ timeout_ms = 500, lsp_fallback = true })
-	end, { desc = "+format buffer using formatter" })
-	o.formatexpr = "v:lua.require'conform'.formatexpr()"
-	---------------
-	-- lspconfig --
-	---------------
-	add({
-		source = "williamboman/mason-lspconfig.nvim",
-		depends = {
-			"williamboman/mason.nvim",
-			"neovim/nvim-lspconfig",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"hrsh7th/cmp-nvim-lsp",
-		},
-	})
-	-- mason setup
-	require("mason").setup()
-	nmap_leader("mm", "<cmd>Mason<cr>", "+mason open")
-	nmap_leader("mL", "<cmd>MasonLog<cr>", "+mason log")
-	-- mason tool installer setup
-	require("mason-tool-installer").setup({
-		ensure_installed = {
-			"goimports",
-			"gofumpt",
-			"jq",
-			"stylua",
-			"markdownlint",
-			"yq",
-			"codespell",
-			"ruff",
-			"golangci-lint",
-			"shellcheck",
-			"shfmt",
-		},
-	})
-	nmap_leader("mti", "<cmd>MasonToolsInstall<cr>", "+install tools")
-	nmap_leader("mtu", "<cmd>MasonToolsInstall<cr>", "+update tools")
-	nmap_leader("mtc", "<cmd>MasonToolsClean<cr>", "+clean tools not in ensure_installed list")
-	-- mason-lspconfig
-	require("plugins/mason-lspconfig")
-	---------------
-	-- nvim-lint --
-	---------------
-	add("mfussenegger/nvim-lint")
-	require("plugins/nvim-lint")
 	-----------
 	-- yanky --
 	-----------
@@ -914,30 +839,6 @@ later(function()
 	nmap("=p", "<Plug>(YankyPutAfterFilter)", "Put after applying a filter")
 	nmap("=P", "<Plug>(YankyPutBeforeFilter)", "Put before applying a filter")
 	--------------
-	-- nvim-cmp --
-	--------------
-	add({
-		source = "hrsh7th/nvim-cmp",
-		depends = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			{
-				source = "L3MON4D3/LuaSnip",
-				checkout = "v2.3.0",
-				hooks = {
-					post_checkout = function()
-						vim.cmd("make install_jsregexp")
-					end,
-				},
-				depends = { "rafamadriz/friendly-snippets" },
-			},
-			"saadparwaiz1/cmp_luasnip",
-			"chrisgrieser/cmp_yanky",
-		},
-	})
-	require("plugins/nvim-cmp")
-	--------------
 	-- undotree --
 	--------------
   add("mbbill/undotree")
@@ -947,6 +848,14 @@ later(function()
   vim.g.undotree_SplitWidth = 35
   vim.g.undotree_ShortIndicators = 1
   vim.g.undotree_SetFocusWhenToggle = 1
+	--------------
+	--   coc   ---
+	--------------
+  add({
+    source = "neoclide/coc.nvim",
+    checkout = 'release',
+  })
+  require("plugins/coc")
 end)
 
 -- ╔══════════════════════════════════╗
